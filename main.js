@@ -1,1 +1,1 @@
-document.getElementById("app").innerHTML="<h1>시작은 끝이다</hi>";
+document.getElementById("app").innerHTML="<h1>시작은 끝이다!</hi>";
