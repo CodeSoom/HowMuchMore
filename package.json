@@ -10,7 +10,8 @@
     "test:unit": "jest",
     "coverage": "npm run test:unit -- --coverage",
     "test": "npm run coverage",
-    "watch": "jest --watchAll"
+    "watch": "jest --watchAll",
+    "lint": "eslint --fix --ext js,jsx src"
   },
   "repository": {
     "type": "git",
