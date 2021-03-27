@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/dodoongtak/show-me-the-money/issues"
   },
-  "homepage": "https://github.com/dodoongtak/show-me-the-money#readme",
+  "homepage": "https://howmuchmore.xyz",
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
