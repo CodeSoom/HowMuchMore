@@ -29,8 +29,8 @@ module.exports = {
     hints: false,
   },
   devServer: {
-    disableHostCheck: true,
-    host: '0.0.0.0',
-    historyApiFallback: true,
+    historyApiFallback: {
+      index: 'index.html',
+    },
   },
 };
