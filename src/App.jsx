@@ -1,10 +1,27 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
-import HomePage from './HomePage';
-import NewProfilePage from './NewProfilePage';
+import { useDispatch } from 'react-redux';
+
+import { loadItem } from './services/storage';
+
+import { setUserFields } from './redux/appSlice';
+
+import {
+  HomeScreen,
+  MyPageScreen,
+  NewProfileScreen,
+} from './screens';
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  const profile = JSON.parse((loadItem('profile')));
+
+  if (profile) {
+    dispatch(setUserFields(profile));
+  }
+
   return (
     <>
       <header>
@@ -16,8 +33,9 @@ export default function App() {
       </header>
       <main>
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/profile/new" component={NewProfilePage} />
+          <Route exact path="/" component={HomeScreen} />
+          <Route exact path="/profile" component={MyPageScreen} />
+          <Route exact path="/profile/new" component={NewProfileScreen} />
         </Switch>
       </main>
 
