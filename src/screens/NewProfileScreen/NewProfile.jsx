@@ -52,7 +52,9 @@ export default function NewProfile({
           ref={register({ required: true })}
         />
 
-        <input type="submit" value="저장" />
+        <button type="submit">
+          저장
+        </button>
       </form>
     </div>
   );
