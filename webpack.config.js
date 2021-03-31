@@ -1,5 +1,6 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const DotEnv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
@@ -21,6 +22,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   plugins: [
+    new DotEnv(),
     new HtmlWebpackPlugin({
       template: 'index.html',
     }),
@@ -30,7 +32,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: {
-      index: 'index.html',
+      index: './index.html',
     },
   },
 };
