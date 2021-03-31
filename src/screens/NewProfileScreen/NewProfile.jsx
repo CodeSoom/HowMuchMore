@@ -1,55 +1,48 @@
 import React from 'react';
 
-export default function NewProfile({
-  handleSubmit,
-  onSubmit,
-  register,
-}) {
+import TextField from '../../components/TextField';
+
+export default function NewProfile({ onChange, onSubmit, profile }) {
+  const {
+    name, age, salary, asset,
+  } = profile;
+
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="user-name">
-          이름를 입력해주세요!
-        </label>
-        <input
-          type="text"
-          id="user-name"
+      <form onSubmit={onSubmit}>
+        <TextField
+          label="이름를 입력해주세요!"
           placeholder="이름"
           name="name"
-          ref={register({ required: true })}
+          value={name}
+          onChange={onChange}
         />
 
-        <label htmlFor="user-age">
-          나이를 입력해주세요!
-        </label>
-        <input
-          type="month"
-          id="user-age"
+        <TextField
+          label="나이를 입력해주세요!"
+          type="number"
           placeholder="나이"
           name="age"
-          ref={register({ required: true })}
+          value={age}
+          onChange={onChange}
         />
 
-        <label htmlFor="user-annual-salary">
-          연봉을 입력해주세요! (단위: 만원)
-        </label>
-        <input
+        <TextField
+          label="연봉을 입력해주세요! (단위: 만원)"
           type="number"
-          id="user-annual-salary"
           placeholder="연봉"
           name="salary"
-          ref={register({ required: true })}
+          value={salary}
+          onChange={onChange}
         />
 
-        <label htmlFor="user-asset">
-          자산을 입력해주세요! (단위: 만원)
-        </label>
-        <input
+        <TextField
+          label="자산을 입력해주세요! (단위: 만원)"
           type="number"
-          id="user-asset"
           placeholder="자산"
           name="asset"
-          ref={register({ required: true })}
+          value={asset}
+          onChange={onChange}
         />
 
         <button type="submit">

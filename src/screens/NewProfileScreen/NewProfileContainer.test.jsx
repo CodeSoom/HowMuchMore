@@ -1,62 +1,67 @@
 import React from 'react';
 
 import {
-  fireEvent,
   render,
   screen,
-  waitFor,
+  fireEvent,
 } from '@testing-library/react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import NewProfileContainer from './NewProfileContainer';
 
 describe('NewProfileContainer', () => {
+  const handleClick = jest.fn();
   const dispatch = jest.fn();
+
+  const profile = {
+    name: 'tak',
+    age: 29,
+    salary: 5000,
+    asset: 10000,
+  };
+
+  const renderNewProfileContainer = () => render((
+    <NewProfileContainer
+      onClick={handleClick}
+    />
+  ));
 
   beforeEach(() => {
     jest.clearAllMocks();
 
     useDispatch.mockImplementation(() => dispatch);
+
+    useSelector.mockImplementation((selecotr) => selecotr({
+      userFields: profile,
+    }));
   });
 
-  it('excutes dispatch upon submission', async () => {
-    render(<NewProfileContainer />);
+  it('listens to change events', () => {
+    renderNewProfileContainer();
 
     fireEvent.input(screen.getByLabelText(/이름/), {
       target: {
-        value: '신형탁',
+        value: 'ashal',
       },
     });
 
-    fireEvent.input(screen.getByLabelText(/나이/), {
-      target: {
-        value: '29',
-      },
+    expect(dispatch).toBeCalledWith({
+      type: 'applications/changeUserFields',
+      payload: { name: 'name', value: 'ashal' },
     });
+  });
 
-    fireEvent.input(screen.getByLabelText(/연봉/), {
-      target: {
-        value: 5000,
-      },
+  it('sets userField with new user profile', () => {
+    renderNewProfileContainer();
+
+    fireEvent.submit(screen.getByRole('button', {
+      value: '저장',
+    }));
+
+    expect(dispatch).toBeCalledWith({
+      type: 'applications/setUserFields',
+      payload: profile,
     });
-
-    fireEvent.input(screen.getByLabelText(/자산/), {
-      target: {
-        value: 10000,
-      },
-    });
-
-    await waitFor(() => fireEvent.submit(screen.getByRole('button', {
-      name: '저장',
-    })));
-
-    /**
-     * Bug: Working in browser, but not being tested in test code.
-     * This testing method was applied and worked fine in previous project.
-     * Please refer to the link below
-     * https://github.com/CodeSoom/react-week7-assignment-1/blob/4c22b0d48929f601a36075f8dad0b2c45e18990b/src/pages/LogInPage/LogInContainer.test.jsx
-     */
-    // expect(dispatch).toBeCalled();
   });
 });

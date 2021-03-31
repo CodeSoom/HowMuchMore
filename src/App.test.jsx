@@ -17,9 +17,9 @@ jest.mock('./services/storage');
 describe('App', () => {
   const dispatch = jest.fn();
 
-  const user = {
+  const profile = {
     name: '신형탁',
-    age: '29',
+    age: 29,
     salary: 5000,
     asset: 10000,
   };
@@ -45,10 +45,10 @@ describe('App', () => {
   }
 
   context('with path /', () => {
-    given('userFields', () => (user));
+    given('userFields', () => (profile));
 
     beforeEach(() => {
-      loadItem.mockImplementation(() => (JSON.stringify(user)));
+      loadItem.mockImplementation(() => (JSON.stringify(profile)));
     });
 
     it('renders the home page', () => {
@@ -59,6 +59,8 @@ describe('App', () => {
   });
 
   context('with path /profile/new', () => {
+    given('userFields', () => (profile));
+
     it('renders new profile page', () => {
       renderApp({ path: '/profile/new' });
 
@@ -74,7 +76,7 @@ describe('App', () => {
 
   context('with path /profile', () => {
     it('renders profile page', () => {
-      given('userFields', () => (user));
+      given('userFields', () => (profile));
 
       renderApp({ path: '/profile' });
 

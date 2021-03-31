@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { initialUserField } from '../fixtures/initials';
+
 import { saveItem } from '../services/storage';
 
 const { actions, reducer } = createSlice({
@@ -12,20 +13,32 @@ const { actions, reducer } = createSlice({
   },
   reducers: {
     setUserFields(state, { payload: userFields }) {
-      saveItem('profile', JSON.stringify({
+      const profile = {
         ...userFields,
         isNew: false,
-      }));
+      };
+
+      saveItem('profile', JSON.stringify(profile));
 
       return {
         ...state,
-        userFields,
+        userFields: profile,
+      };
+    },
+
+    changeUserFields(state, { payload: { name, value } }) {
+      return {
+        ...state,
+        userFields: {
+          ...state.userFields,
+          [name]: value,
+        },
       };
     },
 
   },
 });
 
-export const { setUserFields } = actions;
+export const { setUserFields, changeUserFields } = actions;
 
 export default reducer;

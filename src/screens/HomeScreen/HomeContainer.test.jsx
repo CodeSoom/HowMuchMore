@@ -30,7 +30,7 @@ describe('HomeContainer', () => {
   context('with profile', () => {
     given('userFields', () => ({
       name: '신형탁',
-      age: '29',
+      age: 29,
       salary: 5000,
       asset: 10000,
     }));

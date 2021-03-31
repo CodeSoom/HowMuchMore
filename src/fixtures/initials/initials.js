@@ -2,11 +2,11 @@ const initialUserField = {
   isNew: true,
   name: '',
   age: '',
-  salary: null,
-  asset: null,
+  salary: '',
+  asset: '',
 };
 
 export { initialUserField };
 
-// Todo : delete soon
+// TODO: TO BE DELETED SOON
 export const dummy = {};
