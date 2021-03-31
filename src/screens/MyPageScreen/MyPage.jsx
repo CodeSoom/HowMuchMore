@@ -32,6 +32,12 @@ export default function MyPage({ profile, onClickNewProfile }) {
               <dd>자산:</dd>
               <dt>{profile.asset}</dt>
             </dl>
+            <a
+              href="/profile/new"
+              onClick={() => onClickNewProfile()}
+            >
+              수정
+            </a>
           </>
         )
       }

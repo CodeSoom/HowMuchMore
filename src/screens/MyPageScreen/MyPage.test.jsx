@@ -25,25 +25,46 @@ describe('MyPage', () => {
     />
   ));
 
-  it('renders MyPage', () => {
+  context('with profile', () => {
     given('profile', () => profile);
-    renderMyPage();
 
-    expect(screen.getByText('신형탁')).toBeInTheDocument();
-    expect(screen.getByText('29')).toBeInTheDocument();
-    expect(screen.getByText('5000')).toBeInTheDocument();
-    expect(screen.getByText('10000')).toBeInTheDocument();
+    it('renders MyPage', () => {
+      renderMyPage();
+
+      expect(screen.getByText('신형탁')).toBeInTheDocument();
+      expect(screen.getByText('29')).toBeInTheDocument();
+      expect(screen.getByText('5000')).toBeInTheDocument();
+      expect(screen.getByText('10000')).toBeInTheDocument();
+    });
+
+    it('calls handleClick upon clicking edit', () => {
+      renderMyPage();
+
+      fireEvent.click(screen.getByRole('link', {
+        name: '수정',
+      }));
+
+      expect(handleClick).toBeCalled();
+    });
   });
 
-  it('calls handleClick upon clicking new profile', () => {
+  context('without profile', () => {
     given('profile', () => initialUserField);
 
-    renderMyPage();
+    it('renders message user has no profile yet', () => {
+      renderMyPage();
 
-    fireEvent.click(screen.getByRole('link', {
-      name: '내 정보 입력하러가기',
-    }));
+      expect(screen.getByText('아직 정보를 입력하지 않으셨습니다.')).toBeInTheDocument();
+    });
 
-    expect(handleClick).toBeCalled();
+    it('calls handleClick upon clicking new profile', () => {
+      renderMyPage();
+
+      fireEvent.click(screen.getByRole('link', {
+        name: '내 정보 입력하러가기',
+      }));
+
+      expect(handleClick).toBeCalled();
+    });
   });
 });
