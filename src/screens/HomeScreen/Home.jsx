@@ -8,7 +8,7 @@ export default function Home({ profile, onClick }) {
       <>
         <p>
           {profile.name}
-          님 안녕하세요!
+          님 안녕하세요!!
         </p>
 
         <LinkField
