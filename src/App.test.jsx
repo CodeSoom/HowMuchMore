@@ -94,4 +94,12 @@ describe('App', () => {
       expect(screen.getByText('거주하고 싶은신 아파트를 선택해주세요')).toBeInTheDocument();
     });
   });
+
+  context('with invalid path', () => {
+    it('renders the not found page', () => {
+      renderApp({ path: '/amazingtoyproject' });
+
+      expect(screen.getByText('404 Not Found')).toBeInTheDocument();
+    });
+  });
 });
