@@ -11,7 +11,7 @@ import {
   HomeScreen,
   MyPageScreen,
   NewProfileScreen,
-  AparmentScreen,
+  ApartmentScreen,
   NotFoundScreen,
 } from './screens';
 
@@ -38,7 +38,8 @@ export default function App() {
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/profile" component={MyPageScreen} />
           <Route exact path="/profile/new" component={NewProfileScreen} />
-          <Route exact path="/apartment" component={AparmentScreen} />
+          <Route exact path="/apartment" component={ApartmentScreen} />
+          <Route path="/apartment/:id" component={ApartmentScreen} />
           <Route component={NotFoundScreen} />
         </Switch>
       </main>
