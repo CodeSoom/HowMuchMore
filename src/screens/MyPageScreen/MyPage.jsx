@@ -1,5 +1,7 @@
 import React from 'react';
 
+import LinkField from '../../components/LinkField';
+
 export default function MyPage({ profile, onClickNewProfile }) {
   if (profile.isNew) {
     return (
@@ -7,12 +9,11 @@ export default function MyPage({ profile, onClickNewProfile }) {
         <p>
           아직 정보를 입력하지 않으셨습니다.
         </p>
-        <a
-          href="/profile/new"
-          onClick={() => onClickNewProfile()}
-        >
-          내 정보 입력하러가기
-        </a>
+        <LinkField
+          url="/profile/new"
+          title="내 정보 입력하러가기"
+          onClick={onClickNewProfile}
+        />
       </>
     );
   }
@@ -32,12 +33,11 @@ export default function MyPage({ profile, onClickNewProfile }) {
               <dd>자산:</dd>
               <dt>{profile.asset}</dt>
             </dl>
-            <a
-              href="/profile/new"
-              onClick={() => onClickNewProfile()}
-            >
-              수정
-            </a>
+            <LinkField
+              url="/profile/new"
+              title="수정"
+              onClick={onClickNewProfile}
+            />
           </>
         )
       }
