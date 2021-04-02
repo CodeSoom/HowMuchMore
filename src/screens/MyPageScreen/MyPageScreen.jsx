@@ -6,8 +6,7 @@ import MyPageContainer from './MyPageContainer';
 export default function MyPage() {
   const history = useHistory();
 
-  const handleClickNewProfile = useCallback(() => {
-    const url = '/profie/new';
+  const handleClickNewProfile = useCallback(({ url }) => {
     history.push(url);
   }, [history]);
 
