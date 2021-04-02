@@ -12,6 +12,7 @@ import {
   MyPageScreen,
   NewProfileScreen,
   AparmentScreen,
+  NotFoundScreen,
 } from './screens';
 
 export default function App() {
@@ -38,6 +39,7 @@ export default function App() {
           <Route exact path="/profile" component={MyPageScreen} />
           <Route exact path="/profile/new" component={NewProfileScreen} />
           <Route exact path="/apartment" component={AparmentScreen} />
+          <Route component={NotFoundScreen} />
         </Switch>
       </main>
 
