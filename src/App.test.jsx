@@ -95,6 +95,14 @@ describe('App', () => {
     });
   });
 
+  context('with path /apartment/:id', () => {
+    it('redners the aparment page', () => {
+      renderApp({ path: '/apartment/riverside' });
+
+      expect(screen.getByText('riverside'));
+    });
+  });
+
   context('with invalid path', () => {
     it('renders the not found page', () => {
       renderApp({ path: '/amazingtoyproject' });
