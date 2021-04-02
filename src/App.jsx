@@ -11,6 +11,7 @@ import {
   HomeScreen,
   MyPageScreen,
   NewProfileScreen,
+  AparmentScreen,
 } from './screens';
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/profile" component={MyPageScreen} />
           <Route exact path="/profile/new" component={NewProfileScreen} />
+          <Route exact path="/apartment" component={AparmentScreen} />
         </Switch>
       </main>
 

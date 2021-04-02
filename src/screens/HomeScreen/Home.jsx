@@ -9,12 +9,24 @@ export default function Home({ profile, onClick }) {
           님 안녕하세요!
         </p>
 
-        <a
-          href="/profile"
-          onClick={() => onClick({ url: '/profile"' })}
-        >
-          내 정보 확인하러가기
-        </a>
+        <div>
+          <a
+            href="/profile"
+            onClick={() => onClick({ url: '/profile"' })}
+          >
+            내 정보 확인하러가기
+          </a>
+        </div>
+
+        <div>
+          <a
+            href="/apartment"
+            onClick={() => onClick({ url: '/apartment"' })}
+          >
+            거주하고 싶은 아파트 둘러보기
+          </a>
+
+        </div>
       </>
     );
   }

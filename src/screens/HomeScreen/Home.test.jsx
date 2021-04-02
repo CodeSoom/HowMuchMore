@@ -65,5 +65,15 @@ describe('Home', () => {
 
       expect(handleClick).toBeCalledTimes(1);
     });
+
+    it('calls handleClick upon clicking check apartments', () => {
+      renderHome();
+
+      fireEvent.click(screen.getByRole('link', {
+        name: '거주하고 싶은 아파트 둘러보기',
+      }));
+
+      expect(handleClick).toBeCalledTimes(1);
+    });
   });
 });
