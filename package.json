@@ -11,7 +11,7 @@
     "coverage": "npm run test:unit -- --coverage",
     "test": "npm run coverage",
     "watch": "jest --watchAll",
-    "lint": "eslint --ext js,jsx src"
+    "lint": "eslint --ext js,jsx ."
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,11 @@
+## Node.js
 node_modules
+
+## BUILD
 dist
+
+## JEST
 coverage
+
+## SECRETS
 .env
