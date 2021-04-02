@@ -40,6 +40,16 @@ describe('Home', () => {
 
       expect(handleClick).toBeCalledTimes(1);
     });
+
+    it('calls handleClick upon clicking check apartments', () => {
+      renderHome();
+
+      fireEvent.click(screen.getByRole('link', {
+        name: '거주하고 싶은 아파트 둘러보기',
+      }));
+
+      expect(handleClick).toBeCalledTimes(1);
+    });
   });
 
   context('with profile', () => {
@@ -61,16 +71,6 @@ describe('Home', () => {
 
       fireEvent.click(screen.getByRole('link', {
         name: '내 정보 확인하러가기',
-      }));
-
-      expect(handleClick).toBeCalledTimes(1);
-    });
-
-    it('calls handleClick upon clicking check apartments', () => {
-      renderHome();
-
-      fireEvent.click(screen.getByRole('link', {
-        name: '거주하고 싶은 아파트 둘러보기',
       }));
 
       expect(handleClick).toBeCalledTimes(1);
