@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 export default function LinkField({ url, title, onClick }) {
+  const handleClick = useCallback((event) => {
+    event.preventDefault();
+    onClick({ url });
+  }, [onClick]);
+
   return (
     <div>
       <a
         href={url}
-        onClick={() => onClick({ url })}
+        onClick={handleClick}
       >
         {title}
       </a>
