@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 
 import { render, screen } from '@testing-library/react';
 
-import NewProfilePage from './NewProfileScreen';
+import NewProfilePage from './NewProfilePage';
 
-describe('NewProfilePage', () => {
+describe('NewProfile Page', () => {
   const profile = {
     name: 'tak',
     age: 29,

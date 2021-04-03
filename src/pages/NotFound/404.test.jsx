@@ -2,11 +2,11 @@ import React from 'react';
 
 import { render, screen } from '@testing-library/react';
 
-import NotFoundScreen from './404';
+import NotFoundPage from './404';
 
 describe('NotFoundPage', () => {
-  it('renders 404 Not Found Screen', () => {
-    render(<NotFoundScreen />);
+  it('renders 404 Not Found Page', () => {
+    render(<NotFoundPage />);
 
     expect(screen.getByText('404 Not Found')).toBeInTheDocument();
   });

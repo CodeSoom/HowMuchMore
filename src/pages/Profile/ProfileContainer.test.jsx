@@ -8,9 +8,9 @@ import given from 'given2';
 
 import { initialUserField } from '../../fixtures/initials/initials';
 
-import MyPageContainer from './MyPageContainer';
+import ProfileContainer from './ProfileContainer';
 
-describe('MyPageContainer', () => {
+describe('ProfileContainer', () => {
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       userFields: given.userFields,
@@ -25,8 +25,8 @@ describe('MyPageContainer', () => {
       asset: 10000,
     }));
 
-    it('renders user profile page', () => {
-      render(<MyPageContainer />);
+    it('renders profile page', () => {
+      render(<ProfileContainer />);
 
       expect(screen.getByText('신형탁')).toBeInTheDocument();
       expect(screen.getByText('29')).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe('MyPageContainer', () => {
   context('without profile', () => {
     given('userFields', () => initialUserField);
     it('renders a link user to fill up profile form', () => {
-      render(<MyPageContainer />);
+      render(<ProfileContainer />);
 
       expect(screen.getByText('아직 정보를 입력하지 않으셨습니다.'));
       expect(screen.getByRole('link', {

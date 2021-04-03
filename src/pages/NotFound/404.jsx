@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function NotFoundScreen() {
+export default function NotFoundPage() {
   return (
     <div>
       <h1>

@@ -5,9 +5,9 @@ import { render, screen } from '@testing-library/react';
 
 import { useSelector } from 'react-redux';
 
-import MyPage from './MyPageScreen';
+import ProfilePage from './ProfilePage';
 
-describe('MyPage', () => {
+describe('ProfilePage', () => {
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       userFields: {
@@ -19,10 +19,10 @@ describe('MyPage', () => {
     }));
   });
 
-  it('render user profile page', () => {
+  it('render profile page', () => {
     render((
       <MemoryRouter>
-        <MyPage />
+        <ProfilePage />
       </MemoryRouter>
     ));
 

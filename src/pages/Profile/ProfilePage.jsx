@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import MyPageContainer from './MyPageContainer';
+import ProfileContainer from './ProfileContainer';
 
-export default function MyPage() {
+export default function ProfilePage() {
   const history = useHistory();
 
   const handleClickNewProfile = useCallback(({ url }) => {
@@ -11,6 +11,6 @@ export default function MyPage() {
   }, [history]);
 
   return (
-    <MyPageContainer onClickNewProfile={handleClickNewProfile} />
+    <ProfileContainer onClickNewProfile={handleClickNewProfile} />
   );
 }

@@ -7,19 +7,19 @@ import { render, screen } from '@testing-library/react';
 
 import { initialUserField } from '../../fixtures/initials';
 
-import HomeScreen from './HomeScreen';
+import HomePage from './HomePage';
 
-describe('HomeScreen', () => {
+describe('HomePage', () => {
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       userFields: initialUserField,
     }));
   });
 
-  it('renders HomeScreen', () => {
+  it('renders Home Page', () => {
     render((
       <MemoryRouter>
-        <HomeScreen />
+        <HomePage />
       </MemoryRouter>
     ));
 
