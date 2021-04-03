@@ -8,12 +8,14 @@ export default function LinkField({ url, title, onClick }) {
 
   return (
     <div>
-      <a
-        href={url}
-        onClick={handleClick}
-      >
-        {title}
-      </a>
+      <button type="button">
+        <a
+          href={url}
+          onClick={handleClick}
+        >
+          {title}
+        </a>
+      </button>
     </div>
   );
 }
