@@ -2,7 +2,7 @@ import React from 'react';
 
 import LinkField from '../../components/LinkField';
 
-export default function MyPage({ profile, onClickNewProfile }) {
+export default function Profile({ profile, onClickNewProfile }) {
   if (profile.isNew) {
     return (
       <>

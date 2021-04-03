@@ -6,9 +6,9 @@ import given from 'given2';
 
 import { initialUserField } from '../../fixtures/initials/initials';
 
-import MyPage from './MyPage';
+import Profile from './Profile';
 
-describe('MyPage', () => {
+describe('Profile', () => {
   const profile = {
     name: '신형탁',
     age: 29,
@@ -18,8 +18,8 @@ describe('MyPage', () => {
 
   const handleClick = jest.fn();
 
-  const renderMyPage = () => render((
-    <MyPage
+  const renderProfile = () => render((
+    <Profile
       profile={given.profile}
       onClickNewProfile={handleClick}
     />
@@ -28,8 +28,8 @@ describe('MyPage', () => {
   context('with profile', () => {
     given('profile', () => profile);
 
-    it('renders MyPage', () => {
-      renderMyPage();
+    it('renders Profile', () => {
+      renderProfile();
 
       expect(screen.getByText('신형탁')).toBeInTheDocument();
       expect(screen.getByText('29')).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe('MyPage', () => {
     });
 
     it('calls handleClick upon clicking edit', () => {
-      renderMyPage();
+      renderProfile();
 
       fireEvent.click(screen.getByRole('link', {
         name: '수정',
@@ -52,13 +52,13 @@ describe('MyPage', () => {
     given('profile', () => initialUserField);
 
     it('renders message user has no profile yet', () => {
-      renderMyPage();
+      renderProfile();
 
       expect(screen.getByText('아직 정보를 입력하지 않으셨습니다.')).toBeInTheDocument();
     });
 
     it('calls handleClick upon clicking new profile', () => {
-      renderMyPage();
+      renderProfile();
 
       fireEvent.click(screen.getByRole('link', {
         name: '내 정보 입력하러가기',

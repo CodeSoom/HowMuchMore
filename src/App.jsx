@@ -8,12 +8,12 @@ import { loadItem } from './services/storage';
 import { setUserFields } from './redux/appSlice';
 
 import {
-  HomeScreen,
-  MyPageScreen,
-  NewProfileScreen,
-  ApartmentScreen,
-  NotFoundScreen,
-} from './screens';
+  HomePage,
+  ProfilePage,
+  NewProfilePage,
+  ApartmentPage,
+  NotFoundPage,
+} from './pages';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -35,12 +35,12 @@ export default function App() {
       </header>
       <main>
         <Switch>
-          <Route exact path="/" component={HomeScreen} />
-          <Route exact path="/profile" component={MyPageScreen} />
-          <Route exact path="/profile/new" component={NewProfileScreen} />
-          <Route exact path="/apartment" component={ApartmentScreen} />
-          <Route path="/apartment/:id" component={ApartmentScreen} />
-          <Route component={NotFoundScreen} />
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/profile" component={ProfilePage} />
+          <Route exact path="/profile/new" component={NewProfilePage} />
+          <Route exact path="/apartment" component={ApartmentPage} />
+          <Route path="/apartment/:id" component={ApartmentPage} />
+          <Route component={NotFoundPage} />
         </Switch>
       </main>
 

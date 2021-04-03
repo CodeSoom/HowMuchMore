@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 
 import { get } from '../../utils/utils';
 
-import MyPage from './MyPage';
+import MyPage from './Profile';
 
-export default function MyPageContainer({ onClickNewProfile }) {
+export default function ProfileContainer({ onClickNewProfile }) {
   const profile = useSelector(get('userFields'));
 
   return (

@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import ApartmentNavigation from './ApartmentNavigation';
 import ApartmentContainer from './ApartmentsContainer';
 
-export default function ApartmentScreen({ params }) {
+export default function ApartmentPage({ params }) {
   const history = useHistory();
 
   const { id } = params || useParams();
