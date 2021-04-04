@@ -43,12 +43,14 @@
     "html-webpack-plugin": "^5.3.1",
     "jest": "^26.6.3",
     "jest-plugin-context": "^2.9.0",
+    "redux-mock-store": "^1.5.4",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^7.0.2",
     "react": "^17.0.2",

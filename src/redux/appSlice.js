@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { initialUserField } from '../fixtures/initials';
 
+import { fetchApartments } from '../services/api';
+
 import { saveItem } from '../services/storage';
 
 const { actions, reducer } = createSlice({
@@ -10,6 +12,7 @@ const { actions, reducer } = createSlice({
     userFields: {
       ...initialUserField,
     },
+    apartments: [],
   },
   reducers: {
     setUserFields(state, { payload: userFields }) {
@@ -36,9 +39,26 @@ const { actions, reducer } = createSlice({
       };
     },
 
+    setApartment(state, { payload: apartments }) {
+      return {
+        ...state,
+        apartments,
+      };
+    },
+
   },
 });
 
-export const { setUserFields, changeUserFields } = actions;
+export const { setUserFields, changeUserFields, setApartment } = actions;
+
+export function loadApartments(apartmentCategory) {
+  return async (dispatch) => {
+    dispatch(setApartment([]));
+
+    const apartments = await fetchApartments({ apartmentCategory });
+
+    dispatch(setApartment(apartments));
+  };
+}
 
 export default reducer;
