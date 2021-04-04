@@ -24,6 +24,25 @@ describe('App', () => {
     asset: 10000,
   };
 
+  const apartments = [
+    {
+      지번: 1,
+      아파트: '아크로리버파크',
+      date: '2021-03',
+      전용면적: '129.92',
+      거래금액: '470,000',
+    },
+    {
+      지번: 2,
+      아파트: '서울',
+      date: '2021-02',
+      전용면적: '200.27',
+      거래금액: '420,000',
+    },
+  ];
+
+  given('apartments', () => apartments);
+
   beforeEach(() => {
     jest.clearAllMocks();
 
@@ -31,6 +50,7 @@ describe('App', () => {
 
     useSelector.mockImplementation((selector) => selector({
       userFields: given.userFields,
+      apartments: given.apartments,
     }));
 
     loadItem.mockImplementation(() => null);
@@ -75,9 +95,9 @@ describe('App', () => {
   });
 
   context('with path /profile', () => {
-    it('renders profile page', () => {
-      given('userFields', () => (profile));
+    given('userFields', () => (profile));
 
+    it('renders profile page', () => {
       renderApp({ path: '/profile' });
 
       expect(screen.getByText('신형탁')).toBeInTheDocument();
@@ -96,10 +116,10 @@ describe('App', () => {
   });
 
   context('with path /apartment/:id', () => {
-    it('redners the aparment page', () => {
+    it('redners the apartment page', () => {
       renderApp({ path: '/apartment/riverside' });
 
-      expect(screen.getByText('riverside'));
+      expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
     });
   });
 
