@@ -1,14 +1,8 @@
-// import { fetchApartments } from './api';
+import { fetchApartments } from './api';
 
-// jest.mock('./api');
+jest.mock('./api');
 
 describe('api', () => {
-  const mockFetch = (data) => {
-    global.fetch = jest.fn().mockResolvedValue({
-      async json() { return data; },
-    });
-  };
-
   const APARTMENTS = [
     {
       name: '아크로리버파크',
@@ -27,24 +21,12 @@ describe('api', () => {
   ];
 
   describe('fetchApartments', () => {
-    beforeEach(() => {
-      mockFetch(APARTMENTS);
-    });
-
-    // WOKR IN PROGRESS
-    // The test below does not execute mockFetch method.
-    // Even though mockFetch and api mock file is provided,
-    // It does request to get true response from deployed server, not mockfetched data.
-    // This sabotages the test's speed. So Commented Out at this point.
-
-    // If jest.mock(./api) is written at top, it does not return mockFetchData neither.
-
     it('returns apartments', async () => {
-      // const apartments = await fetchApartments({ apartmentCategory: 'riverside' });
+      const apartments = await fetchApartments({ apartmentCategory: 'riverside' });
 
-      // expect(apartments).toEqual(APARTMENTS);
-      // expect(apartments[0].아파트).toEqual(APARTMENTS[0].아파트);
-      // expect(apartments[1].아파트).toEqual(APARTMENTS[1].아파트);
+      expect(apartments).toEqual(APARTMENTS);
+      expect(apartments[0].name).toEqual(APARTMENTS[0].name);
+      expect(apartments[1].name).toEqual(APARTMENTS[1].name);
     });
   });
 });
