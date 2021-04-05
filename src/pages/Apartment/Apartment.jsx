@@ -10,14 +10,14 @@ export default function Apartment({ apartments }) {
   return (
     <>
       {apartments?.map((apartment) => (
-        <div key={apartment.아파트}>
+        <div key={apartment.name}>
           <dl>
             <dd>아파트명:</dd>
-            <dt>{apartment.아파트}</dt>
+            <dt>{apartment.name}</dt>
             <dd>법정동:</dd>
-            <dt>{apartment.법정동}</dt>
+            <dt>{apartment.district}</dt>
             <dd>전용면적:</dd>
-            <dt>{apartment.전용면적}</dt>
+            <dt>{apartment.area}</dt>
           </dl>
         </div>
       ))}
