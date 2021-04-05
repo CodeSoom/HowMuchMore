@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://fierce-beyond-91643.herokuapp.com',
+  baseURL: 'https://guarded-depths-20404.herokuapp.com/',
 });
 
 export async function fetchApartments({ apartmentCategory }) {
