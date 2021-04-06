@@ -12,6 +12,7 @@ import {
   ProfilePage,
   NewProfilePage,
   ApartmentPage,
+  ResultPage,
   NotFoundPage,
 } from './pages';
 
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="/profile/new" component={NewProfilePage} />
           <Route exact path="/apartment" component={ApartmentPage} />
           <Route path="/apartment/:id" component={ApartmentPage} />
+          <Route exact path="/result" component={ResultPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </main>

@@ -18,6 +18,7 @@ describe('App', () => {
   const dispatch = jest.fn();
 
   const profile = {
+    isNew: false,
     name: '신형탁',
     age: 29,
     salary: 5000,
@@ -41,7 +42,18 @@ describe('App', () => {
     },
   ];
 
+  const apartment = {
+    name: '아크로리버파크',
+    date: '2021-03',
+    district: '반포동',
+    area: '129.92',
+    price: '470,000',
+    lotNumber: 1,
+  };
+
+  given('userFields', () => (profile));
   given('apartments', () => apartments);
+  given('apartment', () => apartment);
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -51,6 +63,7 @@ describe('App', () => {
     useSelector.mockImplementation((selector) => selector({
       userFields: given.userFields,
       apartments: given.apartments,
+      apartment: given.apartment,
     }));
 
     loadItem.mockImplementation(() => null);
@@ -65,8 +78,6 @@ describe('App', () => {
   }
 
   context('with path /', () => {
-    given('userFields', () => (profile));
-
     beforeEach(() => {
       loadItem.mockImplementation(() => (JSON.stringify(profile)));
     });
@@ -79,8 +90,6 @@ describe('App', () => {
   });
 
   context('with path /profile/new', () => {
-    given('userFields', () => (profile));
-
     it('renders new profile page', () => {
       renderApp({ path: '/profile/new' });
 
@@ -95,8 +104,6 @@ describe('App', () => {
   });
 
   context('with path /profile', () => {
-    given('userFields', () => (profile));
-
     it('renders profile page', () => {
       renderApp({ path: '/profile' });
 
@@ -120,6 +127,18 @@ describe('App', () => {
       renderApp({ path: '/apartment/riverside' });
 
       expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
+    });
+  });
+
+  context('with path /result', () => {
+    it('renders the apartment result page', () => {
+      renderApp({ path: '/result' });
+
+      expect(screen.getByText('결과')).toBeInTheDocument();
+
+      expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
+      expect(screen.getByText('129.92')).toBeInTheDocument();
+      expect(screen.getByText('470,000')).toBeInTheDocument();
     });
   });
 

@@ -11,6 +11,8 @@ export default function ProfilePage() {
   }, [history]);
 
   return (
-    <ProfileContainer onClickNewProfile={handleClickNewProfile} />
+    <section>
+      <ProfileContainer onClickNewProfile={handleClickNewProfile} />
+    </section>
   );
 }

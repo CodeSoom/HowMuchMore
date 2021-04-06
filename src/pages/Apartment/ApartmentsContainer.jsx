@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { loadApartments } from '../../redux/appSlice';
+import { loadApartments, setApartment } from '../../redux/appSlice';
 
 import { get } from '../../utils/utils';
 
-import Apartment from './Apartment';
+import Apartments from './Apartments';
 
-export default function Apartments({ apartmentCategory }) {
+export default function ApartmentContainer({ apartmentCategory, onClick }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,10 +17,18 @@ export default function Apartments({ apartmentCategory }) {
 
   const apartments = useSelector(get('apartments'));
 
+  function changeApartment(apartment) {
+    dispatch(setApartment(apartment));
+  }
+
   return (
     <section>
-      {apartmentCategory}
-      <Apartment apartments={apartments} />
+      <header>{apartmentCategory}</header>
+      <Apartments
+        apartments={apartments}
+        onClick={onClick}
+        changeApartment={changeApartment}
+      />
     </section>
   );
 }

@@ -5,6 +5,7 @@ import configureStore from 'redux-mock-store';
 import reducer, {
   setUserFields,
   changeUserFields,
+  setApartments,
   setApartment,
   loadApartments,
 } from './appSlice';
@@ -115,13 +116,33 @@ describe('setApartments', () => {
       },
     ];
 
-    const state = reducer(initialState, setApartment(APARTMENTS));
+    const state = reducer(initialState, setApartments(APARTMENTS));
 
     expect(state.apartments[0].name).toBe('아크로리버파크');
     expect(state.apartments[0].price).toBe('470,000');
     expect(state.apartments[0].area).toBe('129.92');
 
     expect(state.apartments).toHaveLength(2);
+  });
+});
+
+describe('setApartment', () => {
+  it('changes apartment', () => {
+    const initialState = {
+      apartment: {},
+    };
+
+    const apartment = {
+      name: '아크로리버파크',
+      date: '2021-03',
+      area: '129.92',
+      price: '470,000',
+      lotNumber: 1,
+    };
+
+    const state = reducer(initialState, setApartment(apartment));
+
+    expect(state.apartment).toEqual(apartment);
   });
 });
 
@@ -133,8 +154,8 @@ describe('loadApartments', () => {
 
     const actions = store.getActions();
 
-    expect(actions[0]).toEqual(setApartment([]));
-    expect(actions[1]).toEqual(setApartment([
+    expect(actions[0]).toEqual(setApartments([]));
+    expect(actions[1]).toEqual(setApartments([
       {
         name: '아크로리버파크',
         date: '2021-03',

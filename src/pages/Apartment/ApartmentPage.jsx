@@ -14,10 +14,13 @@ export default function ApartmentPage({ params }) {
   }, [history]);
 
   return (
-    <div>
-      <h2>거주하고 싶은신 아파트를 선택해주세요</h2>
+    <section>
+      <header>거주하고 싶은신 아파트를 선택해주세요</header>
       <ApartmentNavigation onClick={handleClick} />
-      <ApartmentContainer apartmentCategory={id} />
-    </div>
+      <ApartmentContainer
+        apartmentCategory={id}
+        onClick={handleClick}
+      />
+    </section>
   );
 }

@@ -1,8 +1,13 @@
 import React, { useCallback } from 'react';
 
-export default function LinkField({ url, title, onClick }) {
+export default function LinkField({
+  url, title, onClick, apartment, changeApartment,
+}) {
   const handleClick = useCallback((event) => {
     event.preventDefault();
+    if (title === '보기') {
+      changeApartment(apartment);
+    }
     onClick({ url });
   }, [onClick]);
 
