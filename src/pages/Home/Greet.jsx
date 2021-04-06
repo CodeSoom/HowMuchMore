@@ -23,15 +23,11 @@ export default function Greet({ profile, onClick }) {
   }
   return (
     <article>
-      {isNew && (
-        <>
-          <LinkField
-            url="/profile/new"
-            title="내 정보 입력하러가기"
-            onClick={onClick}
-          />
-        </>
-      )}
+      <LinkField
+        url="/profile/new"
+        title="내 정보 입력하러가기"
+        onClick={onClick}
+      />
     </article>
   );
 }

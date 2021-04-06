@@ -7,14 +7,14 @@ export default function ApartmentNavigation({ onClick }) {
       <ul>
         <li>
           <LinkField
-            url="/apartment/riverside"
+            url="/apartments/riverside"
             title="한강 뷰"
             onClick={onClick}
           />
         </li>
         <li>
           <LinkField
-            url="/apartment/businessdistrict"
+            url="/apartments/businessdistrict"
             title="우수 상권"
             onClick={onClick}
           />

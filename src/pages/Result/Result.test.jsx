@@ -74,7 +74,7 @@ describe('Result', () => {
         name: '뒤로가기',
       }));
 
-      expect(goBack).toBeCalledWith({ url: '/apartment' });
+      expect(goBack).toBeCalledWith({ url: '/apartments' });
     });
   });
 

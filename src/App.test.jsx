@@ -114,17 +114,17 @@ describe('App', () => {
     });
   });
 
-  context('with path /aparment', () => {
+  context('with path /aparments', () => {
     it('renders apartment page', () => {
-      renderApp({ path: '/apartment' });
+      renderApp({ path: '/apartments' });
 
       expect(screen.getByText('거주하고 싶은신 아파트를 선택해주세요')).toBeInTheDocument();
     });
   });
 
-  context('with path /apartment/:id', () => {
+  context('with path /apartments/:id', () => {
     it('redners the apartment page', () => {
-      renderApp({ path: '/apartment/riverside' });
+      renderApp({ path: '/apartments/riverside' });
 
       expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
     });

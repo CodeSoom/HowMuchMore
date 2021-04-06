@@ -17,7 +17,7 @@ export default function Home({ profile, onClick }) {
       )}
 
       <LinkField
-        url="/apartment/riverside"
+        url="/apartments/riverside"
         title="거주하고 싶은 아파트 둘러보기"
         onClick={onClick}
       />

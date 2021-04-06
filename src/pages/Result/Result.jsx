@@ -27,7 +27,7 @@ export default function Result({
   return (
     <>
       <LinkField
-        url="/apartment"
+        url="/apartments"
         title="뒤로가기"
         onClick={goBack}
       />

@@ -32,7 +32,7 @@ describe('LinkField', () => {
     it('calls handleClick upon clicking link', () => {
       render((
         <LinkField
-          url="/apartment"
+          url="/apartments"
           title="거주하고 싶은 아파트 둘러보기"
           onClick={handleClick}
         />
@@ -42,14 +42,14 @@ describe('LinkField', () => {
         name: '거주하고 싶은 아파트 둘러보기',
       }));
 
-      expect(handleClick).toBeCalledWith({ url: '/apartment' });
+      expect(handleClick).toBeCalledWith({ url: '/apartments' });
     });
   });
 
   context("with '보기' title", () => {
     render((
       <LinkField
-        url="/apartment"
+        url="/apartments"
         title="보기"
         onClick={handleClick}
         apartment={{
