@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, screen } from '@testing-library/react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import given from 'given2';
 
@@ -11,6 +11,8 @@ import { initialUserField } from '../../fixtures/initials';
 import ResultContainer from './ResultContainer';
 
 describe('ResultContainer', () => {
+  const dispatch = jest.fn();
+
   const profile = {
     isNew: false,
     name: '신형탁',
@@ -28,17 +30,27 @@ describe('ResultContainer', () => {
     lotNumber: 1,
   };
 
+  const estimation = {
+    price: 460000,
+    year: 94,
+    age: 123,
+  };
+
   beforeEach(() => {
     jest.clearAllMocks();
+
+    useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
       userFields: given.profile,
       apartment,
+      estimation: given.estimation,
     }));
   });
 
   context('with profile', () => {
     given('profile', () => profile);
+    given('estimation', () => estimation);
 
     it('renders result page', () => {
       render(<ResultContainer />);
@@ -49,6 +61,8 @@ describe('ResultContainer', () => {
       expect(screen.getByText('2021-03')).toBeInTheDocument();
       expect(screen.getByText('반포동')).toBeInTheDocument();
       expect(screen.getByText('1')).toBeInTheDocument();
+
+      expect(dispatch).toBeCalled();
     });
   });
 

@@ -5,9 +5,10 @@ import LinkField from '../../components/LinkField';
 import Profile from '../Profile/Profile';
 
 import ApartmentDetail from './ApartmentDetail';
+import Estimation from './Estimation';
 
 export default function Result({
-  profile, apartment, onClick, goBack,
+  profile, apartment, estimation, onClick, goBack,
 }) {
   if (profile.isNew) {
     return (
@@ -41,6 +42,11 @@ export default function Result({
         profile={profile}
         onClickNewProfile={onClick}
       />
+
+      {estimation && (
+        <Estimation estimation={estimation} />
+      )}
+
     </>
   );
 }

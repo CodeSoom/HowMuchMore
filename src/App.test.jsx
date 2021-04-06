@@ -51,9 +51,16 @@ describe('App', () => {
     lotNumber: 1,
   };
 
+  const estimation = {
+    price: 460000,
+    year: 94,
+    age: 123,
+  };
+
   given('userFields', () => (profile));
   given('apartments', () => apartments);
   given('apartment', () => apartment);
+  given('estimation', () => estimation);
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -64,6 +71,7 @@ describe('App', () => {
       userFields: given.userFields,
       apartments: given.apartments,
       apartment: given.apartment,
+      estimation: given.estimation,
     }));
 
     loadItem.mockImplementation(() => null);

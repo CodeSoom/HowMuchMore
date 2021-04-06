@@ -13,6 +13,11 @@ const { actions, reducer } = createSlice({
       ...initialUserField,
     },
     apartments: [],
+    estimation: {
+      price: 0,
+      year: 0,
+      age: 0,
+    },
   },
   reducers: {
     setUserFields(state, { payload: userFields }) {
@@ -53,6 +58,22 @@ const { actions, reducer } = createSlice({
       };
     },
 
+    setEstimation(state) {
+      const { apartment, userFields } = state;
+      const price = (apartment.price - parseInt(userFields.asset, 10));
+      const year = (apartment.price / parseInt(userFields.salary, 10));
+      const age = (parseInt(userFields.age, 10) + year);
+
+      return {
+        ...state,
+        estimation: {
+          price,
+          year,
+          age,
+        },
+      };
+    },
+
   },
 });
 
@@ -61,6 +82,7 @@ export const {
   changeUserFields,
   setApartments,
   setApartment,
+  setEstimation,
 } = actions;
 
 export function loadApartments(apartmentCategory) {
