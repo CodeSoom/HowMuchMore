@@ -1,9 +1,9 @@
 const initialUserField = {
   isNew: true,
   name: '',
-  age: '',
-  salary: '',
-  asset: '',
+  age: 0,
+  salary: 0,
+  asset: 0,
 };
 
 export { initialUserField };

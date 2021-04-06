@@ -7,6 +7,7 @@ import reducer, {
   changeUserFields,
   setApartments,
   setApartment,
+  setEstimation,
   loadApartments,
 } from './appSlice';
 
@@ -143,6 +144,28 @@ describe('setApartment', () => {
     const state = reducer(initialState, setApartment(apartment));
 
     expect(state.apartment).toEqual(apartment);
+  });
+});
+
+describe('setEstimation', () => {
+  it('changes esitmation', () => {
+    const initialState = {
+      userFields: {
+        age: 29,
+        salary: 5000,
+        asset: 10000,
+      },
+      apartment: {
+        price: 470000,
+      },
+      esitmation: {},
+    };
+
+    const state = reducer(initialState, setEstimation());
+
+    expect(state.estimation.price).toBe(460000);
+    expect(state.estimation.year).toBe(94);
+    expect(state.estimation.age).toBe(123);
   });
 });
 

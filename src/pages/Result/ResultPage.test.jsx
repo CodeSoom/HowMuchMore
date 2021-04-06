@@ -1,13 +1,15 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { render, screen } from '@testing-library/react';
 
 import ResultPage from './ResultPage';
 
 describe('ResultPage', () => {
+  const dispatch = jest.fn();
+
   const profile = {
     isNew: false,
     name: '신형탁',
@@ -25,10 +27,21 @@ describe('ResultPage', () => {
     lotNumber: 1,
   };
 
+  const estimation = {
+    price: 460000,
+    year: 94,
+    age: 123,
+  };
+
   beforeEach(() => {
+    jest.clearAllMocks();
+
+    useDispatch.mockImplementation(() => dispatch);
+
     useSelector.mockImplementation((selector) => selector({
-      apartment,
       userFields: profile,
+      apartment,
+      estimation,
     }));
   });
 

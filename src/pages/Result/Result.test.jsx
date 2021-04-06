@@ -33,11 +33,18 @@ describe('Result', () => {
     lotNumber: 1,
   };
 
+  const estimation = {
+    price: 460000,
+    year: 94,
+    age: 123,
+  };
+
   function renderResult() {
     return render((
       <Result
         profile={given.profile}
         apartment={apartment}
+        estimation={estimation}
         onClick={handleClick}
         goBack={goBack}
       />
@@ -60,11 +67,23 @@ describe('Result', () => {
       expect(screen.getByText('2021-03')).toBeInTheDocument();
       expect(screen.getByText('반포동')).toBeInTheDocument();
       expect(screen.getByText('1')).toBeInTheDocument();
+    });
+
+    it('redners Profile', () => {
+      renderResult();
 
       expect(screen.getByText('신형탁')).toBeInTheDocument();
       expect(screen.getByText('29')).toBeInTheDocument();
       expect(screen.getByText('5000')).toBeInTheDocument();
       expect(screen.getByText('10000')).toBeInTheDocument();
+    });
+
+    it('renders Esitmation', () => {
+      renderResult();
+
+      expect(screen.getByText('460000')).toBeInTheDocument();
+      expect(screen.getByText('94')).toBeInTheDocument();
+      expect(screen.getByText('123')).toBeInTheDocument();
     });
 
     it("calls handleClick upon clicking '뒤로가기'", () => {
