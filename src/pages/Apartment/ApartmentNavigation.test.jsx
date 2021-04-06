@@ -35,6 +35,6 @@ describe('ApartmentNavigation', () => {
       name: '한강 뷰',
     }));
 
-    expect(handleClick).toBeCalledWith({ url: '/apartment/riverside' });
+    expect(handleClick).toBeCalledWith({ url: '/apartments/riverside' });
   });
 });

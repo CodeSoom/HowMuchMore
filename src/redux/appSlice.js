@@ -39,25 +39,37 @@ const { actions, reducer } = createSlice({
       };
     },
 
-    setApartment(state, { payload: apartments }) {
+    setApartments(state, { payload: apartments }) {
       return {
         ...state,
         apartments,
       };
     },
 
+    setApartment(state, { payload: apartment }) {
+      return {
+        ...state,
+        apartment,
+      };
+    },
+
   },
 });
 
-export const { setUserFields, changeUserFields, setApartment } = actions;
+export const {
+  setUserFields,
+  changeUserFields,
+  setApartments,
+  setApartment,
+} = actions;
 
 export function loadApartments(apartmentCategory) {
   return async (dispatch) => {
-    dispatch(setApartment([]));
+    dispatch(setApartments([]));
 
     const apartments = await fetchApartments({ apartmentCategory });
 
-    dispatch(setApartment(apartments));
+    dispatch(setApartments(apartments));
   };
 }
 
