@@ -5,9 +5,7 @@ export default function LinkField({
 }) {
   const handleClick = useCallback((event) => {
     event.preventDefault();
-    if (title === '보기') {
-      changeApartment(apartment);
-    }
+    changeApartment?.(apartment);
     onClick({ url });
   }, [onClick]);
 
