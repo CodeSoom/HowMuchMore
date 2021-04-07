@@ -12,7 +12,7 @@ import App from './App';
 ReactDOM.render(
   (
     <Provider store={store}>
-      <BrowserRouter basename={process.env.BASE_URL}>
+      <BrowserRouter basename="howmuchmore.xyz/">
         <App />
       </BrowserRouter>
     </Provider>

@@ -24,7 +24,7 @@ module.exports = {
   plugins: [
     new DotEnv(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public/index.html'),
+      template: path.resolve(__dirname, './index.html'),
     }),
   ],
   performance: {
@@ -32,7 +32,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: {
-      index: 'public/index.html',
+      index: './index.html',
     },
   },
 };
