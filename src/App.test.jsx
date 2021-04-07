@@ -88,6 +88,7 @@ describe('App', () => {
   context('with path /', () => {
     beforeEach(() => {
       loadItem.mockImplementation(() => (JSON.stringify(profile)));
+      loadItem.mockImplementation(() => (JSON.stringify(apartment)));
     });
 
     it('renders the home page', () => {

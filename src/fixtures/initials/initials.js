@@ -6,7 +6,23 @@ const initialUserField = {
   asset: 0,
 };
 
-export { initialUserField };
+const initialApartment = {
+  name: '',
+  price: 0,
+  date: '',
+  district: '',
+  area: 0,
+  lotNumber: '',
+};
 
-// TODO: TO BE DELETED SOON
-export const dummy = {};
+const initialEstimation = {
+  price: 0,
+  year: 0,
+  age: 0,
+};
+
+export {
+  initialUserField,
+  initialApartment,
+  initialEstimation,
+};
