@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import { loadItem } from './services/storage';
 
-import { setUserFields } from './redux/appSlice';
+import { setApartment, setUserFields } from './redux/appSlice';
 
 import {
   HomePage,
@@ -20,9 +20,14 @@ export default function App() {
   const dispatch = useDispatch();
 
   const profile = JSON.parse((loadItem('profile')));
+  const apartment = JSON.parse((loadItem('apartment')));
 
   if (profile) {
     dispatch(setUserFields(profile));
+  }
+
+  if (apartment) {
+    dispatch(setApartment(apartment));
   }
 
   return (

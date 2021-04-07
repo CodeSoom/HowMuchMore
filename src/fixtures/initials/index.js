@@ -1,1 +1,5 @@
-export { initialUserField, dummy } from './initials';
+export {
+  initialUserField,
+  initialApartment,
+  initialEstimation,
+} from './initials';

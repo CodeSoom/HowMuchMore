@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { initialUserField } from '../fixtures/initials';
+import {
+  initialUserField,
+  initialApartment,
+  initialEstimation,
+} from '../fixtures/initials';
 
 import { fetchApartments } from '../services/api';
 
@@ -13,10 +17,11 @@ const { actions, reducer } = createSlice({
       ...initialUserField,
     },
     apartments: [],
+    apartment: {
+      ...initialApartment,
+    },
     estimation: {
-      price: 0,
-      year: 0,
-      age: 0,
+      ...initialEstimation,
     },
   },
   reducers: {
@@ -52,6 +57,8 @@ const { actions, reducer } = createSlice({
     },
 
     setApartment(state, { payload: apartment }) {
+      saveItem('apartment', JSON.stringify(apartment));
+
       return {
         ...state,
         apartment,
