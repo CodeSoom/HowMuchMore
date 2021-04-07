@@ -4,8 +4,8 @@
   "description": "당신이 숨 쉴 동안에 얼마나 많은 돈을 더 벌어야 되는지 알려드립니다.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
-    "build": "webpack build",
+    "start": "webpack serve --mode=development",
+    "build": "webpack build --mode=production",
     "deploy": "gh-pages --remote upstream -d dist",
     "test:unit": "jest",
     "coverage": "npm run test:unit -- --coverage",
