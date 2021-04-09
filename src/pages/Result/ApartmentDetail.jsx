@@ -3,7 +3,7 @@ import React from 'react';
 export default function ApartmentDetail({ apartment }) {
   const {
     name,
-    area,
+    size,
     price,
     date,
     district,
@@ -24,7 +24,7 @@ export default function ApartmentDetail({ apartment }) {
           전용면적:
         </dd>
         <dt>
-          {area}
+          {size}
         </dt>
 
         <dd>

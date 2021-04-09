@@ -4,7 +4,7 @@ export default function Apartment({ apartment }) {
   const {
     name,
     district,
-    area,
+    size,
   } = apartment;
 
   return (
@@ -14,7 +14,7 @@ export default function Apartment({ apartment }) {
       <dd>법정동:</dd>
       <dt>{district}</dt>
       <dd>전용면적:</dd>
-      <dt>{area}</dt>
+      <dt>{size}</dt>
     </dl>
   );
 }
