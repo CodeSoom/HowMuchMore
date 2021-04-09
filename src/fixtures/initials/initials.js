@@ -1,24 +1,24 @@
 const initialUserField = {
   isNew: true,
   name: '',
-  age: 0,
-  salary: 0,
-  asset: 0,
+  age: '',
+  salary: '',
+  asset: '',
 };
 
 const initialApartment = {
   name: '',
-  price: 0,
+  price: '',
   date: '',
   district: '',
-  area: 0,
+  area: '',
   lotNumber: '',
 };
 
 const initialEstimation = {
-  price: 0,
-  year: 0,
-  age: 0,
+  price: '',
+  year: '',
+  age: '',
 };
 
 export {
