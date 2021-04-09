@@ -28,6 +28,8 @@ const { actions, reducer } = createSlice({
     setUserFields(state, { payload: userFields }) {
       const profile = {
         ...userFields,
+        salary: parseInt((userFields.salary).replace(',', ''), 10).toLocaleString(),
+        asset: parseInt((userFields.asset).replace(',', ''), 10).toLocaleString(),
         isNew: false,
       };
 
@@ -67,8 +69,11 @@ const { actions, reducer } = createSlice({
 
     setEstimation(state) {
       const { apartment, userFields } = state;
-      const price = (apartment.price - parseInt(userFields.asset, 10));
-      const year = (apartment.price / parseInt(userFields.salary, 10));
+
+      const APARTMENT_PRICE = parseInt((apartment.price).replace(',', ''), 10);
+
+      const price = (APARTMENT_PRICE - parseInt((userFields.asset), 10)).toLocaleString();
+      const year = (APARTMENT_PRICE / parseInt((userFields.salary).replace(',', ''), 10));
       const age = (parseInt(userFields.age, 10) + year);
 
       return {

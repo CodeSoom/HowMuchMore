@@ -29,14 +29,22 @@ describe('setUserFields', () => {
     const userFields = {
       isNew: false,
       name: 'Tak',
-      age: 29,
-      salary: 5000,
-      asset: 10000,
+      age: '29',
+      salary: '5000',
+      asset: '10000',
+    };
+
+    const newUserFields = {
+      isNew: false,
+      name: 'Tak',
+      age: '29',
+      salary: '5,000',
+      asset: '10,000',
     };
 
     const state = reducer(initialState, setUserFields(userFields));
 
-    expect(state.userFields).toEqual(userFields);
+    expect(state.userFields).toEqual(newUserFields);
   });
 });
 
@@ -46,9 +54,9 @@ describe('changeUserFields', () => {
       const initialState = {
         userFields: {
           name: '신형탁',
-          age: 29,
-          salary: 5000,
-          asset: 10000,
+          age: '29',
+          salary: '5000',
+          asset: '10000',
         },
       };
 
@@ -61,9 +69,9 @@ describe('changeUserFields', () => {
       );
 
       expect(state.userFields.name).toBe('ashal');
-      expect(state.userFields.age).toBe(29);
-      expect(state.userFields.salary).toBe(5000);
-      expect(state.userFields.asset).toBe(10000);
+      expect(state.userFields.age).toBe('29');
+      expect(state.userFields.salary).toBe('5000');
+      expect(state.userFields.asset).toBe('10000');
     });
   });
 
@@ -151,19 +159,19 @@ describe('setEstimation', () => {
   it('changes esitmation', () => {
     const initialState = {
       userFields: {
-        age: 29,
-        salary: 5000,
-        asset: 10000,
+        age: '29',
+        salary: '5000',
+        asset: '10000',
       },
       apartment: {
-        price: 470000,
+        price: '470,000',
       },
       esitmation: {},
     };
 
     const state = reducer(initialState, setEstimation());
 
-    expect(state.estimation.price).toBe(460000);
+    expect(state.estimation.price).toBe('460,000');
     expect(state.estimation.year).toBe(94);
     expect(state.estimation.age).toBe(123);
   });
