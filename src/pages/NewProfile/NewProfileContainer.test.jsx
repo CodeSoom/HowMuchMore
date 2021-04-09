@@ -15,6 +15,7 @@ describe('NewProfileContainer', () => {
   const dispatch = jest.fn();
 
   const profile = {
+    isNew: false,
     name: 'tak',
     age: '29',
     monthlySavings: '5000',

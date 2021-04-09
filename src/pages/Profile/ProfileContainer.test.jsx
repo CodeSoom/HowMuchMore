@@ -19,6 +19,7 @@ describe('ProfileContainer', () => {
 
   context('with profile', () => {
     given('userFields', () => ({
+      isNew: false,
       name: '신형탁',
       age: '29',
       monthlySavings: '5000',

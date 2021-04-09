@@ -10,6 +10,7 @@ import Profile from './Profile';
 
 describe('Profile', () => {
   const profile = {
+    isNew: false,
     name: '신형탁',
     age: '29',
     monthlySavings: '5000',

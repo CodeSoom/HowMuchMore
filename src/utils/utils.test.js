@@ -14,12 +14,15 @@ test('get', () => {
 
 test('isExist', () => {
   const object = {
+    isNew: false,
     name: '신형탁',
     age: '29',
     monthlySavings: '5000',
     currentBalance: '10000',
   };
+
   const incompleteObject = {
+    isNew: false,
     name: '신형탁',
     age: '',
     monthlySavings: 0,
