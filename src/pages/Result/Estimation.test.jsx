@@ -6,9 +6,9 @@ import Estimation from './Estimation';
 
 describe('Estimation', () => {
   const estimation = {
-    price: 460000,
-    year: 94,
-    age: 123,
+    price: '460000',
+    year: '94',
+    age: '123',
   };
 
   it('renders Estimation', () => {

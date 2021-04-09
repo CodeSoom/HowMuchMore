@@ -4,7 +4,7 @@ import TextField from '../../components/TextField';
 
 export default function NewProfile({ onChange, onSubmit, profile }) {
   const {
-    name, age, salary, asset,
+    name, age, monthlySavings, currentBalance,
   } = profile;
 
   return (
@@ -28,20 +28,20 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
         />
 
         <TextField
-          label="연봉을 입력해주세요! (단위: 만원)"
+          label="월 저축 금액을 입력해주세요! (단위: 만원)"
           type="number"
-          placeholder="연봉"
-          name="salary"
-          value={salary}
+          placeholder="저축"
+          name="monthlySavings"
+          value={monthlySavings}
           onChange={onChange}
         />
 
         <TextField
-          label="자산을 입력해주세요! (단위: 만원)"
+          label="현재 은행 잔액를 입력해주세요! (단위: 만원)"
           type="number"
-          placeholder="자산"
-          name="asset"
-          value={asset}
+          placeholder="잔액"
+          name="currentBalance"
+          value={currentBalance}
           onChange={onChange}
         />
 

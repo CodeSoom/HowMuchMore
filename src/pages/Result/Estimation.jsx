@@ -5,9 +5,9 @@ export default function Estimation({ estimation }) {
 
   return (
     <dl>
-      <dd>필요 금액:</dd>
+      <dd>필요 금액(만원):</dd>
       <dt>{price}</dt>
-      <dd>소요 기간:</dd>
+      <dd>소요 기간(년):</dd>
       <dt>{year}</dt>
       <dd>구매 할 때 나이: </dd>
       <dt>{age}</dt>

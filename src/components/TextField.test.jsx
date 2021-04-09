@@ -43,9 +43,9 @@ describe('TextField', () => {
     function renderTextField() {
       return render((
         <TextField
-          label="연봉"
+          label="저축"
           type="number"
-          name="salary"
+          name="monthlySavings"
           onChange={handleChange}
         />
       ));
@@ -54,30 +54,30 @@ describe('TextField', () => {
     it('renders label and input control', () => {
       renderTextField();
 
-      expect(screen.getByLabelText('연봉')).toBeInTheDocument();
+      expect(screen.getByLabelText('저축')).toBeInTheDocument();
     });
 
     it('renders “number” input control', () => {
       renderTextField();
 
-      expect(screen.getByLabelText('연봉').type).toBe('number');
+      expect(screen.getByLabelText('저축').type).toBe('number');
     });
   });
 
   it('renders value', () => {
-    const name = 'asset';
+    const name = 'currentBalance';
     const value = '10000';
 
     const { getByLabelText } = render((
       <TextField
-        label="자산"
+        label="잔액"
         name={name}
         value={value}
         onChange={handleChange}
       />
     ));
 
-    expect(getByLabelText('자산').value).toBe(value);
+    expect(getByLabelText('잔액').value).toBe(value);
   });
 
   it('listens to change events', () => {

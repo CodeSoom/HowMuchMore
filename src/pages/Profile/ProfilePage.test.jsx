@@ -12,9 +12,9 @@ describe('ProfilePage', () => {
     useSelector.mockImplementation((selector) => selector({
       userFields: {
         name: '신형탁',
-        age: 29,
-        salary: 5000,
-        asset: 10000,
+        age: '29',
+        monthlySavings: '5000',
+        currentBalance: '10000',
       },
     }));
   });
