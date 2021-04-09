@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setEstimation } from '../../redux/appSlice';
+import { setEstimation, setUserFields, changeUserFields } from '../../redux/appSlice';
 
-import { get } from '../../utils/utils';
+import { get, isExist } from '../../utils/utils';
 
 import Result from './Result';
 
@@ -19,6 +19,17 @@ export default function ResultContainer({ onClick, goBack }) {
   const apartment = useSelector(get('apartment'));
   const esitamtion = useSelector(get('estimation'));
 
+  const handleSubmit = useCallback(() => {
+    if (isExist(profile)) {
+      dispatch(setUserFields(profile));
+    }
+    onClick();
+  });
+
+  const handleChange = useCallback(({ name, value }) => {
+    dispatch(changeUserFields({ name, value }));
+  }, [dispatch]);
+
   return (
     <article>
       <Result
@@ -26,6 +37,8 @@ export default function ResultContainer({ onClick, goBack }) {
         apartment={apartment}
         estimation={esitamtion}
         onClick={onClick}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
         goBack={goBack}
       />
     </article>

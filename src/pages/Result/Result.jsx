@@ -8,7 +8,7 @@ import ApartmentDetail from './ApartmentDetail';
 import Estimation from './Estimation';
 
 export default function Result({
-  profile, apartment, estimation, onClick, goBack,
+  profile, apartment, estimation, onClick, onSubmit, onChange, goBack,
 }) {
   if (profile.isNew) {
     return (
@@ -40,6 +40,8 @@ export default function Result({
 
       <Profile
         profile={profile}
+        onSubmit={onSubmit}
+        onChange={onChange}
         onClickNewProfile={onClick}
       />
 

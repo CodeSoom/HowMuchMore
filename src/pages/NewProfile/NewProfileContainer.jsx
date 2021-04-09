@@ -18,7 +18,7 @@ export default function NewProfileContainer({ onClick }) {
   }, [dispatch]);
 
   const handleClick = useCallback(() => {
-    if (isExist(profile)) {
+    if (profile.isNew || isExist(profile)) {
       dispatch(setUserFields(profile));
     }
     onClick();

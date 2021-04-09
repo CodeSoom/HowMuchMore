@@ -11,6 +11,7 @@ describe('ProfilePage', () => {
   beforeEach(() => {
     useSelector.mockImplementation((selector) => selector({
       userFields: {
+        isNew: false,
         name: '신형탁',
         age: '29',
         monthlySavings: '5000',

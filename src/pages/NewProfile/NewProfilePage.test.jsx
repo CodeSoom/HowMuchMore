@@ -9,6 +9,7 @@ import NewProfilePage from './NewProfilePage';
 
 describe('NewProfile Page', () => {
   const profile = {
+    isNew: false,
     name: 'tak',
     age: '29',
     monthlySavings: '5000',
