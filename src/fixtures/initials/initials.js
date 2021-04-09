@@ -11,7 +11,7 @@ const initialApartment = {
   price: '',
   date: '',
   district: '',
-  area: '',
+  size: '',
   lotNumber: '',
 };
 

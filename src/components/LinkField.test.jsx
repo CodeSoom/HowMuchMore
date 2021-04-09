@@ -55,7 +55,7 @@ describe('LinkField', () => {
         apartment={{
           name: '아크로리버파크',
           date: '2021-03',
-          area: '129.92',
+          size: '129.92',
           price: '470,000',
           lotNumber: 1,
         }}
