@@ -11,9 +11,9 @@ import Profile from './Profile';
 describe('Profile', () => {
   const profile = {
     name: '신형탁',
-    age: 29,
-    salary: 5000,
-    asset: 10000,
+    age: '29',
+    monthlySavings: '5000',
+    currentBalance: '10000',
   };
 
   const handleClick = jest.fn();

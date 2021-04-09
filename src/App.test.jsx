@@ -20,9 +20,9 @@ describe('App', () => {
   const profile = {
     isNew: false,
     name: '신형탁',
-    age: 29,
-    salary: 5000,
-    asset: 10000,
+    age: '29',
+    monthlySavings: '5000',
+    currentBalance: '10000',
   };
 
   const apartments = [
@@ -52,9 +52,9 @@ describe('App', () => {
   };
 
   const estimation = {
-    price: 460000,
-    year: 94,
-    age: 123,
+    price: '460000',
+    year: '94',
+    age: '123',
   };
 
   given('userFields', () => (profile));
@@ -104,8 +104,8 @@ describe('App', () => {
 
       expect(screen.getByLabelText(/이름/)).toBeInTheDocument();
       expect(screen.getByLabelText(/나이/)).toBeInTheDocument();
-      expect(screen.getByLabelText(/연봉/)).toBeInTheDocument();
-      expect(screen.getByLabelText(/자산/)).toBeInTheDocument();
+      expect(screen.getByLabelText(/저축/)).toBeInTheDocument();
+      expect(screen.getByLabelText(/잔액/)).toBeInTheDocument();
       expect(screen.getByRole('button', {
         name: '저장',
       })).toBeInTheDocument();

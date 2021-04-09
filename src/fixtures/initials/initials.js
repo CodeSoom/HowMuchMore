@@ -2,8 +2,8 @@ const initialUserField = {
   isNew: true,
   name: '',
   age: '',
-  salary: '',
-  asset: '',
+  monthlySavings: '',
+  currentBalance: '',
 };
 
 const initialApartment = {

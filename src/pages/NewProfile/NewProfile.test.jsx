@@ -14,16 +14,16 @@ describe('NewProfile', () => {
 
   const profile = {
     name: 'tak',
-    age: 29,
-    salary: 5000,
-    asset: 10000,
+    age: '29',
+    monthlySavings: '5000',
+    currentBalance: '10000',
   };
 
   const renderNewProfile = ({
     name,
     age,
-    salary,
-    asset,
+    monthlySavings,
+    currentBalance,
   }) => render((
     <NewProfile
       onChange={handleChange}
@@ -31,8 +31,8 @@ describe('NewProfile', () => {
       profile={{
         name,
         age,
-        salary,
-        asset,
+        monthlySavings,
+        currentBalance,
       }}
     />
   ));
@@ -42,8 +42,8 @@ describe('NewProfile', () => {
 
     expect(screen.getByLabelText(/이름/).value).toBe('tak');
     expect(screen.getByLabelText(/나이/).value).toBe('29');
-    expect(screen.getByLabelText(/연봉/).value).toBe('5000');
-    expect(screen.getByLabelText(/자산/).value).toBe('10000');
+    expect(screen.getByLabelText(/저축/).value).toBe('5000');
+    expect(screen.getByLabelText(/잔액/).value).toBe('10000');
   });
 
   it('calls handleClick upon clicking submit button', () => {

@@ -30,16 +30,16 @@ describe('setUserFields', () => {
       isNew: false,
       name: 'Tak',
       age: '29',
-      salary: '5000',
-      asset: '10000',
+      monthlySavings: '5000',
+      currentBalance: '10000',
     };
 
     const newUserFields = {
       isNew: false,
       name: 'Tak',
       age: '29',
-      salary: '5,000',
-      asset: '10,000',
+      monthlySavings: '5,000',
+      currentBalance: '10,000',
     };
 
     const state = reducer(initialState, setUserFields(userFields));
@@ -55,8 +55,8 @@ describe('changeUserFields', () => {
         userFields: {
           name: '신형탁',
           age: '29',
-          salary: '5000',
-          asset: '10000',
+          monthlySavings: '5000',
+          currentBalance: '10000',
         },
       };
 
@@ -70,34 +70,34 @@ describe('changeUserFields', () => {
 
       expect(state.userFields.name).toBe('ashal');
       expect(state.userFields.age).toBe('29');
-      expect(state.userFields.salary).toBe('5000');
-      expect(state.userFields.asset).toBe('10000');
+      expect(state.userFields.monthlySavings).toBe('5000');
+      expect(state.userFields.currentBalance).toBe('10000');
     });
   });
 
-  context('when salary is changed', () => {
-    it('changes only user salary', () => {
+  context('when monthlySavings is changed', () => {
+    it('changes only user monthlySavings', () => {
       const initialState = {
         userFields: {
           name: '신형탁',
           age: 29,
-          salary: 5000,
-          asset: 10000,
+          monthlySavings: 5000,
+          currentBalance: 10000,
         },
       };
 
       const state = reducer(
         initialState,
         changeUserFields({
-          name: 'salary',
+          name: 'monthlySavings',
           value: 7000,
         }),
       );
 
-      expect(state.userFields.salary).toBe(7000);
+      expect(state.userFields.monthlySavings).toBe(7000);
       expect(state.userFields.name).toBe('신형탁');
       expect(state.userFields.age).toBe(29);
-      expect(state.userFields.asset).toBe(10000);
+      expect(state.userFields.currentBalance).toBe(10000);
     });
   });
 });
@@ -160,8 +160,8 @@ describe('setEstimation', () => {
     const initialState = {
       userFields: {
         age: '29',
-        salary: '5000',
-        asset: '10000',
+        monthlySavings: '50',
+        currentBalance: '1000',
       },
       apartment: {
         price: '470,000',
@@ -171,9 +171,9 @@ describe('setEstimation', () => {
 
     const state = reducer(initialState, setEstimation());
 
-    expect(state.estimation.price).toBe('460,000');
-    expect(state.estimation.year).toBe(94);
-    expect(state.estimation.age).toBe(123);
+    expect(state.estimation.price).toBe('469,000');
+    expect(state.estimation.year).toBe(783);
+    expect(state.estimation.age).toBe(812);
   });
 });
 

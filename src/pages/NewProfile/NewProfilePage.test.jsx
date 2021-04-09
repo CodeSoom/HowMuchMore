@@ -10,9 +10,9 @@ import NewProfilePage from './NewProfilePage';
 describe('NewProfile Page', () => {
   const profile = {
     name: 'tak',
-    age: 29,
-    salary: 5000,
-    asset: 10000,
+    age: '29',
+    monthlySavings: '5000',
+    currentBalance: '10000',
   };
 
   beforeEach(() => {
@@ -30,8 +30,8 @@ describe('NewProfile Page', () => {
 
     expect(screen.getByLabelText(/이름/)).toBeInTheDocument();
     expect(screen.getByLabelText(/나이/)).toBeInTheDocument();
-    expect(screen.getByLabelText(/연봉/)).toBeInTheDocument();
-    expect(screen.getByLabelText(/자산/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/저축/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/잔액/)).toBeInTheDocument();
     expect(screen.getByRole('button', {
       name: '저장',
     })).toBeInTheDocument();
