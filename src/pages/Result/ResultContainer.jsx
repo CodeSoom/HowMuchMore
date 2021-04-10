@@ -19,10 +19,13 @@ export default function ResultContainer({ onClick, goBack }) {
   const apartment = useSelector(get('apartment'));
   const esitamtion = useSelector(get('estimation'));
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback((event) => {
+    event.preventDefault();
+
     if (isExist(profile)) {
       dispatch(setUserFields(profile));
     }
+
     onClick();
   });
 

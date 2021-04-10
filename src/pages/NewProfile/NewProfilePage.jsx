@@ -7,7 +7,7 @@ export default function NewProfilePage() {
   const history = useHistory();
 
   const handleClick = useCallback(() => {
-    history.push('/');
+    history.goBack();
   }, [history]);
 
   return (
