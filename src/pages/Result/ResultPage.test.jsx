@@ -14,8 +14,8 @@ describe('ResultPage', () => {
     isNew: false,
     name: '신형탁',
     age: '29',
-    monthlySavings: '5000',
-    currentBalance: '10000',
+    monthlySavings: 5000,
+    currentBalance: 10000,
   };
 
   const apartment = {
@@ -23,7 +23,7 @@ describe('ResultPage', () => {
     date: '2021-03',
     district: '반포동',
     size: '129.92',
-    price: '470,000',
+    price: 470000,
     lotNumber: 1,
   };
 

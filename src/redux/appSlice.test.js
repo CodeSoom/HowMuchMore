@@ -30,16 +30,16 @@ describe('setUserFields', () => {
       isNew: false,
       name: 'Tak',
       age: '29',
-      monthlySavings: '5000',
-      currentBalance: '10000',
+      monthlySavings: 5000,
+      currentBalance: 10000,
     };
 
     const newUserFields = {
       isNew: false,
       name: 'Tak',
       age: '29',
-      monthlySavings: '5,000',
-      currentBalance: '10,000',
+      monthlySavings: 5000,
+      currentBalance: 10000,
     };
 
     const state = reducer(initialState, setUserFields(userFields));
@@ -55,8 +55,8 @@ describe('changeUserFields', () => {
         userFields: {
           name: '신형탁',
           age: '29',
-          monthlySavings: '5000',
-          currentBalance: '10000',
+          monthlySavings: 5000,
+          currentBalance: 10000,
         },
       };
 
@@ -70,8 +70,8 @@ describe('changeUserFields', () => {
 
       expect(state.userFields.name).toBe('ashal');
       expect(state.userFields.age).toBe('29');
-      expect(state.userFields.monthlySavings).toBe('5000');
-      expect(state.userFields.currentBalance).toBe('10000');
+      expect(state.userFields.monthlySavings).toBe(5000);
+      expect(state.userFields.currentBalance).toBe(10000);
     });
   });
 
@@ -114,21 +114,21 @@ describe('setApartments', () => {
         name: '아크로리버파크',
         date: '2021-03',
         size: '129.92',
-        price: '470,000',
+        price: '470000',
       },
       {
         id: 2,
         name: '서울',
         date: '2021-02',
         size: '200.27',
-        price: '420,000',
+        price: 420000,
       },
     ];
 
     const state = reducer(initialState, setApartments(APARTMENTS));
 
     expect(state.apartments[0].name).toBe('아크로리버파크');
-    expect(state.apartments[0].price).toBe('470,000');
+    expect(state.apartments[0].price).toBe('470000');
     expect(state.apartments[0].size).toBe('129.92');
 
     expect(state.apartments).toHaveLength(2);
@@ -145,7 +145,7 @@ describe('setApartment', () => {
       name: '아크로리버파크',
       date: '2021-03',
       size: '129.92',
-      price: '470,000',
+      price: 470000,
       lotNumber: 1,
     };
 
@@ -160,18 +160,18 @@ describe('setEstimation', () => {
     const initialState = {
       userFields: {
         age: '29',
-        monthlySavings: '50',
-        currentBalance: '1000',
+        monthlySavings: 50,
+        currentBalance: 1000,
       },
       apartment: {
-        price: '470,000',
+        price: 470000,
       },
       esitmation: {},
     };
 
     const state = reducer(initialState, setEstimation());
 
-    expect(state.estimation.price).toBe('469,000');
+    expect(state.estimation.price).toBe(469000);
     expect(state.estimation.year).toBe(783);
     expect(state.estimation.age).toBe(812);
   });
@@ -191,14 +191,14 @@ describe('loadApartments', () => {
         name: '아크로리버파크',
         date: '2021-03',
         size: '129.92',
-        price: '470,000',
+        price: '470000',
         lotNumber: 1,
       },
       {
         name: '서울',
         date: '2021-02',
         size: '200.27',
-        price: '420,000',
+        price: '420000',
         lotNumber: 2,
       },
     ]));

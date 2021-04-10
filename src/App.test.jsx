@@ -21,8 +21,8 @@ describe('App', () => {
     isNew: false,
     name: '신형탁',
     age: '29',
-    monthlySavings: '5000',
-    currentBalance: '10000',
+    monthlySavings: 5000,
+    currentBalance: 10000,
   };
 
   const apartments = [
@@ -30,7 +30,7 @@ describe('App', () => {
       name: '아크로리버파크',
       date: '2021-03',
       size: '129.92',
-      price: '470,000',
+      price: 470000,
       lotNumber: 1,
     },
     {
@@ -47,7 +47,7 @@ describe('App', () => {
     date: '2021-03',
     district: '반포동',
     size: '129.92',
-    price: '470,000',
+    price: 470000,
     lotNumber: 1,
   };
 
@@ -118,8 +118,8 @@ describe('App', () => {
 
       expect(screen.getByText('신형탁')).toBeInTheDocument();
       expect(screen.getByText('29')).toBeInTheDocument();
-      expect(screen.getByText('5000')).toBeInTheDocument();
-      expect(screen.getByText('10000')).toBeInTheDocument();
+      expect(screen.getByText('5,000')).toBeInTheDocument();
+      expect(screen.getByText('10,000')).toBeInTheDocument();
     });
   });
 

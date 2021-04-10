@@ -28,8 +28,8 @@ const { actions, reducer } = createSlice({
     setUserFields(state, { payload: userFields }) {
       const profile = {
         ...userFields,
-        monthlySavings: parseInt((userFields.monthlySavings).replace(',', ''), 10).toLocaleString(),
-        currentBalance: parseInt((userFields.currentBalance).replace(',', ''), 10).toLocaleString(),
+        monthlySavings: parseInt((userFields.monthlySavings), 10),
+        currentBalance: parseInt((userFields.currentBalance), 10),
         isNew: false,
       };
 
@@ -63,17 +63,18 @@ const { actions, reducer } = createSlice({
 
       return {
         ...state,
-        apartment,
+        apartment: {
+          ...apartment,
+          price: parseInt((apartment.price), 10),
+        },
       };
     },
 
     setEstimation(state) {
       const { apartment, userFields } = state;
 
-      const APARTMENT_PRICE = parseInt((apartment.price).replace(',', ''), 10);
-
-      const price = (APARTMENT_PRICE - parseInt((userFields.currentBalance), 10)).toLocaleString();
-      const year = Math.floor((APARTMENT_PRICE / (parseInt((userFields.monthlySavings).replace(',', ''), 10) * 12)));
+      const price = (apartment.price - parseInt((userFields.currentBalance), 10));
+      const year = Math.floor((apartment.price / (parseInt((userFields.monthlySavings), 10) * 12)));
       const age = Math.floor((parseInt(userFields.age, 10) + year));
 
       return {
@@ -85,7 +86,6 @@ const { actions, reducer } = createSlice({
         },
       };
     },
-
   },
 });
 
