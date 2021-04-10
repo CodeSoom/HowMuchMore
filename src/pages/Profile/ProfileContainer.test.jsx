@@ -22,8 +22,8 @@ describe('ProfileContainer', () => {
       isNew: false,
       name: '신형탁',
       age: '29',
-      monthlySavings: '5000',
-      currentBalance: '10000',
+      monthlySavings: 5000,
+      currentBalance: 10000,
     }));
 
     it('renders profile page', () => {
@@ -31,8 +31,8 @@ describe('ProfileContainer', () => {
 
       expect(screen.getByText('신형탁')).toBeInTheDocument();
       expect(screen.getByText('29')).toBeInTheDocument();
-      expect(screen.getByText('5000')).toBeInTheDocument();
-      expect(screen.getByText('10000')).toBeInTheDocument();
+      expect(screen.getByText('5,000')).toBeInTheDocument();
+      expect(screen.getByText('10,000')).toBeInTheDocument();
     });
   });
 

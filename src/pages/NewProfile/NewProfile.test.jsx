@@ -16,8 +16,8 @@ describe('NewProfile', () => {
     isNew: false,
     name: 'tak',
     age: '29',
-    monthlySavings: '5000',
-    currentBalance: '10000',
+    monthlySavings: 5000,
+    currentBalance: 10000,
   };
 
   const renderNewProfile = ({

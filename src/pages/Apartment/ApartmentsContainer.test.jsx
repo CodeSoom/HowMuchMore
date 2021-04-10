@@ -20,7 +20,7 @@ describe('ApartmentsContainer', () => {
           name: '아크로리버파크',
           date: '2021-03',
           size: '129.92',
-          price: '470,000',
+          price: 470000,
           lotNumber: 1,
         },
         {

@@ -17,8 +17,8 @@ test('isExist', () => {
     isNew: false,
     name: '신형탁',
     age: '29',
-    monthlySavings: '5000',
-    currentBalance: '10000',
+    monthlySavings: 5000,
+    currentBalance: 10000,
   };
 
   const incompleteObject = {

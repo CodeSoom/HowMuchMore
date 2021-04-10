@@ -31,7 +31,7 @@ export default function ApartmentDetail({ apartment }) {
           거래금액:
         </dd>
         <dt>
-          {price}
+          {price.toLocaleString()}
         </dt>
 
         <dd>
