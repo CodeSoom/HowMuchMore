@@ -17,10 +17,13 @@ export default function NewProfileContainer({ onClick }) {
     dispatch(changeUserFields({ name, value }));
   }, [dispatch]);
 
-  const handleClick = useCallback(() => {
+  const handleClick = useCallback((event) => {
+    event.preventDefault();
+
     if (profile.isNew || isExist(profile)) {
       dispatch(setUserFields(profile));
     }
+
     onClick();
   });
 
