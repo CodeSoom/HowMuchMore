@@ -14,3 +14,24 @@ export function isExist(object) {
 
   return (!nonExistingKey);
 }
+
+export function processObject({ object, legacyKeys, newKeys }) {
+  const temporary = { ...object };
+
+  legacyKeys.forEach((key) => {
+    delete temporary[key];
+  });
+
+  const newObject = newKeys.reduce((accumulator, current) => {
+    if (!accumulator[current]) {
+      return {
+        ...accumulator,
+        [current]: 0,
+      };
+    }
+
+    return accumulator;
+  }, { ...temporary });
+
+  return newObject;
+}

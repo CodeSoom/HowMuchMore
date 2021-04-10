@@ -17,6 +17,14 @@ jest.mock('./services/storage');
 describe('App', () => {
   const dispatch = jest.fn();
 
+  const legacyprofile = {
+    isNew: false,
+    name: '신형탁',
+    age: '29',
+    salary: 5000,
+    asset: 10000,
+  };
+
   const profile = {
     isNew: false,
     name: '신형탁',
@@ -89,6 +97,18 @@ describe('App', () => {
     beforeEach(() => {
       loadItem.mockImplementation(() => (JSON.stringify(profile)));
       loadItem.mockImplementation(() => (JSON.stringify(apartment)));
+    });
+
+    context('with legacy profile', () => {
+      beforeEach(() => {
+        loadItem.mockImplementation(() => (JSON.stringify(legacyprofile)));
+      });
+
+      it('excutes dispatch', () => {
+        renderApp({ path: '/' });
+
+        expect(dispatch).toBeCalled();
+      });
     });
 
     it('renders the home page', () => {
