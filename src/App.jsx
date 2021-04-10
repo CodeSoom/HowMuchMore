@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 
 import { loadItem } from './services/storage';
 
+import { processObject } from './utils/utils';
+
 import { setApartment, setUserFields } from './redux/appSlice';
 
 import {
@@ -21,6 +23,14 @@ export default function App() {
 
   const profile = JSON.parse((loadItem('profile')));
   const apartment = JSON.parse((loadItem('apartment')));
+
+  if (profile && profile.salary) {
+    dispatch(setUserFields(processObject({
+      object: profile,
+      legacyKeys: ['salary', 'asset'],
+      newKeys: ['monthlySavings', 'currentBalance'],
+    })));
+  }
 
   if (profile) {
     dispatch(setUserFields(profile));

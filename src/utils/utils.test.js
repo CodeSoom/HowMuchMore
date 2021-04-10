@@ -1,4 +1,8 @@
-import { get, isExist } from './utils';
+import {
+  get,
+  isExist,
+  processObject,
+} from './utils';
 
 test('get', () => {
   const state = {
@@ -31,4 +35,26 @@ test('isExist', () => {
 
   expect(isExist(object)).toBeTruthy();
   expect(isExist(incompleteObject)).toBeFalsy();
+});
+
+test('processObject', () => {
+  const object = {
+    isNew: false,
+    name: '신형탁',
+    salary: '5000',
+    asset: '10000',
+  };
+
+  const legacyKeys = ['salary', 'asset'];
+
+  const newKeys = ['monthlySavings', 'currentBalance'];
+
+  const result = {
+    isNew: false,
+    name: '신형탁',
+    monthlySavings: 0,
+    currentBalance: 0,
+  };
+
+  expect(processObject({ object, legacyKeys, newKeys })).toEqual(result);
 });
