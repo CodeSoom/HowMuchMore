@@ -1,16 +1,13 @@
-import React, { useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+
+import useLink from '../../helpers/useLink';
 
 import HomeContainer from './HomeContainer';
 
 export default function HomePage() {
-  const history = useHistory();
-
-  const handleClick = useCallback(({ url }) => {
-    history.push(url);
-  }, [history]);
+  const { goTo } = useLink();
 
   return (
-    <HomeContainer onClick={handleClick} />
+    <HomeContainer onClick={goTo} />
   );
 }
