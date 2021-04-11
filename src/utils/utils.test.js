@@ -1,7 +1,7 @@
 import {
   get,
   isExist,
-  processObject,
+  filterObject,
 } from './utils';
 
 test('get', () => {
@@ -37,10 +37,11 @@ test('isExist', () => {
   expect(isExist(incompleteObject)).toBeFalsy();
 });
 
-test('processObject', () => {
+test('filterObject', () => {
   const object = {
     isNew: false,
     name: '신형탁',
+    age: 29,
     salary: '5000',
     asset: '10000',
   };
@@ -52,9 +53,10 @@ test('processObject', () => {
   const result = {
     isNew: false,
     name: '신형탁',
+    age: 29,
     monthlySavings: 0,
     currentBalance: 0,
   };
 
-  expect(processObject({ object, legacyKeys, newKeys })).toEqual(result);
+  expect(filterObject({ object, legacyKeys, newKeys })).toEqual(result);
 });
