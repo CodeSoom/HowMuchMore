@@ -1,18 +1,15 @@
-import React, { useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+
+import useLink from '../../helpers/useLink';
 
 import ProfileContainer from './ProfileContainer';
 
 export default function ProfilePage() {
-  const history = useHistory();
-
-  const handleClickNewProfile = useCallback(({ url }) => {
-    history.push(url);
-  }, [history]);
+  const { goTo } = useLink();
 
   return (
     <section>
-      <ProfileContainer onClickNewProfile={handleClickNewProfile} />
+      <ProfileContainer onClickNewProfile={goTo} />
     </section>
   );
 }

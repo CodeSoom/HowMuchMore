@@ -1,19 +1,11 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
-import { useHistory } from 'react-router-dom';
+import useLink from '../../helpers/useLink';
 
 import ResultContainer from './ResultContainer';
 
 export default function ResultPage() {
-  const history = useHistory();
-
-  const goBack = useCallback(() => {
-    history.goBack();
-  }, [history]);
-
-  const handleClick = useCallback(({ url }) => {
-    history.push(url);
-  }, [history]);
+  const { goTo, goBack } = useLink();
 
   return (
     <section>
@@ -21,7 +13,7 @@ export default function ResultPage() {
         결과
       </header>
       <ResultContainer
-        onClick={handleClick}
+        onClick={goTo}
         goBack={goBack}
       />
     </section>
