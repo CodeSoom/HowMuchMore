@@ -15,7 +15,7 @@ export function isExist(object) {
   return (!nonExistingKey);
 }
 
-export function processObject({ object, legacyKeys, newKeys }) {
+export function filterObject({ object, legacyKeys, newKeys }) {
   const temporary = { ...object };
 
   legacyKeys.forEach((key) => {

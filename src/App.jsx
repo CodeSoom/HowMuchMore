@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 
 import { loadItem } from './services/storage';
 
-import { processObject } from './utils/utils';
-
 import { setApartment, setUserFields } from './redux/appSlice';
+
+import { legacyKeys, newKeys } from './fixtures/keys';
 
 import {
   HomePage,
@@ -21,16 +21,13 @@ import {
 export default function App() {
   const dispatch = useDispatch();
 
-  const profile = JSON.parse((loadItem('profile')));
-  const apartment = JSON.parse((loadItem('apartment')));
+  const profile = loadItem({
+    key: 'profile',
+    legacyKeys,
+    newKeys,
+  });
 
-  if (profile && profile.salary) {
-    dispatch(setUserFields(processObject({
-      object: profile,
-      legacyKeys: ['salary', 'asset'],
-      newKeys: ['monthlySavings', 'currentBalance'],
-    })));
-  }
+  const apartment = loadItem({ key: 'apartment' });
 
   if (profile) {
     dispatch(setUserFields(profile));
