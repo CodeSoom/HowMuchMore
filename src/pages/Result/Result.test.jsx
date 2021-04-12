@@ -34,7 +34,7 @@ describe('Result', () => {
   };
 
   const estimation = {
-    price: '460000',
+    price: 460000,
     year: '94',
     age: '123',
   };
@@ -63,7 +63,7 @@ describe('Result', () => {
 
       expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
       expect(screen.getByText('129.92')).toBeInTheDocument();
-      expect(screen.getByText('₩470,000')).toBeInTheDocument();
+      expect(screen.getByText('470,000 원')).toBeInTheDocument();
       expect(screen.getByText('2021-03')).toBeInTheDocument();
       expect(screen.getByText('반포동')).toBeInTheDocument();
       expect(screen.getByText('1')).toBeInTheDocument();
@@ -74,14 +74,14 @@ describe('Result', () => {
 
       expect(screen.getByText('신형탁')).toBeInTheDocument();
       expect(screen.getByText('29')).toBeInTheDocument();
-      expect(screen.getByText('₩5,000')).toBeInTheDocument();
-      expect(screen.getByText('₩10,000')).toBeInTheDocument();
+      expect(screen.getByText('5,000 원')).toBeInTheDocument();
+      expect(screen.getByText('10,000 원')).toBeInTheDocument();
     });
 
     it('renders Esitmation', () => {
       renderResult();
 
-      expect(screen.getByText('460000')).toBeInTheDocument();
+      expect(screen.getByText('460,000 원')).toBeInTheDocument();
       expect(screen.getByText('94')).toBeInTheDocument();
       expect(screen.getByText('123')).toBeInTheDocument();
     });

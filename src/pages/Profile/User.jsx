@@ -1,5 +1,4 @@
 import React from 'react';
-import { convertToKRW } from '../../utils/utils';
 
 export default function User({ profile }) {
   const {
@@ -14,11 +13,11 @@ export default function User({ profile }) {
       <dt>{age}</dt>
       <dd>월 저축 금액(만원):</dd>
       <dt>
-        {convertToKRW(monthlySavings)}
+        {`${monthlySavings.toLocaleString()} 원`}
       </dt>
       <dd>현재 은행 잔액(만원):</dd>
       <dt>
-        {convertToKRW(currentBalance)}
+        {`${currentBalance.toLocaleString()} 원`}
       </dt>
     </dl>
   );
