@@ -1,5 +1,4 @@
 import React from 'react';
-import { convertToKRW } from '../../utils/utils';
 
 export default function ApartmentDetail({ apartment }) {
   const {
@@ -26,7 +25,7 @@ export default function ApartmentDetail({ apartment }) {
 
         <dd>거래금액:</dd>
         <dt>
-          {convertToKRW(price)}
+          {`${price.toLocaleString()} 원`}
         </dt>
 
         <dd>매매일자:</dd>
