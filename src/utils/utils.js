@@ -35,3 +35,9 @@ export function filterObject({ object, legacyKeys, newKeys }) {
 
   return newObject;
 }
+
+export function convertToKRW(price) {
+  return price.toLocaleString('ko-KR', {
+    style: 'currency', currency: 'KRW',
+  });
+}

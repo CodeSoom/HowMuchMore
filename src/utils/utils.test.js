@@ -2,6 +2,7 @@ import {
   get,
   isExist,
   filterObject,
+  convertToKRW,
 } from './utils';
 
 test('get', () => {
@@ -59,4 +60,10 @@ test('filterObject', () => {
   };
 
   expect(filterObject({ object, legacyKeys, newKeys })).toEqual(result);
+});
+
+test('convertToKRW', () => {
+  const price = 5000;
+
+  expect(convertToKRW(price)).toBe('₩5,000');
 });
