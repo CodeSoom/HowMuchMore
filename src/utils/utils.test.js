@@ -3,6 +3,7 @@ import {
   isExist,
   filterObject,
   convertToKRW,
+  translateNumericToKor,
 } from './utils';
 
 test('get', () => {
@@ -66,4 +67,10 @@ test('convertToKRW', () => {
   const price = 5000;
 
   expect(convertToKRW(price)).toBe('₩5,000');
+});
+
+test('translateNumericToKor', () => {
+  const text = '5000';
+
+  expect(translateNumericToKor(text)).toBe('오천만');
 });

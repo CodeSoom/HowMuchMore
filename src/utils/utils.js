@@ -1,3 +1,5 @@
+import { numToKorean } from 'num-to-korean';
+
 export function get(key) {
   return (obj) => obj[key];
 }
@@ -40,4 +42,8 @@ export function convertToKRW(price) {
   return price.toLocaleString('ko-KR', {
     style: 'currency', currency: 'KRW',
   });
+}
+
+export function translateNumericToKor(price) {
+  return numToKorean(parseInt(price, 10) * 10000);
 }
