@@ -56,4 +56,11 @@ describe('NewProfile', () => {
 
     expect(handleClick).toBeCalled();
   });
+
+  it('renders price in Korean', () => {
+    renderNewProfile(profile);
+
+    expect(screen.getByText('오천만 원')).toBeInTheDocument();
+    expect(screen.getByText('일억 원')).toBeInTheDocument();
+  });
 });
