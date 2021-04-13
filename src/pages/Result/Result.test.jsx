@@ -86,6 +86,12 @@ describe('Result', () => {
       expect(screen.getByText(/123/)).toBeInTheDocument();
     });
 
+    it('renders Share CopyToClipboard Button', () => {
+      renderResult();
+
+      expect(screen.getByText(/Copy/)).toBeInTheDocument();
+    });
+
     it("calls handleClick upon clicking '뒤로가기'", () => {
       renderResult();
 

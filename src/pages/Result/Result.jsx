@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Share } from '../../components/Share';
 import LinkField from '../../components/LinkField';
 
 import Profile from '../Profile/Profile';
@@ -49,6 +50,7 @@ export default function Result({
         <Estimation estimation={estimation} />
       )}
 
+      <Share />
     </>
   );
 }
