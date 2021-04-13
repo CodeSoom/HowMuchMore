@@ -33,9 +33,9 @@ describe('Profile', () => {
       renderProfile();
 
       expect(screen.getByText('신형탁')).toBeInTheDocument();
-      expect(screen.getByText('29')).toBeInTheDocument();
-      expect(screen.getByText('5,000 원')).toBeInTheDocument();
-      expect(screen.getByText('10,000 원')).toBeInTheDocument();
+      expect(screen.getByText(/29/)).toBeInTheDocument();
+      expect(screen.getByText(/5,000/)).toBeInTheDocument();
+      expect(screen.getByText(/10,000/)).toBeInTheDocument();
     });
 
     it('calls handleClick upon clicking edit', () => {

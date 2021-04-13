@@ -14,8 +14,8 @@ describe('Estimation', () => {
   it('renders Estimation', () => {
     render(<Estimation estimation={estimation} />);
 
-    expect(screen.getByText('460,000 원')).toBeInTheDocument();
-    expect(screen.getByText('94')).toBeInTheDocument();
-    expect(screen.getByText('123')).toBeInTheDocument();
+    expect(screen.getByText(/460,000/)).toBeInTheDocument();
+    expect(screen.getByText(/94/)).toBeInTheDocument();
+    expect(screen.getByText(/123/)).toBeInTheDocument();
   });
 });

@@ -25,7 +25,7 @@ export default function ApartmentDetail({ apartment }) {
 
         <dd>거래금액:</dd>
         <dt>
-          {`${price.toLocaleString()} 원`}
+          {`${price.toLocaleString()} 만원`}
         </dt>
 
         <dd>매매일자:</dd>

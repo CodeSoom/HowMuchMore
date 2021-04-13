@@ -10,14 +10,14 @@ export default function User({ profile }) {
       <dd>이름:</dd>
       <dt>{name}</dt>
       <dd>나이:</dd>
-      <dt>{age}</dt>
-      <dd>월 저축 금액(만원):</dd>
+      <dt>{`${age} 살`}</dt>
+      <dd>월 저축 금액:</dd>
       <dt>
-        {`${monthlySavings.toLocaleString()} 원`}
+        {`${monthlySavings.toLocaleString()} 만원`}
       </dt>
-      <dd>현재 은행 잔액(만원):</dd>
+      <dd>현재 은행 잔액:</dd>
       <dt>
-        {`${currentBalance.toLocaleString()} 원`}
+        {`${currentBalance.toLocaleString()} 만원`}
       </dt>
     </dl>
   );
