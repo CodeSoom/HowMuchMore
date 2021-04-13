@@ -137,9 +137,9 @@ describe('App', () => {
       renderApp({ path: '/profile' });
 
       expect(screen.getByText('신형탁')).toBeInTheDocument();
-      expect(screen.getByText('29')).toBeInTheDocument();
-      expect(screen.getByText('5,000 원')).toBeInTheDocument();
-      expect(screen.getByText('10,000 원')).toBeInTheDocument();
+      expect(screen.getByText(/29/)).toBeInTheDocument();
+      expect(screen.getByText(/5,000/)).toBeInTheDocument();
+      expect(screen.getByText(/10,000/)).toBeInTheDocument();
     });
   });
 
@@ -167,7 +167,7 @@ describe('App', () => {
 
       expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
       expect(screen.getByText('129.92')).toBeInTheDocument();
-      expect(screen.getByText('470,000 원')).toBeInTheDocument();
+      expect(screen.getByText(/470,000/)).toBeInTheDocument();
     });
   });
 

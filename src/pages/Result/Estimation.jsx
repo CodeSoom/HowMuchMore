@@ -5,17 +5,17 @@ export default function Estimation({ estimation }) {
 
   return (
     <dl>
-      <dd>필요 금액(만원):</dd>
+      <dd>필요 금액:</dd>
       <dt>
-        {`${price.toLocaleString()} 원`}
+        {`${price.toLocaleString()} 만원`}
       </dt>
-      <dd>소요 기간(년):</dd>
+      <dd>소요 기간:</dd>
       <dt>
-        {year.toLocaleString()}
+        {`${year.toLocaleString()} 년`}
       </dt>
       <dd>구매 할 때 나이: </dd>
       <dt>
-        {age.toLocaleString()}
+        {`${age.toLocaleString()} 살`}
       </dt>
     </dl>
   );
