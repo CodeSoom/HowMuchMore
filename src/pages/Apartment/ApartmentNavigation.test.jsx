@@ -21,10 +21,10 @@ describe('ApartmentNavigation', () => {
     renderApartmentNavigation();
 
     expect(screen.getByRole('link', {
-      name: '한강 뷰',
+      name: /한강/,
     })).toBeInTheDocument();
     expect(screen.getByRole('link', {
-      name: '우수 상권',
+      name: /상권/,
     })).toBeInTheDocument();
   });
 
@@ -32,7 +32,7 @@ describe('ApartmentNavigation', () => {
     renderApartmentNavigation();
 
     fireEvent.click(screen.getByRole('link', {
-      name: '한강 뷰',
+      name: /한강/,
     }));
 
     expect(handleClick).toBeCalledWith({ url: '/apartments/riverside' });
