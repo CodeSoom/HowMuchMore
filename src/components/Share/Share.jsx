@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
+import { GOOGLE_URL } from '../../fixtures/utm';
+
 export default function Share() {
-  // Full URL:
-  // https://howmuchmore.xyz/?utm_source=google&utm_medium=cpc&utm_campaign=howmuchmore&utm_term=life
   const [copy, setCopy] = useState({
-    URL: 'https://bit.ly/2PXrH0t',
+    URL: GOOGLE_URL,
     copied: false,
   });
 

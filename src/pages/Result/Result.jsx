@@ -8,6 +8,8 @@ import Profile from '../Profile/Profile';
 import ApartmentDetail from './ApartmentDetail';
 import Estimation from './Estimation';
 
+import SocialMediaButtons from '../../components/Share/SocialMediaButtons';
+
 export default function Result({
   profile, apartment, estimation, onClick, onSubmit, onChange, goBack,
 }) {
@@ -51,6 +53,8 @@ export default function Result({
       )}
 
       <Share />
+
+      <SocialMediaButtons />
     </>
   );
 }
