@@ -65,4 +65,14 @@ describe('NewProfileContainer', () => {
       payload: profile,
     });
   });
+
+  it('navigates user to apartment page', () => {
+    renderNewProfileContainer();
+
+    fireEvent.submit(screen.getByRole('button', {
+      value: '저장',
+    }));
+
+    expect(handleClick).toBeCalledWith({ url: '/apartments/riverside' });
+  });
 });
