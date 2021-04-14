@@ -5,9 +5,9 @@ import useLink from '../../helpers/useLink';
 import NewProfileContainer from './NewProfileContainer';
 
 export default function NewProfilePage() {
-  const { goBack } = useLink();
+  const { goTo } = useLink();
 
   return (
-    <NewProfileContainer onClick={goBack} />
+    <NewProfileContainer onClick={goTo} />
   );
 }
