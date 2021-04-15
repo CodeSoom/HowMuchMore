@@ -11,6 +11,7 @@
     "coverage": "npm run test:unit -- --coverage",
     "test": "npm run coverage",
     "watch": "jest --watchAll",
+    "lint:css": "stylelint \"**/*.css\"",
     "lint": "eslint --ext js,jsx ."
   },
   "repository": {
@@ -47,6 +48,8 @@
     "jest-plugin-context": "^2.9.0",
     "redux-mock-store": "^1.5.4",
     "style-loader": "^2.0.0",
+    "stylelint": "^13.12.0",
+    "stylelint-config-recommended": "^4.0.0",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
