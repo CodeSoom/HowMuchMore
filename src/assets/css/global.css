@@ -18,7 +18,7 @@ body {
     background: white;
     
     font-size: 16px;
-    font-family: 'NanumBarunGothic';
+    font-family: 'NanumBarunGothic', sans-serif;
     font-style: normal;
     font-weight: 400;
 }
