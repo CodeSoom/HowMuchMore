@@ -52,6 +52,8 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.3.0",
     "@reduxjs/toolkit": "^1.5.1",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
