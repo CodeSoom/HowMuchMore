@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 
 import styled from '@emotion/styled';
 
-const Button = styled.div({
+const Button = styled.button({
   padding: '.5rem 1rem',
 
   backgroundColor: 'rgb(255, 138, 61, 0.95)',
