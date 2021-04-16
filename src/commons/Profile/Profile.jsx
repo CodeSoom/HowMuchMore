@@ -1,13 +1,13 @@
 import React from 'react';
 
-import LinkField from '../../components/LinkField';
+import { LinkField } from '../Fields';
 
 import User from './User';
 
 export default function Profile({ profile, onClickNewProfile }) {
   if (profile.isNew) {
     return (
-      <>
+      <article>
         <p>
           아직 정보를 입력하지 않으셨습니다.
         </p>
@@ -16,12 +16,12 @@ export default function Profile({ profile, onClickNewProfile }) {
           title="내 정보 입력하러가기"
           onClick={onClickNewProfile}
         />
-      </>
+      </article>
     );
   }
 
   return (
-    <div>
+    <article>
       {
         !profile.isNew && (
           <>
@@ -34,6 +34,6 @@ export default function Profile({ profile, onClickNewProfile }) {
           </>
         )
       }
-    </div>
+    </article>
   );
 }

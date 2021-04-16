@@ -7,7 +7,7 @@ export default function User({ profile }) {
 
   return (
     <dl>
-      <dd>이름:</dd>
+      <dd>성함:</dd>
       <dt>{name}</dt>
       <dd>나이:</dd>
       <dt>{`${age} 살`}</dt>

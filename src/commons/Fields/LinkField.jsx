@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import Button from '../commons/Button';
+import { Button } from '../styles';
 
 export default function LinkField({
   url, title, onClick, apartment, changeApartment,

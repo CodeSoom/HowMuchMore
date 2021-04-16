@@ -118,28 +118,33 @@ describe('App', () => {
     });
   });
 
-  context('with path /profile/new', () => {
-    it('renders new profile page', () => {
-      renderApp({ path: '/profile/new' });
+  context('with path related to profile /profile and /profile/new', () => {
+    context('with path /profile', () => {
+      it('renders profile page', () => {
+        renderApp({ path: '/profile' });
 
-      expect(screen.getByLabelText(/이름/)).toBeInTheDocument();
-      expect(screen.getByLabelText(/나이/)).toBeInTheDocument();
-      expect(screen.getByLabelText(/저축/)).toBeInTheDocument();
-      expect(screen.getByLabelText(/잔고/)).toBeInTheDocument();
-      expect(screen.getByRole('button', {
-        name: /저장/,
-      })).toBeInTheDocument();
+        expect(screen.getByLabelText(/이름/)).toBeInTheDocument();
+        expect(screen.getByLabelText(/나이/)).toBeInTheDocument();
+        expect(screen.getByLabelText(/저축/)).toBeInTheDocument();
+        expect(screen.getByLabelText(/잔고/)).toBeInTheDocument();
+        expect(screen.getByRole('button', {
+          name: /저장/,
+        })).toBeInTheDocument();
+      });
     });
-  });
 
-  context('with path /profile', () => {
-    it('renders profile page', () => {
-      renderApp({ path: '/profile' });
+    context('with path /profile/new', () => {
+      it('renders new profile page', () => {
+        renderApp({ path: '/profile/new' });
 
-      expect(screen.getByText('신형탁')).toBeInTheDocument();
-      expect(screen.getByText(/29/)).toBeInTheDocument();
-      expect(screen.getByText(/5,000/)).toBeInTheDocument();
-      expect(screen.getByText(/10,000/)).toBeInTheDocument();
+        expect(screen.getByLabelText(/이름/)).toBeInTheDocument();
+        expect(screen.getByLabelText(/나이/)).toBeInTheDocument();
+        expect(screen.getByLabelText(/저축/)).toBeInTheDocument();
+        expect(screen.getByLabelText(/잔고/)).toBeInTheDocument();
+        expect(screen.getByRole('button', {
+          name: /저장/,
+        })).toBeInTheDocument();
+      });
     });
   });
 

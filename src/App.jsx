@@ -13,7 +13,6 @@ import { legacyKeys, newKeys } from './fixtures/keys';
 
 import {
   HomePage,
-  ProfilePage,
   NewProfilePage,
   ApartmentPage,
   ResultPage,
@@ -62,15 +61,13 @@ export default function App() {
       <main>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/profile" component={ProfilePage} />
-          <Route path="/profile/new" component={NewProfilePage} />
+          <Route path={['/profile', '/profile/new']} component={NewProfilePage} />
           <Route exact path="/apartments" component={ApartmentPage} />
           <Route path="/apartments/:id" component={ApartmentPage} />
           <Route exact path="/result" component={ResultPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </main>
-
     </>
   );
 }
