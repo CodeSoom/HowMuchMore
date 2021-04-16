@@ -44,7 +44,7 @@ describe('NewProfile', () => {
     expect(screen.getByLabelText(/이름/).value).toBe('tak');
     expect(screen.getByLabelText(/나이/).value).toBe('29');
     expect(screen.getByLabelText(/저축/).value).toBe('5000');
-    expect(screen.getByLabelText(/잔액/).value).toBe('10000');
+    expect(screen.getByLabelText(/잔고/).value).toBe('10000');
   });
 
   it('calls handleClick upon clicking submit button', () => {
