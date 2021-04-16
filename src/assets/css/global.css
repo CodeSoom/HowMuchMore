@@ -12,7 +12,6 @@ html {
 
 html,
 body {
-    min-height: 100%;
     word-break: keep-all;
     
     background: white;
@@ -25,7 +24,7 @@ body {
 
 body {
     max-width: 767px;
-    margin: 1rem auto 0;
+    margin: 0 auto 0;
 
     line-height: 1.33;        
 }
@@ -60,10 +59,6 @@ button{
     all:unset;
 
     cursor:pointer
-}
-
-#app {
-    overflow-x: hidden;
 }
 
 @font-face {
