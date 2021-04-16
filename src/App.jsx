@@ -3,6 +3,8 @@ import { Link, Route, Switch } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 
+import styled from '@emotion/styled';
+
 import { loadItem } from './services/storage';
 
 import { setApartment, setUserFields } from './redux/appSlice';
@@ -17,6 +19,17 @@ import {
   ResultPage,
   NotFoundPage,
 } from './pages';
+
+const Header = styled.header({
+  minHeight: '5vh',
+  position: 'sticky',
+  top: '0',
+
+  backgroundColor: '#FFF',
+  opacity: '0.88',
+
+  zIndex: '1',
+});
 
 export default function App() {
   const dispatch = useDispatch();
@@ -39,13 +52,13 @@ export default function App() {
 
   return (
     <>
-      <header>
+      <Header>
         <h1>
           <Link to="/">
             How Much More
           </Link>
         </h1>
-      </header>
+      </Header>
       <main>
         <Switch>
           <Route exact path="/" component={HomePage} />
