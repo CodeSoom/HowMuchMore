@@ -32,9 +32,9 @@ describe('NewProfile Page', () => {
     expect(screen.getByLabelText(/이름/)).toBeInTheDocument();
     expect(screen.getByLabelText(/나이/)).toBeInTheDocument();
     expect(screen.getByLabelText(/저축/)).toBeInTheDocument();
-    expect(screen.getByLabelText(/잔액/)).toBeInTheDocument();
+    expect(screen.getByLabelText(/잔고/)).toBeInTheDocument();
     expect(screen.getByRole('button', {
-      name: '저장',
+      name: /저장/,
     })).toBeInTheDocument();
   });
 });

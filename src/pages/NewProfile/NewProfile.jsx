@@ -1,7 +1,36 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
+
 import TextField from '../../components/TextField';
+
+import Button from '../../commons/Button';
+
 import { translateNumericToKor } from '../../utils/utils';
+
+const Layout = styled.div({
+  display: 'flex',
+  justifyContent: 'center',
+
+  color: '#FFF',
+});
+
+const Form = styled.form({
+  '& button': {
+    width: '80%',
+    display: 'block',
+    margin: '3rem auto 0',
+
+    textAlign: 'center',
+  },
+});
+
+const Label = styled.label({
+  display: 'block',
+  marginTop: '-1.2rem',
+
+  color: '#000',
+});
 
 export default function NewProfile({ onChange, onSubmit, profile }) {
   const {
@@ -9,57 +38,58 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
   } = profile;
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <Layout>
+      <Form onSubmit={onSubmit}>
         <TextField
-          label="이름를 입력해주세요!"
-          placeholder="이름"
+          label="이름"
+          placeholder="김철수"
           name="name"
           value={name}
           onChange={onChange}
+          focus
         />
 
         <TextField
-          label="나이를 입력해주세요!"
+          label="나이"
           type="number"
-          placeholder="나이"
+          placeholder="29"
           name="age"
           value={age}
           onChange={onChange}
         />
 
         <TextField
-          label="월 저축 금액을 입력해주세요! (단위: 만원)"
+          label="월 저축 금액 (단위: 만원)"
           type="number"
-          placeholder="저축"
+          placeholder="100"
           name="monthlySavings"
           value={monthlySavings}
           onChange={onChange}
         />
         {monthlySavings && (
-          <label id="input-monthlySavings">
+          <Label id="input-monthlySavings">
             {`${translateNumericToKor(monthlySavings)} 원`}
-          </label>
+          </Label>
         )}
 
         <TextField
-          label="현재 은행 잔액를 입력해주세요! (단위: 만원)"
+          label="은행 잔고 (단위: 만원)"
           type="number"
-          placeholder="잔액"
+          placeholder="10,000"
           name="currentBalance"
           value={currentBalance}
           onChange={onChange}
         />
         {currentBalance && (
-          <label id="input-currentBlance">
+          <Label id="input-currentBlance">
             {`${translateNumericToKor(currentBalance)} 원`}
-          </label>
+          </Label>
         )}
 
-        <button type="submit">
-          저장
-        </button>
-      </form>
-    </div>
+        <Button type="submit">
+          저장하기
+        </Button>
+      </Form>
+    </Layout>
   );
 }
