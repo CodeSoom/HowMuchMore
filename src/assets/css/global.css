@@ -7,6 +7,8 @@
 }
 
 html {
+    background-color: rgb(255, 255, 255, 0.3);
+    
     font-size: 16px;
 }
 
@@ -14,19 +16,10 @@ html,
 body {
     word-break: keep-all;
     
-    background: white;
-    
     font-size: 16px;
     font-family: 'NanumBarunGothic', sans-serif;
     font-style: normal;
     font-weight: 400;
-}
-
-body {
-    max-width: 767px;
-    margin: 0 auto 0;
-
-    line-height: 1.33;        
 }
 
 main{
@@ -59,6 +52,13 @@ button{
     all:unset;
 
     cursor:pointer
+}
+
+#app{
+    max-width: 767px;
+    margin: 0 auto 0;
+
+    line-height: 1.33;     
 }
 
 @font-face {

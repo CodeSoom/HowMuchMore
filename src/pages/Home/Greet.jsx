@@ -7,27 +7,28 @@ export default function Greet({ profile, onClick }) {
 
   if (!isNew) {
     return (
-      <article>
-        <p>
-          {name}
-          님 안녕하세요!!
-        </p>
-
+      <>
+        <p>{`${name}님의 제테크 현황`}</p>
         <LinkField
           url="/profile"
-          title="내 정보 확인하러가기"
+          title="확인 하러가기"
           onClick={onClick}
         />
-      </article>
+      </>
     );
   }
   return (
-    <article>
+    <>
+      <p>
+        XXX님!
+        <br />
+        제테크는 하고 계신가요?
+      </p>
       <LinkField
         url="/profile/new"
-        title="내 정보 입력하러가기"
+        title="알아 보러가기"
         onClick={onClick}
       />
-    </article>
+    </>
   );
 }

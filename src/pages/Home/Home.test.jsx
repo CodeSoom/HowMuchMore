@@ -28,7 +28,7 @@ describe('Home', () => {
     renderHome();
 
     expect(screen.getByRole('link', {
-      name: '거주하고 싶은 아파트 둘러보기',
+      name: /알아/,
     })).toBeInTheDocument();
   });
 
@@ -36,7 +36,7 @@ describe('Home', () => {
     renderHome();
 
     fireEvent.click(screen.getByRole('link', {
-      name: '거주하고 싶은 아파트 둘러보기',
+      name: /알아/,
     }));
 
     expect(handleClick).toBeCalledTimes(1);
