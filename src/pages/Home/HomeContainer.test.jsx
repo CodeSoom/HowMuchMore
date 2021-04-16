@@ -23,7 +23,7 @@ describe('HomeContainer', () => {
     it('renders Home Page', () => {
       render(<HomeContainer />);
 
-      expect(screen.getByText('내 정보 입력하러가기')).toBeInTheDocument();
+      expect(screen.getByText(/XXX님/)).toBeInTheDocument();
     });
   });
 

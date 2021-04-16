@@ -40,14 +40,14 @@ describe('Greet', () => {
     it('renders a link for user to fill up to form', () => {
       renderGreet();
 
-      expect(screen.getByText('내 정보 입력하러가기')).toBeInTheDocument();
+      expect(screen.getByText(/XXX님/)).toBeInTheDocument();
     });
 
     it('calls handleClick upon clicking new profile', () => {
       renderGreet();
 
       fireEvent.click(screen.getByRole('link', {
-        name: '내 정보 입력하러가기',
+        name: /알아/,
       }));
 
       expect(handleClick).toBeCalledTimes(1);
@@ -63,7 +63,7 @@ describe('Greet', () => {
       expect(screen.getByText(/신형탁/)).toBeInTheDocument();
 
       expect(screen.getByRole('link', {
-        name: '내 정보 확인하러가기',
+        name: /확인/,
       })).toBeInTheDocument();
     });
 
@@ -71,7 +71,7 @@ describe('Greet', () => {
       renderGreet();
 
       fireEvent.click(screen.getByRole('link', {
-        name: '내 정보 확인하러가기',
+        name: /확인/,
       }));
 
       expect(handleClick).toBeCalledTimes(1);
