@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import LinkField from '../../components/LinkField';
+import { LinkField } from '../../commons/Fields';
 
 import Greet from './Greet';
 

@@ -2,11 +2,10 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import TextField from '../../components/TextField';
-
-import Button from '../../commons/Button';
-
 import { translateNumericToKor } from '../../utils/utils';
+
+import { TextField } from '../../commons/Fields';
+import { Button } from '../../commons/styles';
 
 const Layout = styled.div({
   display: 'flex',

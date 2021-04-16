@@ -1,14 +1,11 @@
 import React from 'react';
 
-import { Share } from '../../components/Share';
-import LinkField from '../../components/LinkField';
-
-import Profile from '../Profile/Profile';
+import { Profile } from '../../commons/Profile';
+import { LinkField } from '../../commons/Fields';
+import { Share, SocialMediaButtons } from '../../commons/Share';
 
 import ApartmentDetail from './ApartmentDetail';
 import Estimation from './Estimation';
-
-import SocialMediaButtons from '../../components/Share/SocialMediaButtons';
 
 export default function Result({
   profile, apartment, estimation, onClick, onSubmit, onChange, goBack,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LinkField from '../../components/LinkField';
+import { LinkField } from '../../commons/Fields';
 
 export default function Greet({ profile, onClick }) {
   const { isNew, name } = profile;
