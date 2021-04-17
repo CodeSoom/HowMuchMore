@@ -12,9 +12,11 @@ export default function ApartmentPage({ params }) {
   const { goTo } = useLink();
 
   return (
-    <section>
-      <header>거주하고 싶은신 아파트를 선택해주세요</header>
-      <ApartmentNavigation onClick={goTo} />
+    <section style={{ position: 'relative' }}>
+      <ApartmentNavigation
+        apartmentCategory={id}
+        onClick={goTo}
+      />
       <ApartmentContainer
         apartmentCategory={id}
         onClick={goTo}

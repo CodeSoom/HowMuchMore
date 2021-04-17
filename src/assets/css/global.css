@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 0;  
+    background: transparent;
+}
+
 html {
     background-color: rgb(255, 255, 255, 0.3);
     
