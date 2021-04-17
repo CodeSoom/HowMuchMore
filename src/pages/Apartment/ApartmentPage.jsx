@@ -12,7 +12,7 @@ export default function ApartmentPage({ params }) {
   const { goTo } = useLink();
 
   return (
-    <section style={{ position: 'relative' }}>
+    <section>
       <ApartmentNavigation
         apartmentCategory={id}
         onClick={goTo}

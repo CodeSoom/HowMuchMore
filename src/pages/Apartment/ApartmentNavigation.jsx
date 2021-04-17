@@ -6,41 +6,39 @@ import { LinkField } from '../../commons/Fields';
 
 const Navigation = styled.nav({
   minHeight: '5vh',
-  position: 'sticky',
-  top: '5vh',
 
-  color: 'white',
+  color: '#FFF',
   fontSize: '.8rem',
   whiteSpace: 'nowrap',
 
-  zIndex: '1',
-  overflow: 'hidden',
-  opacity: '0.88',
+  backgroundColor: '#FFF',
 });
 
 const List = styled.ul({
   width: '100%',
   display: 'flex',
-  justifyContent: 'space-between',
+  flexWrap: 'wrap',
   alignItems: 'stretch',
-  flexWrap: 'no-wrap',
   padding: '0 0 1rem',
-
-  overflowX: 'scroll',
-  scrollbarWidth: 'thin',
 });
 
 const Item = styled.li(
-  {
+  ({ path, category }) => ({
+    color: path === category ? '#FFF' : 'rgba(255, 138, 61, 0.95)',
+
     '&:not(:last-of-type)': {
       marginRight: '.3rem',
+      paddingBottom: '.3rem',
     },
-  },
-  ({ path, category }) => ({
-    color: path === category ? 'white' : 'rgba(255, 138, 61, 0.95)',
 
     '& button': {
-      backgroundColor: path === category || 'white',
+      border: '.3px solid rgba(255, 138, 61, 0.95)',
+      backgroundColor: path === category || '#FFF',
+
+      '&: hover': {
+        color: '#FFF',
+        backgroundColor: 'rgba(255, 138, 61, 0.95)',
+      },
     },
   }),
 );
