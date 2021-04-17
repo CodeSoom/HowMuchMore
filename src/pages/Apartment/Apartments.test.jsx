@@ -44,7 +44,7 @@ describe('Apartments', () => {
       expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
       expect(screen.getByText('서울')).toBeInTheDocument();
 
-      expect(screen.getAllByText('보기')).toHaveLength(2);
+      expect(screen.getAllByText(/보기/)).toHaveLength(2);
     });
 
     it("calls handleClick upon clicking '보기' button", () => {
@@ -55,7 +55,7 @@ describe('Apartments', () => {
         changeApartment={changeApartment}
       />);
 
-      fireEvent.click(screen.getAllByText('보기')[0]);
+      fireEvent.click(screen.getAllByText(/보기/)[0]);
 
       expect(handleClick).toBeCalledWith({ url: '/result' });
     });
