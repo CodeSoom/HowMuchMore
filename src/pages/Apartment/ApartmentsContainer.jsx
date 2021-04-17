@@ -22,13 +22,12 @@ export default function ApartmentContainer({ apartmentCategory, onClick }) {
   }
 
   return (
-    <section>
-      <header>{apartmentCategory}</header>
+    <>
       <Apartments
         apartments={apartments}
         onClick={onClick}
         changeApartment={changeApartment}
       />
-    </section>
+    </>
   );
 }

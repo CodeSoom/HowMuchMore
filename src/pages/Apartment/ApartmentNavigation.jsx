@@ -13,6 +13,7 @@ const Navigation = styled.nav({
   fontSize: '.8rem',
   whiteSpace: 'nowrap',
 
+  zIndex: '1',
   overflow: 'hidden',
   opacity: '0.88',
 });
