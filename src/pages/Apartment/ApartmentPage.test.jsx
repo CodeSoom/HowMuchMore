@@ -39,8 +39,6 @@ describe('ApartmentPage', () => {
       <ApartmentPage params={params} />
     ));
 
-    expect(screen.getByText('거주하고 싶은신 아파트를 선택해주세요')).toBeInTheDocument();
-
     expect(screen.getByRole('link', {
       name: /한강 뷰/,
     })).toBeInTheDocument();
