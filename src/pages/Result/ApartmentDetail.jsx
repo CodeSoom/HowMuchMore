@@ -68,6 +68,12 @@ export default function ApartmentDetail({ apartment }) {
           </dd>
           <dt>
             {size}
+            <var>
+              m
+              <sup>
+                2
+              </sup>
+            </var>
           </dt>
         </Item>
 
