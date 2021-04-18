@@ -52,6 +52,6 @@ describe('ResultPage', () => {
       </MemoryRouter>
     ));
 
-    expect(screen.getByText('결과')).toBeInTheDocument();
+    expect(screen.getByText(/선택/)).toBeInTheDocument();
   });
 });

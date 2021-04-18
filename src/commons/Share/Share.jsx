@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
+import { Button } from '../styles';
+
 import { GOOGLE_URL } from '../../fixtures/utm';
 
 export default function Share() {
@@ -11,7 +13,7 @@ export default function Share() {
   });
 
   return (
-    <section>
+    <>
       <CopyToClipboard
         text={copy.URL}
         onCopy={() => setCopy({
@@ -19,7 +21,7 @@ export default function Share() {
           copied: true,
         })}
       >
-        <button type="button">
+        <Button type="button">
           {!copy.copied ? (
             <>
               Copy URL
@@ -29,8 +31,8 @@ export default function Share() {
               Copied
             </>
           )}
-        </button>
+        </Button>
       </CopyToClipboard>
-    </section>
+    </>
   );
 }

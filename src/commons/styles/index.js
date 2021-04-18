@@ -1,4 +1,2 @@
 export { default as Button } from './Button';
-
-// TODO: TO BE DELETED
-export const dummy = {};
+export { default as Header } from './Header';

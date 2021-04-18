@@ -69,15 +69,6 @@ describe('Result', () => {
       expect(screen.getByText('1')).toBeInTheDocument();
     });
 
-    it('redners Profile', () => {
-      renderResult();
-
-      expect(screen.getByText('신형탁')).toBeInTheDocument();
-      expect(screen.getAllByText(/29/)[1]).toBeInTheDocument();
-      expect(screen.getByText(/5,000/)).toBeInTheDocument();
-      expect(screen.getByText(/10,000/)).toBeInTheDocument();
-    });
-
     it('renders Esitmation', () => {
       renderResult();
 
@@ -108,10 +99,10 @@ describe('Result', () => {
 
     it('renders a link for user to enter their profile', () => {
       renderResult();
-      expect(screen.getByText('정보를 아직 입력하지 않으셨습니다.')).toBeInTheDocument();
+      expect(screen.getByText(/정보/)).toBeInTheDocument();
 
       expect(screen.getByRole('link', {
-        name: '내 정보 입력 하러가기',
+        name: /확인/,
       })).toBeInTheDocument();
     });
 
@@ -119,7 +110,7 @@ describe('Result', () => {
       renderResult();
 
       fireEvent.click(screen.getByRole('link', {
-        name: '내 정보 입력 하러가기',
+        name: /확인/,
       }));
 
       expect(handleClick).toBeCalledWith({ url: '/profile/new' });
