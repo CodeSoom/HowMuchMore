@@ -11,7 +11,7 @@ import { FACEBOOK_URL, TWITTER_URL } from '../../fixtures/utm';
 
 export default function SocialMediaButtons() {
   return (
-    <section>
+    <>
       <div>
         <FacebookShareButton url={FACEBOOK_URL}>
           <FacebookIcon
@@ -28,6 +28,6 @@ export default function SocialMediaButtons() {
           />
         </TwitterShareButton>
       </div>
-    </section>
+    </>
   );
 }

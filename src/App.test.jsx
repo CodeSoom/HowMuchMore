@@ -168,7 +168,7 @@ describe('App', () => {
     it('renders the apartment result page', () => {
       renderApp({ path: '/result' });
 
-      expect(screen.getByText('결과')).toBeInTheDocument();
+      expect(screen.getByText(/선택/)).toBeInTheDocument();
 
       expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
       expect(screen.getByText('129.92')).toBeInTheDocument();

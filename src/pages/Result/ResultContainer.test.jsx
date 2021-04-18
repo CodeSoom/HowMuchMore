@@ -71,10 +71,10 @@ describe('ResultContainer', () => {
     it('renders link for user to fill up the profile', () => {
       render(<ResultContainer />);
 
-      expect(screen.getByText('정보를 아직 입력하지 않으셨습니다.')).toBeInTheDocument();
+      expect(screen.getByText(/정보/)).toBeInTheDocument();
 
       expect(screen.getByRole('link', {
-        name: '내 정보 입력 하러가기',
+        name: /확인/,
       })).toBeInTheDocument();
     });
   });
