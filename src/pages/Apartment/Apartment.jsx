@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import { colors } from '../../designSystem';
+
 import {
   District,
   BuiltYear,
@@ -11,10 +13,9 @@ import {
 const Header = styled.header({
   padding: '.5rem',
 
-  color: '#FFF',
+  color: colors.white,
 
-  backgroundColor: 'rgba(255, 138, 61, 0.95)',
-  boxShadow: 'rgba(0, 0, 0, 0.18) 0px 2px 4px',
+  backgroundColor: colors.orange,
 });
 
 const List = styled.dl({

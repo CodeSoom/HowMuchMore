@@ -4,6 +4,8 @@ import styled from '@emotion/styled';
 
 import { translateNumericToKor } from '../../utils/utils';
 
+import { colors } from '../../designSystem';
+
 import { TextField } from '../../commons/Fields';
 import { Button } from '../../commons/styles';
 
@@ -11,7 +13,7 @@ const Layout = styled.div({
   display: 'flex',
   justifyContent: 'center',
 
-  color: '#FFF',
+  color: colors.white,
 });
 
 const Form = styled.form({
@@ -19,7 +21,6 @@ const Form = styled.form({
     width: '80%',
     display: 'block',
     margin: '3rem auto 0',
-
     textAlign: 'center',
   },
 });
@@ -28,7 +29,7 @@ const Label = styled.label({
   display: 'block',
   marginTop: '-1.2rem',
 
-  color: '#000',
+  color: colors.black,
 });
 
 export default function NewProfile({ onChange, onSubmit, profile }) {

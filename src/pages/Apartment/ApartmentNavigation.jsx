@@ -4,14 +4,16 @@ import styled from '@emotion/styled';
 
 import { LinkField } from '../../commons/Fields';
 
+import { colors } from '../../designSystem';
+
 const Navigation = styled.nav({
   minHeight: '5vh',
 
-  color: '#FFF',
+  color: colors.white,
   fontSize: '.8rem',
   whiteSpace: 'nowrap',
 
-  backgroundColor: '#FFF',
+  backgroundColor: colors.white,
 });
 
 const List = styled.ul({
@@ -22,26 +24,24 @@ const List = styled.ul({
   padding: '0 0 1rem',
 });
 
-const Item = styled.li(
-  ({ path, category }) => ({
-    color: path === category ? '#FFF' : 'rgba(255, 138, 61, 0.95)',
+const Item = styled.li(({ path, category }) => ({
+  color: path === category ? colors.white : colors.orange,
 
-    '&:not(:last-of-type)': {
-      marginRight: '.3rem',
-      paddingBottom: '.3rem',
+  '&:not(:last-of-type)': {
+    marginRight: '.3rem',
+    paddingBottom: '.3rem',
+  },
+
+  '& button': {
+    border: `.3px solid ${colors.orange}`,
+    backgroundColor: path === category || colors.white,
+
+    '&: hover': {
+      color: colors.white,
+      backgroundColor: colors.orange,
     },
-
-    '& button': {
-      border: '.3px solid rgba(255, 138, 61, 0.95)',
-      backgroundColor: path === category || '#FFF',
-
-      '&: hover': {
-        color: '#FFF',
-        backgroundColor: 'rgba(255, 138, 61, 0.95)',
-      },
-    },
-  }),
-);
+  },
+}));
 
 export default function ApartmentNavigation({ apartmentCategory, onClick }) {
   return (

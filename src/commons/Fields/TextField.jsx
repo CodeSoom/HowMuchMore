@@ -2,6 +2,13 @@ import React, { useCallback } from 'react';
 
 import styled from '@emotion/styled';
 
+import {
+  colors,
+  fontWeights,
+  borderRadius,
+  shadows,
+} from '../../designSystem';
+
 const Field = styled.div({
   marginBottom: '2rem',
 });
@@ -10,8 +17,8 @@ const Label = styled.label({
   display: 'block',
   padding: '.4rem 0',
 
-  color: 'rgb(150, 159, 170)',
-  fontWeight: '500',
+  color: colors.lightGray,
+  fontWeight: fontWeights.medium,
   lineHeight: '1.6',
 });
 
@@ -20,11 +27,11 @@ const Input = styled.input({
 
   outline: 'none',
   border: 'none',
-  borderRadius: '.8rem',
-  boxShadow: 'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px',
+  borderRadius: borderRadius.input,
+  boxShadow: shadows.input,
 
   '&:focus': {
-    border: '1.5px solid rgba(255, 138, 61, 0.95)',
+    border: `1.5px solid ${colors.orange}`,
   },
 });
 

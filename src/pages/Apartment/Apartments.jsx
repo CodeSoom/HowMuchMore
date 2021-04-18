@@ -2,6 +2,12 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import {
+  colors,
+  borderRadius,
+  shadows,
+} from '../../designSystem';
+
 import { LinkField } from '../../commons/Fields';
 
 import Apartment from './Apartment';
@@ -10,28 +16,27 @@ const Section = styled.section({
   display: 'flex',
   flexDirection: 'column',
   marginTop: '1.5rem',
-  padding: '.5rem',
 });
 
 const Article = styled.article({
   position: 'relative',
   marginBottom: '1.5rem',
 
-  borderRadius: '.5rem',
-  boxShadow: 'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px',
+  borderRadius: borderRadius.box,
+  boxShadow: shadows.article,
 
   '& button': {
     position: 'absolute',
     top: '.2rem',
     right: '.2rem',
 
-    color: 'rgba(255, 138, 61, 0.95)',
+    color: colors.orange,
     fontSize: '.69rem',
 
-    backgroundColor: '#FFF',
+    backgroundColor: colors.white,
 
     '&:hover': {
-      color: '#000',
+      color: colors.black,
     },
   },
 });

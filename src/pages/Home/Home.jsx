@@ -2,6 +2,13 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import {
+  colors,
+  fontWeights,
+  borderRadius,
+  shadows,
+} from '../../designSystem';
+
 import { LinkField } from '../../commons/Fields';
 
 import Greet from './Greet';
@@ -26,7 +33,7 @@ const HomeLayout = styled.section({
       backgroundSize: 'cover',
 
       opacity: '0.27',
-      borderRadius: '1rem',
+      borderRadius: borderRadius.box,
       zIndex: '-1',
     },
   },
@@ -47,7 +54,7 @@ const HomeLayout = styled.section({
       backgroundSize: 'cover',
 
       opacity: '0.27',
-      borderRadius: '1rem',
+      borderRadius: borderRadius.box,
       zIndex: '-1',
     },
   },
@@ -58,9 +65,9 @@ const Heading = styled.h2({
   alignItems: 'center',
   marginBottom: '2.5rem',
 
-  color: '#333d4b',
+  color: colors.bluishGray,
   fontSize: '1.5rem',
-  fontWeight: '600',
+  fontWeight: fontWeights.bold,
   lineHeight: '1.66',
 });
 
@@ -74,17 +81,17 @@ const Article = styled.article({
   alignItems: 'center',
   textAlign: 'center',
 
-  color: '#FFF',
+  color: colors.white,
 
-  borderRadius: '1rem',
-  boxShadow: 'rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset',
+  borderRadius: borderRadius.box,
+  boxShadow: shadows.article,
 
   '& p': {
     marginTop: '-2rem',
 
-    color: '#333d4b',
+    color: colors.bluishGray,
     fontsize: '3rem',
-    fontWeight: '800',
+    fontWeight: fontWeights.bold,
     lineHeight: '2',
   },
 
