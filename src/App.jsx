@@ -9,7 +9,7 @@ import { loadItem } from './services/storage';
 
 import { setApartment, setUserFields } from './redux/appSlice';
 
-import { colors } from './designSystem';
+import { colors, fontWeights } from './designSystem';
 
 import { legacyKeys, newKeys } from './fixtures/keys';
 
@@ -23,11 +23,17 @@ import {
 
 const Header = styled.header({
   minHeight: '5vh',
-  position: 'sticky',
+  width: '100%',
+  position: 'fixed',
   top: '0',
+  left: '0',
+  padding: '0.2rem 1.5rem',
 
-  backgroundColor: colors.white,
-  opacity: '0.88',
+  color: colors.white,
+  fontWeight: fontWeights.bold,
+
+  backgroundColor: colors.orange,
+  opacity: '0.93',
 
   zIndex: '1',
 });

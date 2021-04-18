@@ -29,6 +29,7 @@ body {
 
 main{
     position: relative;
+    margin-top: 9vh;
     padding: 0 1.5rem 0;
 }
 
