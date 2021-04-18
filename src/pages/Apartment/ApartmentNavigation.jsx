@@ -83,7 +83,7 @@ export default function ApartmentNavigation({ apartmentCategory, onClick }) {
         >
           <LinkField
             url="/apartments/commute_gangnam"
-            title="#강낭 출퇴근 편리"
+            title="#강남 출퇴근 편리"
             onClick={onClick}
           />
         </Item>
