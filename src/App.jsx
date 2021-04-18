@@ -9,6 +9,8 @@ import { loadItem } from './services/storage';
 
 import { setApartment, setUserFields } from './redux/appSlice';
 
+import { colors } from './designSystem';
+
 import { legacyKeys, newKeys } from './fixtures/keys';
 
 import {
@@ -24,7 +26,7 @@ const Header = styled.header({
   position: 'sticky',
   top: '0',
 
-  backgroundColor: '#FFF',
+  backgroundColor: colors.white,
   opacity: '0.88',
 
   zIndex: '1',
