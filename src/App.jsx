@@ -29,13 +29,17 @@ const Header = styled.header({
   left: '0',
   padding: '0.2rem 1.5rem',
 
-  color: colors.white,
-  fontWeight: fontWeights.bold,
+  color: colors.orange,
 
-  backgroundColor: colors.orange,
+  backgroundColor: colors.superlightGray,
   opacity: '0.93',
 
   zIndex: '1',
+
+  '& a': {
+    fontStyle: 'oblique',
+    fontWeight: fontWeights.bold,
+  },
 });
 
 export default function App() {
