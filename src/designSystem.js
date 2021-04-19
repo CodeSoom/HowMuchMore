@@ -2,6 +2,7 @@ export const colors = {
   white: '#FFF',
   black: '#000',
   orange: 'rgba(255, 138, 61, 0.95)',
+  superlightGray: '#EFEFEF',
   lightGray: 'rgb(150, 159, 170)',
   bluishGray: '#333d4b',
 };
