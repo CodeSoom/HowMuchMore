@@ -15,6 +15,7 @@ export default function ApartmentContainer({ apartmentCategory, onClick }) {
     dispatch(loadApartments(apartmentCategory));
   }, [apartmentCategory]);
 
+  const profile = useSelector(get('userFields'));
   const apartments = useSelector(get('apartments'));
 
   function changeApartment(apartment) {
@@ -24,6 +25,7 @@ export default function ApartmentContainer({ apartmentCategory, onClick }) {
   return (
     <>
       <Apartments
+        profile={profile}
         apartments={apartments}
         onClick={onClick}
         changeApartment={changeApartment}

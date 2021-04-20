@@ -1,13 +1,42 @@
 import React from 'react';
 
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import given from 'given2';
 
 import ApartmentsContainer from './ApartmentsContainer';
 
 describe('ApartmentsContainer', () => {
   const dispatch = jest.fn();
+
+  const handleClick = jest.fn();
+
+  const newUser = {
+    isNew: true,
+    name: '',
+    age: '',
+    monthlySavings: '',
+    currentBalance: '',
+  };
+
+  const profile = {
+    isNew: false,
+    name: 'tak',
+    age: '29',
+    monthlySavings: 5000,
+    currentBalance: 10000,
+  };
+
+  function renderApartmentContainer() {
+    return render((
+      <ApartmentsContainer
+        apartmentCategory="riverside"
+        onClick={handleClick}
+      />
+    ));
+  }
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -15,6 +44,7 @@ describe('ApartmentsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
+      userFields: given.profile,
       apartments: [
         {
           name: '아크로리버파크',
@@ -35,13 +65,50 @@ describe('ApartmentsContainer', () => {
   });
 
   it('renders Apartment Page', () => {
-    render((
-      <ApartmentsContainer apartmentCategory="riverside" />
-    ));
+    renderApartmentContainer();
 
     expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
     expect(screen.getByText('서울')).toBeInTheDocument();
+  });
 
-    expect(dispatch).toBeCalled();
+  it('executes diaptch setApartment', () => {
+    renderApartmentContainer();
+
+    fireEvent.click(screen.getAllByText(/구매/)[0]);
+
+    expect(dispatch).toBeCalledWith({
+      type: 'applications/setApartment',
+      payload: {
+        name: '아크로리버파크',
+        date: '2021-03',
+        size: '129.92',
+        price: 470000,
+        lotNumber: 1,
+      },
+    });
+  });
+
+  context('without profile', () => {
+    given('profile', () => (newUser));
+
+    it('navigates user to profile page', () => {
+      renderApartmentContainer();
+
+      fireEvent.click(screen.getAllByText(/구매/)[0]);
+
+      expect(handleClick).toBeCalledWith({ url: '/profile' });
+    });
+  });
+
+  context('with profile', () => {
+    given('profile', () => (profile));
+
+    it('navigates user to profile page', () => {
+      renderApartmentContainer();
+
+      fireEvent.click(screen.getAllByText(/구매/)[0]);
+
+      expect(handleClick).toBeCalledWith({ url: '/result' });
+    });
   });
 });

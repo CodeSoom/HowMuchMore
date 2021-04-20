@@ -1,44 +1,21 @@
 import React from 'react';
 
-import { render, screen } from '@testing-library/react';
-
-import { useSelector } from 'react-redux';
-
-import given from 'given2';
-
-import { initialUserField } from '../../fixtures/initials';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import HomeContainer from './HomeContainer';
 
 describe('HomeContainer', () => {
-  beforeEach(() => {
-    useSelector.mockImplementation((selector) => selector({
-      userFields: given.userFields,
-    }));
-  });
+  const handleClick = jest.fn();
 
-  context('without profile', () => {
-    given('userFields', () => initialUserField);
+  it('navgiates user to apartment page', () => {
+    render((
+      <HomeContainer onClick={handleClick} />
+    ));
 
-    it('renders Home Page', () => {
-      render(<HomeContainer />);
-
-      expect(screen.getByText(/XXX님/)).toBeInTheDocument();
-    });
-  });
-
-  context('with profile', () => {
-    given('userFields', () => ({
-      isNew: false,
-      name: '신형탁',
-      age: '29',
-      monthlySavings: 5000,
-      currentBalance: 10000,
+    fireEvent.click(screen.getByRole('link', {
+      name: /알아/,
     }));
 
-    it('renders user name', () => {
-      render(<HomeContainer />);
-      expect(screen.getByText(/신형탁/)).toBeInTheDocument();
-    });
+    expect(handleClick).toBeCalledWith({ url: '/apartments/riverside' });
   });
 });
