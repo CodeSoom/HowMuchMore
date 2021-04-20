@@ -8,7 +8,7 @@ import { get } from '../../utils/utils';
 
 import Result from './Result';
 
-export default function ResultContainer({ onClick, goBack }) {
+export default function ResultContainer({ onClick }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,7 +26,6 @@ export default function ResultContainer({ onClick, goBack }) {
         apartment={apartment}
         estimation={esitamtion}
         onClick={onClick}
-        goBack={goBack}
       />
     </>
   );
