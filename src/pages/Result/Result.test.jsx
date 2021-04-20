@@ -82,16 +82,6 @@ describe('Result', () => {
 
       expect(screen.getByText(/Copy/)).toBeInTheDocument();
     });
-
-    it("calls handleClick upon clicking '뒤로가기'", () => {
-      renderResult();
-
-      fireEvent.click(screen.getByRole('link', {
-        name: '뒤로가기',
-      }));
-
-      expect(goBack).toBeCalledWith({ url: '/apartments' });
-    });
   });
 
   context('without profile', () => {

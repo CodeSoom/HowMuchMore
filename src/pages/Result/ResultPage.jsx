@@ -7,7 +7,7 @@ import { colors, fontWeights } from '../../designSystem';
 import ResultContainer from './ResultContainer';
 
 export default function ResultPage() {
-  const { goTo, goBack } = useLink();
+  const { goTo } = useLink();
 
   return (
     <>
@@ -26,7 +26,6 @@ export default function ResultPage() {
       </h2>
       <ResultContainer
         onClick={goTo}
-        goBack={goBack}
       />
     </>
   );

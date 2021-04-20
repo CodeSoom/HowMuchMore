@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -12,6 +12,8 @@ import ResultContainer from './ResultContainer';
 
 describe('ResultContainer', () => {
   const dispatch = jest.fn();
+
+  const handleClick = jest.fn();
 
   const profile = {
     isNew: false,
@@ -36,6 +38,12 @@ describe('ResultContainer', () => {
     age: '123',
   };
 
+  function renderResultContainer() {
+    return render((
+      <ResultContainer onClick={handleClick} />
+    ));
+  }
+
   beforeEach(() => {
     jest.clearAllMocks();
 
@@ -53,7 +61,7 @@ describe('ResultContainer', () => {
     given('estimation', () => estimation);
 
     it('renders result page', () => {
-      render(<ResultContainer />);
+      renderResultContainer();
 
       expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
       expect(screen.getByText('129.92')).toBeInTheDocument();
@@ -61,15 +69,32 @@ describe('ResultContainer', () => {
       expect(screen.getByText('2021-03')).toBeInTheDocument();
       expect(screen.getByText('반포동')).toBeInTheDocument();
       expect(screen.getByText('1')).toBeInTheDocument();
+    });
 
-      expect(dispatch).toBeCalled();
+    it('executes dispatch setEstimation on loading Result Page', () => {
+      renderResultContainer();
+
+      expect(dispatch).toBeCalledWith({
+        type: 'applications/setEstimation',
+      });
+    });
+
+    it('navigates User to apartment page when clicking go back button', () => {
+      renderResultContainer();
+
+      fireEvent.click(screen.getByRole('link', {
+        name: /뒤로/,
+      }));
+
+      expect(handleClick).toBeCalledWith({ url: '/apartments/riverside' });
     });
   });
 
   context('without profile', () => {
     given('profile', () => initialUserField);
+
     it('renders link for user to fill up the profile', () => {
-      render(<ResultContainer />);
+      renderResultContainer();
 
       expect(screen.getByText(/정보/)).toBeInTheDocument();
 

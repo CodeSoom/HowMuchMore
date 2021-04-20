@@ -76,7 +76,6 @@ export default function Result({
   apartment,
   estimation,
   onClick,
-  goBack,
 }) {
   if (profile.isNew) {
     return (
@@ -99,7 +98,7 @@ export default function Result({
         <LinkField
           url="/apartments"
           title="뒤로가기"
-          onClick={goBack}
+          onClick={() => onClick({ url: '/apartments/riverside' })}
         />
       </Back>
 
