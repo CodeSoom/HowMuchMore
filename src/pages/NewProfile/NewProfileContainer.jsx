@@ -24,9 +24,7 @@ export default function NewProfileContainer({ onClick }) {
       dispatch(setUserFields(profile));
     }
 
-    onClick({
-      url: profile?.isNew ? '/apartments/riverside' : '/result',
-    });
+    onClick({ url: '/result' });
   });
 
   return (

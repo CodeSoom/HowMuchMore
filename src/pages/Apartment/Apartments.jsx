@@ -41,7 +41,12 @@ const Article = styled.article({
   },
 });
 
-export default function Apartments({ apartments, onClick, changeApartment }) {
+export default function Apartments({
+  profile,
+  apartments,
+  onClick,
+  changeApartment,
+}) {
   if (!apartments.length) {
     return (
       <p>loading</p>
@@ -54,7 +59,7 @@ export default function Apartments({ apartments, onClick, changeApartment }) {
         <Article key={apartment.name}>
           <Apartment apartment={apartment} />
           <LinkField
-            url="/result"
+            url={profile?.isNew ? '/profile' : '/result'}
             title="구매 해보기"
             onClick={onClick}
             apartment={apartment}
