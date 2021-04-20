@@ -8,11 +8,21 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import given from 'given2';
+
 import NewProfileContainer from './NewProfileContainer';
 
 describe('NewProfileContainer', () => {
   const handleClick = jest.fn();
   const dispatch = jest.fn();
+
+  const newUser = {
+    isNew: true,
+    name: '',
+    age: '',
+    monthlySavings: '',
+    currentBalance: '',
+  };
 
   const profile = {
     isNew: false,
@@ -28,13 +38,15 @@ describe('NewProfileContainer', () => {
     />
   ));
 
+  given('profile', () => (profile));
+
   beforeEach(() => {
     jest.clearAllMocks();
 
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selecotr) => selecotr({
-      userFields: profile,
+      userFields: given.profile,
     }));
   });
 
@@ -66,13 +78,29 @@ describe('NewProfileContainer', () => {
     });
   });
 
-  it('navigates user to apartment page', () => {
-    renderNewProfileContainer();
+  context('when user is not new', () => {
+    it('navigates user to apartment page', () => {
+      renderNewProfileContainer();
 
-    fireEvent.submit(screen.getByRole('button', {
-      value: '저장',
-    }));
+      fireEvent.submit(screen.getByRole('button', {
+        value: '저장',
+      }));
 
-    expect(handleClick).toBeCalledWith({ url: '/apartments/riverside' });
+      expect(handleClick).toBeCalledWith({ url: '/result' });
+    });
+  });
+
+  context('when user is new', () => {
+    given('profile', () => (newUser));
+
+    it('navigates user to apartment page', () => {
+      renderNewProfileContainer();
+
+      fireEvent.submit(screen.getByRole('button', {
+        value: '저장',
+      }));
+
+      expect(handleClick).toBeCalledWith({ url: '/apartments/riverside' });
+    });
   });
 });
