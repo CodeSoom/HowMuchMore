@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { colors, fontWeights } from '../../designSystem';
 
 import { LinkField } from '../../commons/Fields';
-import { Share, SocialMediaButtons } from '../../commons/Share';
+import { LinkURL, SocialMediaButtons } from '../../commons/Share';
 
 import ApartmentDetail from './ApartmentDetail';
 import Estimation from './Estimation';
@@ -45,6 +45,14 @@ const Section = styled.section({
   },
 });
 
+const Back = styled.div({
+  position: 'absolute',
+  top: '0',
+  right: '1.5rem',
+
+  fontSize: '.69rem',
+});
+
 const EstimationWrapper = styled.article({
   position: 'relative',
 
@@ -64,21 +72,28 @@ const Heading = styled.h2({
   fontWeight: fontWeights.bold,
 });
 
-const ShareTargets = styled.article({
+const ShareWrapper = styled.article({
   display: 'flex',
+  flexDirection: 'column',
   alignItems: 'center',
 
-  '& button': {
-    marginRight: '1.5rem',
+  '& h3': {
+    width: '100%',
+    padding: '.25rem 0',
+    textAlign: 'center',
+    borderBottom: `1px solid ${colors.lightOrange}`,
+
+    color: colors.orange,
+    fontWeight: fontWeights.bold,
   },
 });
 
-const Back = styled.div({
-  position: 'absolute',
-  top: '0',
-  right: '1.5rem',
-
-  fontSize: '.69rem',
+const ShareTargets = styled.div({
+  width: '50%',
+  display: 'flex',
+  justifyContent: 'space-evenly',
+  alignItems: 'start',
+  marginTop: '1rem',
 });
 
 export default function Result({
@@ -139,10 +154,13 @@ export default function Result({
         )}
       </EstimationWrapper>
 
-      <ShareTargets>
-        <Share />
-        <SocialMediaButtons />
-      </ShareTargets>
+      <ShareWrapper>
+        <h3>공유 하기</h3>
+        <ShareTargets>
+          <LinkURL />
+          <SocialMediaButtons />
+        </ShareTargets>
+      </ShareWrapper>
     </Section>
   );
 }

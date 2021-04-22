@@ -1,2 +1,2 @@
-export { default as Share } from './Share';
+export { default as LinkURL } from './LinkURL';
 export { default as SocialMediaButtons } from './SocialMediaButtons';

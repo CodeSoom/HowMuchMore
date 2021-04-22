@@ -1,6 +1,7 @@
 export const colors = {
   white: '#FFF',
   black: '#000',
+  lightOrange: 'rgba(255, 138, 61, 0.8)',
   orange: 'rgba(255, 138, 61, 0.95)',
   superlightGray: '#EFEFEF',
   lightGray: 'rgb(150, 159, 170)',

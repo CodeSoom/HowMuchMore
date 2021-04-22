@@ -2,9 +2,9 @@ import React from 'react';
 
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import Share from './Share';
+import LinkURL from './LinkURL';
 
-describe('Share', () => {
+describe('LinkURL', () => {
   window.prompt = jest.fn();
 
   beforeEach(() => {
@@ -12,17 +12,15 @@ describe('Share', () => {
   });
 
   it('shows copy-to-cliboard button', () => {
-    render(<Share />);
+    render(<LinkURL />);
 
-    expect(screen.getByText('Copy URL')).toBeInTheDocument();
+    expect(screen.getByLabelText('clipboard')).toBeInTheDocument();
   });
 
   it("shows 'copied' text once user has clicked", () => {
-    render(<Share />);
+    render(<LinkURL />);
 
-    fireEvent.click(screen.getByRole('button', {
-      name: 'Copy URL',
-    }));
+    fireEvent.click(screen.getByLabelText('clipboard'));
 
     expect(window.prompt).toBeCalled();
   });
