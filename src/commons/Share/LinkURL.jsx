@@ -4,9 +4,27 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import { Button } from '../styles';
 
+import { Clipboard, UnLink } from '../svg';
+
 import { GOOGLE_URL } from '../../fixtures/utm';
 
-export default function Share() {
+const style = {
+  width: '32px',
+  minHeight: '32px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '0',
+
+  backgroundColor: '#000',
+  border: 'none',
+  boxShadow: 'none',
+
+  borderRadius: '50%',
+  overflow: 'hidden',
+};
+
+export default function LinkURL() {
   const [copy, setCopy] = useState({
     URL: GOOGLE_URL,
     copied: false,
@@ -21,14 +39,18 @@ export default function Share() {
           copied: true,
         })}
       >
-        <Button type="button">
+        <Button
+          type="button"
+          aria-label="clipboard"
+          style={style}
+        >
           {!copy.copied ? (
             <>
-              Copy URL
+              <Clipboard />
             </>
           ) : (
             <>
-              Copied
+              <UnLink />
             </>
           )}
         </Button>

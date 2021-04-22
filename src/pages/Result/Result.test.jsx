@@ -80,7 +80,7 @@ describe('Result', () => {
     it('renders Share CopyToClipboard Button', () => {
       renderResult();
 
-      expect(screen.getByText(/Copy/)).toBeInTheDocument();
+      expect(screen.getByLabelText('clipboard')).toBeInTheDocument();
     });
   });
 
