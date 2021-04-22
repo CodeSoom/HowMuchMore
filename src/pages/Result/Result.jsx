@@ -45,6 +45,16 @@ const Section = styled.section({
   },
 });
 
+const EstimationWrapper = styled.article({
+  position: 'relative',
+
+  '& button': {
+    position: 'absolute',
+    top: '0',
+    right: '0',
+  },
+});
+
 const Heading = styled.h2({
   marginBottom: '1rem',
   padding: '.25rem 0',
@@ -109,10 +119,16 @@ export default function Result({
         )}
       </article>
 
-      <article>
+      <EstimationWrapper>
         <Heading>
           구매까지...
         </Heading>
+
+        <LinkField
+          url="/profile/new"
+          title="저축 수정 하러가기"
+          onClick={onClick}
+        />
 
         {estimation && (
           <Estimation
@@ -121,14 +137,9 @@ export default function Result({
             estimation={estimation}
           />
         )}
-      </article>
+      </EstimationWrapper>
 
       <ShareTargets>
-        <LinkField
-          url="/profile/new"
-          title="저축 수정 하러가기"
-          onClick={onClick}
-        />
         <Share />
         <SocialMediaButtons />
       </ShareTargets>
