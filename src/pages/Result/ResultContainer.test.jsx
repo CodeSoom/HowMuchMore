@@ -53,6 +53,7 @@ describe('ResultContainer', () => {
       userFields: given.profile,
       apartment,
       estimation: given.estimation,
+      isPyeong: false,
     }));
   });
 

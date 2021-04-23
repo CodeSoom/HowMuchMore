@@ -65,10 +65,21 @@ describe('App', () => {
     age: '123',
   };
 
+  const isPyeong = false;
+
+  function renderApp({ path }) {
+    return render((
+      <MemoryRouter initialEntries={[path]}>
+        <App />
+      </MemoryRouter>
+    ));
+  }
+
   given('userFields', () => (profile));
   given('apartments', () => apartments);
   given('apartment', () => apartment);
   given('estimation', () => estimation);
+  given('size_pyeong', () => isPyeong);
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -80,23 +91,17 @@ describe('App', () => {
       apartments: given.apartments,
       apartment: given.apartment,
       estimation: given.estimation,
+      isPyeong: given.size_pyeong,
     }));
 
     loadItem.mockImplementation(() => null);
   });
 
-  function renderApp({ path }) {
-    return render((
-      <MemoryRouter initialEntries={[path]}>
-        <App />
-      </MemoryRouter>
-    ));
-  }
-
   context('with path /', () => {
     beforeEach(() => {
       loadItem.mockImplementation(() => (JSON.stringify(profile)));
       loadItem.mockImplementation(() => (JSON.stringify(apartment)));
+      loadItem.mockImplementation(() => (isPyeong));
     });
 
     context('with legacy profile', () => {

@@ -23,6 +23,7 @@ const { actions, reducer } = createSlice({
     estimation: {
       ...initialEstimation,
     },
+    isPyeong: false,
   },
   reducers: {
     setUserFields(state, { payload: userFields }) {
@@ -70,6 +71,22 @@ const { actions, reducer } = createSlice({
       };
     },
 
+    changeSizeUnit(state) {
+      saveItem('KEY_SHOWING_PYEONG', !state.isPyeong);
+
+      return {
+        ...state,
+        isPyeong: !state.isPyeong,
+      };
+    },
+
+    setPyeong(state, { payload: KEY_SHOW_PYEONG }) {
+      return {
+        ...state,
+        isPyeong: KEY_SHOW_PYEONG,
+      };
+    },
+
     setEstimation(state) {
       const { apartment, userFields } = state;
 
@@ -94,6 +111,8 @@ export const {
   changeUserFields,
   setApartments,
   setApartment,
+  changeSizeUnit,
+  setPyeong,
   setEstimation,
 } = actions;
 

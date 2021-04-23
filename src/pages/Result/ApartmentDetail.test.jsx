@@ -10,18 +10,36 @@ describe('ApartmentDetail', () => {
     date: '2021-03',
     district: '반포동',
     size: '129.92',
+    pyeong: '39',
     price: 470000,
     lotNumber: 1,
   };
 
-  it('renders apartment details', () => {
-    render(<ApartmentDetail apartment={apartment} />);
+  context('when isPyeong false', () => {
+    it('renders apartment details with size unit square metre', () => {
+      render((
+        <ApartmentDetail
+          apartment={apartment}
+          isPyeong={false}
+        />));
 
-    expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
-    expect(screen.getByText('129.92')).toBeInTheDocument();
-    expect(screen.getByText(/47억/)).toBeInTheDocument();
-    expect(screen.getByText('2021-03')).toBeInTheDocument();
-    expect(screen.getByText('반포동')).toBeInTheDocument();
-    expect(screen.getByText('1')).toBeInTheDocument();
+      expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
+      expect(screen.getByText('반포동')).toBeInTheDocument();
+      expect(screen.getByText(/129.92/)).toBeInTheDocument();
+    });
+  });
+
+  context('when isPyeong true', () => {
+    it('renders apartment details with size unit pyeong', () => {
+      render((
+        <ApartmentDetail
+          apartment={apartment}
+          isPyeong
+        />));
+
+      expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
+      expect(screen.getByText('반포동')).toBeInTheDocument();
+      expect(screen.getByText(/39 평/)).toBeInTheDocument();
+    });
   });
 });

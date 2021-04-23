@@ -8,6 +8,7 @@ import {
   shadows,
 } from '../../designSystem';
 
+import { Button } from '../../commons/styles';
 import { LinkField } from '../../commons/Fields';
 
 import Apartment from './Apartment';
@@ -16,6 +17,25 @@ const Section = styled.section({
   display: 'flex',
   flexDirection: 'column',
   marginTop: '1.5rem',
+});
+
+const SwitchWrapper = styled.div({
+  display: 'flex',
+  justifyContent: 'end',
+  marginBottom: '1.2rem',
+
+  '& button': {
+    color: colors.orange,
+    fontSize: '.69rem',
+
+    border: `1.5px solid ${colors.orange}`,
+    backgroundColor: colors.white,
+
+    '&:hover': {
+      color: colors.white,
+      backgroundColor: colors.orange,
+    },
+  },
 });
 
 const Article = styled.article({
@@ -44,8 +64,10 @@ const Article = styled.article({
 export default function Apartments({
   profile,
   apartments,
+  isPyeong,
   onClick,
   changeApartment,
+  switchSizeUnit,
 }) {
   if (!apartments.length) {
     return (
@@ -55,9 +77,22 @@ export default function Apartments({
 
   return (
     <Section>
+      <SwitchWrapper>
+        <Button
+          type="button"
+          onClick={switchSizeUnit}
+        >
+          {isPyeong ? '제곱미터로 전환하기' : '평으로 전환하기' }
+        </Button>
+      </SwitchWrapper>
+
       {apartments?.map((apartment) => (
         <Article key={apartment.name}>
-          <Apartment apartment={apartment} />
+          <Apartment
+            apartment={apartment}
+            isPyeong={isPyeong}
+          />
+
           <LinkField
             url={profile?.isNew ? '/profile' : '/result'}
             title="구매 해보기"

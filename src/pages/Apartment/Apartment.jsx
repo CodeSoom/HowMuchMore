@@ -40,12 +40,13 @@ const Item = styled.div({
   },
 });
 
-export default function Apartment({ apartment }) {
+export default function Apartment({ apartment, isPyeong }) {
   const {
     name,
     district,
     builtYear,
     size,
+    pyeong,
   } = apartment;
 
   return (
@@ -80,13 +81,24 @@ export default function Apartment({ apartment }) {
             전용면적:
           </dd>
           <dt>
-            {size}
-            <var>
-              m
-              <sup>
-                2
-              </sup>
-            </var>
+            {isPyeong ? (
+              <>
+                {pyeong}
+                {' '}
+                평
+              </>
+            ) : (
+              <>
+                {size}
+                <var>
+                  m
+                  <sup>
+                    2
+                  </sup>
+                </var>
+              </>
+            )}
+
           </dt>
         </Item>
       </List>

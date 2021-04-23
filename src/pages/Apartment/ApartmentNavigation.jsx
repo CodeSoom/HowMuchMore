@@ -8,12 +8,14 @@ import { colors } from '../../designSystem';
 
 const Navigation = styled.nav({
   minHeight: '5vh',
+  marginBottom: '1.2rem',
 
   color: colors.white,
   fontSize: '.8rem',
   whiteSpace: 'nowrap',
 
   backgroundColor: colors.white,
+  borderBottom: `1px solid ${colors.lightOrange}`,
 });
 
 const List = styled.ul({

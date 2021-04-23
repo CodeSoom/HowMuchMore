@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { loadApartments, setApartment } from '../../redux/appSlice';
+import {
+  loadApartments,
+  setApartment,
+  changeSizeUnit,
+} from '../../redux/appSlice';
 
 import { get } from '../../utils/utils';
 
@@ -17,18 +21,25 @@ export default function ApartmentContainer({ apartmentCategory, onClick }) {
 
   const profile = useSelector(get('userFields'));
   const apartments = useSelector(get('apartments'));
+  const isPyeong = useSelector(get('isPyeong'));
 
-  function changeApartment(apartment) {
+  const changeApartment = useCallback((apartment) => {
     dispatch(setApartment(apartment));
-  }
+  }, [dispatch]);
+
+  const switchSizeUnit = useCallback(() => {
+    dispatch(changeSizeUnit());
+  }, [dispatch]);
 
   return (
     <>
       <Apartments
         profile={profile}
         apartments={apartments}
+        isPyeong={isPyeong}
         onClick={onClick}
         changeApartment={changeApartment}
+        switchSizeUnit={switchSizeUnit}
       />
     </>
   );
