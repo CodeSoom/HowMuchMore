@@ -60,7 +60,7 @@ describe('NewProfile', () => {
   it('renders price in Korean', () => {
     renderNewProfile(profile);
 
-    expect(screen.getByText('오천만 원')).toBeInTheDocument();
-    expect(screen.getByText('일억 원')).toBeInTheDocument();
+    expect(screen.getByText('5,000만 원')).toBeInTheDocument();
+    expect(screen.getByText('1억 원')).toBeInTheDocument();
   });
 });

@@ -72,5 +72,8 @@ test('convertToKRW', () => {
 test('translateNumericToKor', () => {
   const text = '5000';
 
-  expect(translateNumericToKor(text)).toBe('오천만');
+  expect(translateNumericToKor(text)).toBe('5,000만');
+
+  expect(translateNumericToKor(text)).not.toBe('오천만');
+  expect(translateNumericToKor(text)).not.toBe('5000만');
 });

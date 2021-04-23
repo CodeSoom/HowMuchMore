@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import { translateNumericToKor } from '../../utils/utils';
+
 import {
   Currency,
   District,
@@ -57,7 +59,7 @@ export default function ApartmentDetail({ apartment }) {
             거래금액:
           </dd>
           <dt>
-            {`${price.toLocaleString()} 만원`}
+            {`${translateNumericToKor(price)} 원`}
           </dt>
         </Item>
 

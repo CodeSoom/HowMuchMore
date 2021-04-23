@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import { translateNumericToKor } from '../../utils/utils';
+
 import {
   Currency,
   Calendar,
@@ -43,7 +45,7 @@ export default function Estimation({ profile, estimation }) {
         </Header>
         <span>
           <Currency />
-          {`${price.toLocaleString()} 만원`}
+          {`${translateNumericToKor(price)} 원`}
         </span>
       </Item>
 

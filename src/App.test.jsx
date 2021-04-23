@@ -169,10 +169,6 @@ describe('App', () => {
       renderApp({ path: '/result' });
 
       expect(screen.getByText(/선택/)).toBeInTheDocument();
-
-      expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
-      expect(screen.getByText('129.92')).toBeInTheDocument();
-      expect(screen.getByText(/470,000/)).toBeInTheDocument();
     });
   });
 
