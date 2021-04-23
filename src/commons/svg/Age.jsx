@@ -8,7 +8,7 @@ function Age() {
       height={16}
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="#ff4500"
+      stroke="#3182F6"
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"

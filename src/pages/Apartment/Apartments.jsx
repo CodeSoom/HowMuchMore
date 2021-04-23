@@ -25,15 +25,15 @@ const SwitchWrapper = styled.div({
   marginBottom: '1.2rem',
 
   '& button': {
-    color: colors.orange,
+    color: colors.themeColor,
     fontSize: '.69rem',
 
-    border: `1.5px solid ${colors.orange}`,
+    border: `1.5px solid ${colors.themeColor}`,
     backgroundColor: colors.white,
 
     '&:hover': {
       color: colors.white,
-      backgroundColor: colors.orange,
+      backgroundColor: colors.themeColor,
     },
   },
 });
@@ -50,7 +50,7 @@ const Article = styled.article({
     top: '.2rem',
     right: '.2rem',
 
-    color: colors.orange,
+    color: colors.themeColor,
     fontSize: '.69rem',
 
     backgroundColor: colors.white,

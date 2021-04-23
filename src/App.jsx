@@ -29,7 +29,7 @@ const Header = styled.header({
   left: '0',
   padding: '0.2rem 1.5rem',
 
-  color: colors.orange,
+  color: colors.themeColor,
 
   backgroundColor: colors.superlightGray,
   opacity: '0.93',

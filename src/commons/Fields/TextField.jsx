@@ -31,7 +31,7 @@ const Input = styled.input({
   boxShadow: shadows.input,
 
   '&:focus': {
-    border: `1.5px solid ${colors.orange}`,
+    border: `1.5px solid ${colors.themeColor}`,
   },
 });
 

@@ -28,15 +28,15 @@ const Section = styled.section({
     marginBottom: '1rem',
     textAlign: 'center',
 
-    color: colors.orange,
+    color: colors.themeColor,
     fontSize: '.75rem',
 
-    border: `1px solid ${colors.orange}`,
+    border: `1px solid ${colors.themeColor}`,
     backgroundColor: colors.white,
 
     '&:hover': {
       color: colors.white,
-      backgroundColor: colors.orange,
+      backgroundColor: colors.themeColor,
     },
   },
 
@@ -67,7 +67,7 @@ const Heading = styled.h2({
   marginBottom: '1rem',
   padding: '.25rem 0',
 
-  color: colors.orange,
+  color: colors.themeColor,
   fontSize: '1.22rem',
   fontWeight: fontWeights.bold,
 });
@@ -81,9 +81,9 @@ const ShareWrapper = styled.article({
     width: '100%',
     padding: '.25rem 0',
     textAlign: 'center',
-    borderBottom: `1px solid ${colors.lightOrange}`,
+    borderBottom: `1px solid ${colors.themeBorder}`,
 
-    color: colors.orange,
+    color: colors.themeColor,
     fontWeight: fontWeights.bold,
   },
 });

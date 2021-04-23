@@ -7,7 +7,7 @@ const Header = styled.header({
 
   color: colors.white,
 
-  backgroundColor: colors.orange,
+  backgroundColor: colors.themeColor,
 });
 
 export default Header;

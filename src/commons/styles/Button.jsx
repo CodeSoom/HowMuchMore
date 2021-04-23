@@ -10,7 +10,7 @@ import {
 const Button = styled.button({
   padding: '.5rem 1rem',
 
-  backgroundColor: colors.orange,
+  backgroundColor: colors.themeColor,
 
   fontWeight: fontWeights.bold,
 
