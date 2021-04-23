@@ -29,6 +29,7 @@ describe('Result', () => {
     date: '2021-03',
     district: '반포동',
     size: '129.92',
+    pyeong: '39',
     price: 470000,
     lotNumber: 1,
   };
@@ -44,6 +45,7 @@ describe('Result', () => {
       <Result
         profile={given.profile}
         apartment={apartment}
+        isPyeong={given.pyeong}
         estimation={estimation}
         onClick={handleClick}
         goBack={goBack}
@@ -58,15 +60,34 @@ describe('Result', () => {
   context('with profile', () => {
     given('profile', () => profile);
 
-    it('renders Result', () => {
-      renderResult();
+    context('when isPyeong false', () => {
+      given('pyeong', () => (false));
 
-      expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
-      expect(screen.getByText('129.92')).toBeInTheDocument();
-      expect(screen.getByText(/47억/)).toBeInTheDocument();
-      expect(screen.getByText('2021-03')).toBeInTheDocument();
-      expect(screen.getByText('반포동')).toBeInTheDocument();
-      expect(screen.getByText('1')).toBeInTheDocument();
+      it('renders Aparetment Detail with size unit sqaure metre', () => {
+        renderResult();
+
+        expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
+        expect(screen.getByText(/129.92/)).toBeInTheDocument();
+        expect(screen.getByText(/47억/)).toBeInTheDocument();
+        expect(screen.getByText('2021-03')).toBeInTheDocument();
+        expect(screen.getByText('반포동')).toBeInTheDocument();
+        expect(screen.getByText('1')).toBeInTheDocument();
+      });
+    });
+
+    context('when isPyeong true', () => {
+      given('pyeong', () => (true));
+
+      it('renders Aparetment Detail with size unit Pyeong', () => {
+        renderResult();
+
+        expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
+        expect(screen.getByText(/39/)).toBeInTheDocument();
+        expect(screen.getByText(/47억/)).toBeInTheDocument();
+        expect(screen.getByText('2021-03')).toBeInTheDocument();
+        expect(screen.getByText('반포동')).toBeInTheDocument();
+        expect(screen.getByText('1')).toBeInTheDocument();
+      });
     });
 
     it('renders Esitmation', () => {

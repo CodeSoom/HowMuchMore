@@ -61,6 +61,7 @@ describe('ApartmentsContainer', () => {
           lotNumber: 2,
         },
       ],
+      isPyeong: false,
     }));
   });
 
@@ -85,6 +86,18 @@ describe('ApartmentsContainer', () => {
         price: 470000,
         lotNumber: 1,
       },
+    });
+  });
+
+  it('executes dispatch changeSizeUnit on clicking Switch Size Unit Button', () => {
+    renderApartmentContainer();
+
+    fireEvent.click(screen.getByRole('button', {
+      name: /전환/,
+    }));
+
+    expect(dispatch).toBeCalledWith({
+      type: 'applications/changeSizeUnit',
     });
   });
 

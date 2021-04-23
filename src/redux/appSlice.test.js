@@ -7,6 +7,8 @@ import reducer, {
   changeUserFields,
   setApartments,
   setApartment,
+  changeSizeUnit,
+  setPyeong,
   setEstimation,
   loadApartments,
 } from './appSlice';
@@ -202,5 +204,27 @@ describe('loadApartments', () => {
         lotNumber: 2,
       },
     ]));
+  });
+});
+
+describe('changeSizeUnit', () => {
+  it('changes isPyeong status', () => {
+    const initialState = { isPyeong: false };
+
+    const state = reducer(initialState, changeSizeUnit());
+
+    expect(state.isPyeong).toBeTruthy();
+  });
+});
+
+describe('setPyeong', () => {
+  it('sets Pyeong status', () => {
+    const initialState = { isPyeong: false };
+
+    const KEY_SHOW_PYEONG = true;
+
+    const state = reducer(initialState, setPyeong(KEY_SHOW_PYEONG));
+
+    expect(state.isPyeong).toBeTruthy();
   });
 });

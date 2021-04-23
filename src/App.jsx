@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 
 import { loadItem } from './services/storage';
 
-import { setApartment, setUserFields } from './redux/appSlice';
+import { setApartment, setUserFields, setPyeong } from './redux/appSlice';
 
 import { colors, fontWeights } from './designSystem';
 
@@ -53,12 +53,18 @@ export default function App() {
 
   const apartment = loadItem({ key: 'apartment' });
 
+  const isPyeong = loadItem({ key: 'KEY_SHOWING_PYEONG' });
+
   if (profile) {
     dispatch(setUserFields(profile));
   }
 
   if (apartment) {
     dispatch(setApartment(apartment));
+  }
+
+  if (isPyeong) {
+    dispatch(setPyeong(isPyeong));
   }
 
   return (

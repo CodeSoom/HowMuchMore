@@ -17,6 +17,7 @@ export default function ResultContainer({ onClick }) {
 
   const profile = useSelector(get('userFields'));
   const apartment = useSelector(get('apartment'));
+  const isPyeong = useSelector(get('isPyeong'));
   const esitamtion = useSelector(get('estimation'));
 
   return (
@@ -24,6 +25,7 @@ export default function ResultContainer({ onClick }) {
       <Result
         profile={profile}
         apartment={apartment}
+        isPyeong={isPyeong}
         estimation={esitamtion}
         onClick={onClick}
       />

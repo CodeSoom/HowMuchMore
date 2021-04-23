@@ -36,11 +36,12 @@ const Item = styled.div({
   },
 });
 
-export default function ApartmentDetail({ apartment }) {
+export default function ApartmentDetail({ apartment, isPyeong }) {
   const {
     name,
     price,
     size,
+    pyeong,
     date,
     district,
     lotNumber,
@@ -69,13 +70,15 @@ export default function ApartmentDetail({ apartment }) {
             전용면적:
           </dd>
           <dt>
-            {size}
-            <var>
-              m
-              <sup>
-                2
-              </sup>
-            </var>
+            {isPyeong ? (
+              <>
+                {`${pyeong} 평 (${size} m²)`}
+              </>
+            ) : (
+              <>
+                {`${size} m² (${pyeong} 평)`}
+              </>
+            )}
           </dt>
         </Item>
 
