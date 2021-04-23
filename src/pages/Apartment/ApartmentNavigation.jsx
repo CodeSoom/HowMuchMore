@@ -15,7 +15,7 @@ const Navigation = styled.nav({
   whiteSpace: 'nowrap',
 
   backgroundColor: colors.white,
-  borderBottom: `1px solid ${colors.lightOrange}`,
+  borderBottom: `1px solid ${colors.themeBorder}`,
 });
 
 const List = styled.ul({
@@ -27,7 +27,7 @@ const List = styled.ul({
 });
 
 const Item = styled.li(({ path, category }) => ({
-  color: path === category ? colors.white : colors.orange,
+  color: path === category ? colors.white : colors.themeColor,
 
   '&:not(:last-of-type)': {
     marginRight: '.3rem',
@@ -35,12 +35,12 @@ const Item = styled.li(({ path, category }) => ({
   },
 
   '& button': {
-    border: `.3px solid ${colors.orange}`,
+    border: `.3px solid ${colors.themeColor}`,
     backgroundColor: path === category || colors.white,
 
     '&: hover': {
       color: colors.white,
-      backgroundColor: colors.orange,
+      backgroundColor: colors.themeColor,
     },
   },
 }));

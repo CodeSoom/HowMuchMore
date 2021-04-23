@@ -15,7 +15,7 @@ export default function ResultPage() {
         marginBottom: '1rem',
         padding: '.25rem 0',
 
-        color: colors.orange,
+        color: colors.themeColor,
         fontSize: '1.22rem',
         fontWeight: fontWeights.bold,
       }}

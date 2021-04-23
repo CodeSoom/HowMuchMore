@@ -1,8 +1,8 @@
 export const colors = {
   white: '#FFF',
   black: '#000',
-  lightOrange: 'rgba(255, 138, 61, 0.8)',
-  orange: 'rgba(255, 138, 61, 0.95)',
+  themeBorder: 'rgb(27, 100, 218, 0.8)',
+  themeColor: 'rgb(27, 100, 218, 0.95)',
   superlightGray: '#EFEFEF',
   lightGray: 'rgb(150, 159, 170)',
   bluishGray: '#333d4b',
