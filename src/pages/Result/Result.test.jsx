@@ -63,7 +63,7 @@ describe('Result', () => {
 
       expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
       expect(screen.getByText('129.92')).toBeInTheDocument();
-      expect(screen.getByText(/470,000/)).toBeInTheDocument();
+      expect(screen.getByText(/47억/)).toBeInTheDocument();
       expect(screen.getByText('2021-03')).toBeInTheDocument();
       expect(screen.getByText('반포동')).toBeInTheDocument();
       expect(screen.getByText('1')).toBeInTheDocument();
@@ -72,7 +72,7 @@ describe('Result', () => {
     it('renders Esitmation', () => {
       renderResult();
 
-      expect(screen.getByText(/460,000/)).toBeInTheDocument();
+      expect(screen.getByText(/46억/)).toBeInTheDocument();
       expect(screen.getByText(/94/)).toBeInTheDocument();
       expect(screen.getByText(/123/)).toBeInTheDocument();
     });

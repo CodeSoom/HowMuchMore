@@ -60,17 +60,6 @@ describe('ResultContainer', () => {
     given('profile', () => profile);
     given('estimation', () => estimation);
 
-    it('renders result page', () => {
-      renderResultContainer();
-
-      expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
-      expect(screen.getByText('129.92')).toBeInTheDocument();
-      expect(screen.getByText(/470,000/)).toBeInTheDocument();
-      expect(screen.getByText('2021-03')).toBeInTheDocument();
-      expect(screen.getByText('반포동')).toBeInTheDocument();
-      expect(screen.getByText('1')).toBeInTheDocument();
-    });
-
     it('executes dispatch setEstimation on loading Result Page', () => {
       renderResultContainer();
 
