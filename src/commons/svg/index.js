@@ -7,3 +7,4 @@ export { default as Location } from './Location';
 export { default as Age } from './Age';
 export { default as Clipboard } from './Clipboard';
 export { default as UnLink } from './UnLink';
+export { default as Loading } from './Loading';

@@ -34,7 +34,7 @@ describe('Apartments', () => {
     it('renders loading', () => {
       render(<Apartments apartments={[]} />);
 
-      expect(screen.getByText('loading')).toBeInTheDocument();
+      expect(screen.getByLabelText('loading')).toBeInTheDocument();
     });
   });
 
