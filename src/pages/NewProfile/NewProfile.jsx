@@ -29,7 +29,7 @@ const Label = styled.label({
   display: 'block',
   marginTop: '-1.2rem',
 
-  color: colors.black,
+  color: colors.themeColor,
 });
 
 export default function NewProfile({ onChange, onSubmit, profile }) {
@@ -66,10 +66,16 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
           value={monthlySavings}
           onChange={onChange}
         />
-        {monthlySavings && (
+        {monthlySavings > 0 ? (
           <Label id="input-monthlySavings">
             {`${translateNumericToKor(monthlySavings)} 원`}
           </Label>
+        ) : (
+          <>
+            <Label id="input-monthlySavings">
+              최소 1 이상 😘
+            </Label>
+          </>
         )}
 
         <TextField
@@ -80,9 +86,13 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
           value={currentBalance}
           onChange={onChange}
         />
-        {currentBalance && (
+        {currentBalance > 0 ? (
           <Label id="input-currentBlance">
             {`${translateNumericToKor(currentBalance)} 원`}
+          </Label>
+        ) : (
+          <Label id="input-currentBlance">
+            최소 1 이상 😘
           </Label>
         )}
 
