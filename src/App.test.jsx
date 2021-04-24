@@ -181,7 +181,7 @@ describe('App', () => {
     it('renders the not found page', () => {
       renderApp({ path: '/amazingtoyproject' });
 
-      expect(screen.getByText('404 Not Found')).toBeInTheDocument();
+      expect(screen.getByText(/404/)).toBeInTheDocument();
     });
   });
 });
