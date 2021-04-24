@@ -17,7 +17,7 @@ const Label = styled.label({
   display: 'block',
   padding: '.4rem 0',
 
-  color: colors.lightGray,
+  color: colors.black,
   fontWeight: fontWeights.medium,
   lineHeight: '1.6',
 });
@@ -62,6 +62,7 @@ const TextField = React.memo(({
         name={name}
         placeholder={placeholder}
         value={value}
+        min="1"
         onChange={handleChange}
         autoFocus={focus}
       />
