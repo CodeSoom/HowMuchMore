@@ -10,8 +10,20 @@ import {
 
 import { Button } from '../../commons/styles';
 import { LinkField } from '../../commons/Fields';
+import { Loading } from '../../commons/svg';
 
 import Apartment from './Apartment';
+
+const LoadingWrapper = styled.div({
+  minHeight: '75vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+
+  '& svg': {
+    width: '40%',
+  },
+});
 
 const Section = styled.section({
   display: 'flex',
@@ -71,7 +83,9 @@ export default function Apartments({
 }) {
   if (!apartments.length) {
     return (
-      <p>loading</p>
+      <LoadingWrapper aria-label="loading">
+        <Loading />
+      </LoadingWrapper>
     );
   }
 
