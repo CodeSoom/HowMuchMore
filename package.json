@@ -1,5 +1,5 @@
 {
-  "name": "show-me-the-money",
+  "name": "how_much_more",
   "version": "0.0.1",
   "description": "당신이 숨 쉴 동안에 얼마나 많은 돈을 더 벌어야 되는지 알려드립니다.",
   "main": "index.js",
@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dodoongtak/show-me-the-money.git"
+    "url": "git+https://github.com/dodoongtak/HowMuchMore.git"
   },
   "author": "HyeongTak Shin",
-  "license": "MIT",
+  "license": "GNU",
   "bugs": {
-    "url": "https://github.com/dodoongtak/show-me-the-money/issues"
+    "url": "https://github.com/dodoongtak/HowMuchMore.git/issues"
   },
   "homepage": "https://howmuchmore.xyz",
   "devDependencies": {
