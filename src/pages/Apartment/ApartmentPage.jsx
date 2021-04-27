@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet';
+
 import useLink from '../../helpers/useLink';
 
 import ApartmentNavigation from './ApartmentNavigation';
@@ -12,15 +14,22 @@ export default function ApartmentPage({ params }) {
   const { goTo } = useLink();
 
   return (
-    <section>
-      <ApartmentNavigation
-        apartmentCategory={id}
-        onClick={goTo}
-      />
-      <ApartmentContainer
-        apartmentCategory={id}
-        onClick={goTo}
-      />
-    </section>
+    <>
+      <Helmet>
+        <title>
+          {`How Much More | ${id}`}
+        </title>
+      </Helmet>
+      <section>
+        <ApartmentNavigation
+          apartmentCategory={id}
+          onClick={goTo}
+        />
+        <ApartmentContainer
+          apartmentCategory={id}
+          onClick={goTo}
+        />
+      </section>
+    </>
   );
 }

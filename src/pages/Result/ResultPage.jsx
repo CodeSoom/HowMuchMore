@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Helmet } from 'react-helmet';
+
 import useLink from '../../helpers/useLink';
 
 import { colors, fontWeights } from '../../designSystem';
@@ -11,6 +13,11 @@ export default function ResultPage() {
 
   return (
     <>
+      <Helmet>
+        <title>
+          How Much More | Result
+        </title>
+      </Helmet>
       <h2 style={{
         marginBottom: '1rem',
         padding: '.25rem 0',
