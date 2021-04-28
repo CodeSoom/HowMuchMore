@@ -6,6 +6,7 @@ export const colors = {
   superlightGray: '#EFEFEF',
   lightGray: 'rgb(150, 159, 170)',
   bluishGray: '#333d4b',
+  orange: '#FF8A3D',
 };
 export const fontWeights = {
   thin: 100,

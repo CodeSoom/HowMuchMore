@@ -2,9 +2,13 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { translateNumericToKor } from '../../utils/utils';
+import { translateNumericToKor, isExist } from '../../utils/utils';
 
-import { colors } from '../../designSystem';
+import {
+  colors,
+  fontWeights,
+  borderRadius,
+} from '../../designSystem';
 
 import { TextField } from '../../commons/Fields';
 import { Button } from '../../commons/styles';
@@ -30,6 +34,20 @@ const Label = styled.label({
   marginTop: '-1.2rem',
 
   color: colors.themeColor,
+});
+
+const NotComplete = styled.div({
+  width: '90%',
+  margin: '3rem auto 0',
+  padding: '.5rem 1rem',
+  textAlign: 'center',
+
+  color: colors.white,
+  fontWeight: fontWeights.bold,
+
+  backgroundColor: colors.orange,
+
+  borderRadius: borderRadius.box,
 });
 
 export default function NewProfile({ onChange, onSubmit, profile }) {
@@ -96,9 +114,21 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
           </Label>
         )}
 
-        <Button type="submit">
-          저장하기
-        </Button>
+        {
+          isExist(profile) ? (
+            <>
+              <Button type="submit">
+                저장하기 👌
+              </Button>
+            </>
+          ) : (
+            <>
+              <NotComplete>
+                😱 정보가 아직 덜 채워졌어요! 😱
+              </NotComplete>
+            </>
+          )
+        }
       </Form>
     </Layout>
   );

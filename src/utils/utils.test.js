@@ -27,8 +27,16 @@ test('isExist', () => {
     currentBalance: 10000,
   };
 
+  const UnsavedProfile = {
+    isNew: true,
+    name: '신형탁',
+    age: '29',
+    monthlySavings: 5000,
+    currentBalance: 10000,
+  };
+
   const incompleteObject = {
-    isNew: false,
+    isNew: true,
     name: '신형탁',
     age: '',
     monthlySavings: 0,
@@ -36,6 +44,8 @@ test('isExist', () => {
   };
 
   expect(isExist(object)).toBeTruthy();
+  expect(isExist(UnsavedProfile)).toBeTruthy();
+
   expect(isExist(incompleteObject)).toBeFalsy();
 });
 
