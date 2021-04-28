@@ -6,7 +6,6 @@ import { translateNumericToKor, isExist } from '../../utils/utils';
 
 import {
   colors,
-  fontWeights,
   borderRadius,
 } from '../../designSystem';
 
@@ -29,12 +28,12 @@ const Form = styled.form({
   },
 });
 
-const Label = styled.label({
+const Label = styled.label(({ success }) => ({
   display: 'block',
   marginTop: '-1.2rem',
 
-  color: colors.themeColor,
-});
+  color: success ? colors.themeColor : colors.orange,
+}));
 
 const NotComplete = styled.div({
   width: '90%',
@@ -42,13 +41,17 @@ const NotComplete = styled.div({
   padding: '.5rem 1rem',
   textAlign: 'center',
 
-  color: colors.white,
-  fontWeight: fontWeights.bold,
-
   backgroundColor: colors.orange,
 
   borderRadius: borderRadius.box,
 });
+
+const GuideLines = styled.p(({ success }) => ({
+  marginTop: '0.5rem',
+  textAlign: 'center',
+
+  color: success ? colors.themeColor : colors.orange,
+}));
 
 export default function NewProfile({ onChange, onSubmit, profile }) {
   const {
@@ -85,7 +88,7 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
           onChange={onChange}
         />
         {monthlySavings > 0 ? (
-          <Label id="input-monthlySavings">
+          <Label id="input-monthlySavings" success>
             {`${translateNumericToKor(monthlySavings)} 원`}
           </Label>
         ) : (
@@ -105,7 +108,7 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
           onChange={onChange}
         />
         {currentBalance > 0 ? (
-          <Label id="input-currentBlance">
+          <Label id="input-currentBlance" success>
             {`${translateNumericToKor(currentBalance)} 원`}
           </Label>
         ) : (
@@ -120,12 +123,18 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
               <Button type="submit">
                 저장하기 👌
               </Button>
+              <GuideLines success>
+                ※ 이번 한번만 저장하시면 됩니다.
+              </GuideLines>
             </>
           ) : (
             <>
               <NotComplete>
-                😱 정보가 아직 덜 채워졌어요! 😱
+                <p>😱 정보가 아직 덜 채워졌어요! 😱</p>
               </NotComplete>
+              <GuideLines success={false}>
+                ※ 입력하신 내용은 서버에 저장되지 않습니다. 🤐
+              </GuideLines>
             </>
           )
         }
