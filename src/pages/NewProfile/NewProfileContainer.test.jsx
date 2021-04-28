@@ -88,10 +88,11 @@ describe('NewProfileContainer', () => {
   context('without profile', () => {
     given('profile', () => (initialUserField));
 
-    it("doesn't execute dispatch setUserField", () => {
+    it('shows alternative button instead of submit button', () => {
       renderNewProfileContainer();
 
       expect(screen.getByText(/정보/)).toBeInTheDocument();
+      expect(screen.getByText(/저장되지 않습니다/)).toBeInTheDocument();
     });
   });
 });
