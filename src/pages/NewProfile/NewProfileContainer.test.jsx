@@ -1,12 +1,16 @@
 import React from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 import {
   render,
   screen,
   fireEvent,
 } from '@testing-library/react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import given from 'given2';
+
+import { initialUserField } from '../../fixtures/initials';
 
 import NewProfileContainer from './NewProfileContainer';
 
@@ -35,45 +39,59 @@ describe('NewProfileContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selecotr) => selecotr({
-      userFields: profile,
+      userFields: given.profile,
     }));
   });
 
-  it('listens to change events', () => {
-    renderNewProfileContainer();
+  context('with profile', () => {
+    given('profile', () => (profile));
 
-    fireEvent.input(screen.getByLabelText(/이름/), {
-      target: {
-        value: 'ashal',
-      },
+    it('listens to change events', () => {
+      renderNewProfileContainer();
+
+      fireEvent.input(screen.getByLabelText(/이름/), {
+        target: {
+          value: 'ashal',
+        },
+      });
+
+      expect(dispatch).toBeCalledWith({
+        type: 'applications/changeUserFields',
+        payload: { name: 'name', value: 'ashal' },
+      });
     });
 
-    expect(dispatch).toBeCalledWith({
-      type: 'applications/changeUserFields',
-      payload: { name: 'name', value: 'ashal' },
+    it('sets userField with new user profile', () => {
+      renderNewProfileContainer();
+
+      fireEvent.submit(screen.getByRole('button', {
+        value: '저장',
+      }));
+
+      expect(dispatch).toBeCalledWith({
+        type: 'applications/setUserFields',
+        payload: profile,
+      });
+    });
+
+    it('navigates user to result page', () => {
+      renderNewProfileContainer();
+
+      fireEvent.submit(screen.getByRole('button', {
+        value: '저장',
+      }));
+
+      expect(handleClick).toBeCalledWith({ url: '/result' });
     });
   });
 
-  it('sets userField with new user profile', () => {
-    renderNewProfileContainer();
+  context('without profile', () => {
+    given('profile', () => (initialUserField));
 
-    fireEvent.submit(screen.getByRole('button', {
-      value: '저장',
-    }));
+    it("doesn't execute dispatch setUserField", () => {
+      renderNewProfileContainer();
 
-    expect(dispatch).toBeCalledWith({
-      type: 'applications/setUserFields',
-      payload: profile,
+      expect(screen.getByText(/정보/)).toBeInTheDocument();
     });
-  });
-
-  it('navigates user to result page', () => {
-    renderNewProfileContainer();
-
-    fireEvent.submit(screen.getByRole('button', {
-      value: '저장',
-    }));
-
-    expect(handleClick).toBeCalledWith({ url: '/result' });
   });
 });

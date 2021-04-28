@@ -20,7 +20,7 @@ export default function NewProfileContainer({ onClick }) {
   const handleClick = useCallback((event) => {
     event.preventDefault();
 
-    if (profile.isNew || isExist(profile)) {
+    if (isExist(profile)) {
       dispatch(setUserFields(profile));
     }
 
