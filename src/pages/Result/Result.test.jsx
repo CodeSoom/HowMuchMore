@@ -24,6 +24,14 @@ describe('Result', () => {
     currentBalance: 10000,
   };
 
+  const RICH_PROFILE = {
+    isNew: false,
+    name: '신형탁',
+    age: 29,
+    monthlySavings: 10000000,
+    currentBalance: 10000000,
+  };
+
   const apartment = {
     name: '아크로리버파크',
     date: '2021-03',
@@ -102,6 +110,20 @@ describe('Result', () => {
       renderResult();
 
       expect(screen.getByLabelText('clipboard')).toBeInTheDocument();
+    });
+  });
+
+  context('when rich enoguh to afford apartment', () => {
+    given('profile', () => (RICH_PROFILE));
+
+    it('renders button to edit the proifle', () => {
+      renderResult();
+
+      fireEvent.click(screen.getByRole('link', {
+        name: /수정/,
+      }));
+
+      expect(handleClick).toBeCalledWith({ url: '/profile/new' });
     });
   });
 
