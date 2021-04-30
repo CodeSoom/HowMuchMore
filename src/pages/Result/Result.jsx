@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { colors, fontWeights } from '../../designSystem';
+import { borderRadius, colors, fontWeights } from '../../designSystem';
 
 import { LinkField } from '../../commons/Fields';
 import { LinkURL, SocialMediaButtons } from '../../commons/Share';
@@ -20,6 +20,35 @@ const Guest = styled.article({
   '& p': {
     fontWeight: fontWeights.bold,
     marginBottom: '3rem',
+  },
+});
+
+const WarningWrapper = styled.article({
+  display: 'flex',
+  minHeight: '80vh',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+
+  '& img': {
+    borderRadius: borderRadius.box,
+  },
+
+  '& span': {
+    display: 'block',
+    margin: '0 auto',
+    padding: '3rem 0',
+
+    color: colors.red,
+    fontSize: '1.3rem',
+    fontWeight: fontWeights.bold,
+    letterSpacing: '.2rem',
+  },
+
+  '& button': {
+    backgroundColor: colors.red,
+
+    color: colors.white,
   },
 });
 
@@ -115,6 +144,24 @@ export default function Result({
           onClick={onClick}
         />
       </Guest>
+    );
+  }
+
+  if (profile.currentBalance >= apartment.price) {
+    return (
+      <WarningWrapper>
+        <img
+          src="https://user-images.githubusercontent.com/77006427/116652368-01909680-a9c0-11eb-94e5-4d094dd21745.png"
+          alt="dont-lie"
+        />
+        <span>😡 거짓말 하지마세욧! 😡</span>
+
+        <LinkField
+          url="/profile/new"
+          title="수정 하러가기"
+          onClick={() => onClick({ url: '/profile/new' })}
+        />
+      </WarningWrapper>
     );
   }
 

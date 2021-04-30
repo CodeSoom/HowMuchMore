@@ -7,6 +7,7 @@ export const colors = {
   lightGray: 'rgb(150, 159, 170)',
   bluishGray: '#333d4b',
   orange: '#FF8A3D',
+  red: '#F14423',
 };
 export const fontWeights = {
   thin: 100,
