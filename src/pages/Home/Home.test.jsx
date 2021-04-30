@@ -41,4 +41,10 @@ describe('Home', () => {
 
     expect(handleClick).toBeCalledTimes(1);
   });
+
+  it('renders footer', () => {
+    renderHome();
+
+    expect(screen.getByText(/All Rights/)).toBeInTheDocument();
+  });
 });
