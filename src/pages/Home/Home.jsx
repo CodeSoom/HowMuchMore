@@ -29,10 +29,10 @@ const Heading = styled.h2({
 
 const Article = styled.article({
   maxWidth: '639px',
-
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  margin: '0 auto',
 
   color: colors.white,
 
