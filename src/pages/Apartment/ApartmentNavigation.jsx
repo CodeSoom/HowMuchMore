@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
+import CATEGORIES from '../../fixtures/apartments';
+
 import { LinkField } from '../../commons/Fields';
 
 import { colors } from '../../designSystem';
@@ -49,66 +51,21 @@ export default function ApartmentNavigation({ apartmentCategory, onClick }) {
   return (
     <Navigation>
       <List>
-        <Item
-          path={apartmentCategory}
-          category="riverside"
-        >
-          <LinkField
-            url="/apartments/riverside"
-            title="#한강 뷰"
-            onClick={onClick}
-          />
-        </Item>
-        <Item
-          path={apartmentCategory}
-          category="commercial"
-        >
-          <LinkField
-            url="/apartments/commercial"
-            title="#주변 상권 우수"
-            onClick={onClick}
-          />
-        </Item>
-        <Item
-          path={apartmentCategory}
-          category="landscape"
-        >
-          <LinkField
-            url="/apartments/landscape"
-            title="#조경 우수"
-            onClick={onClick}
-          />
-        </Item>
-        <Item
-          path={apartmentCategory}
-          category="commute_gangnam"
-        >
-          <LinkField
-            url="/apartments/commute_gangnam"
-            title="#강남 출퇴근 편리"
-            onClick={onClick}
-          />
-        </Item>
-        <Item
-          path={apartmentCategory}
-          category="commute_gwanghwamun"
-        >
-          <LinkField
-            url="/apartments/commute_gwanghwamun"
-            title="#광화문 출퇴근 편리"
-            onClick={onClick}
-          />
-        </Item>
-        <Item
-          path={apartmentCategory}
-          category="commute_yeouido"
-        >
-          <LinkField
-            url="/apartments/commute_yeouido"
-            title="#여의도 출퇴근 편리"
-            onClick={onClick}
-          />
-        </Item>
+        {
+          CATEGORIES.map(({ title, url }) => (
+            <Item
+              key={title}
+              path={apartmentCategory}
+              category={url}
+            >
+              <LinkField
+                url={`/apartments/${url}`}
+                title={title}
+                onClick={onClick}
+              />
+            </Item>
+          ))
+        }
       </List>
     </Navigation>
   );
