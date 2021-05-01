@@ -13,11 +13,11 @@ export default function LinkField({
 
   return (
     <div>
-      <Button type="button">
-        <a
-          href={url}
-          onClick={handleClick}
-        >
+      <Button
+        type="button"
+        onClick={handleClick}
+      >
+        <a href={url}>
           {title}
         </a>
       </Button>
