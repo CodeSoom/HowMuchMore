@@ -175,14 +175,14 @@ export default function Result({
         />
       </Back>
 
-      <article>
+      <>
         {apartment && (
           <ApartmentDetail
             apartment={apartment}
             isPyeong={isPyeong}
           />
         )}
-      </article>
+      </>
 
       <EstimationWrapper>
         <Heading>
