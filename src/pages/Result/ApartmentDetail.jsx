@@ -15,6 +15,17 @@ import {
 
 import { Header } from '../../commons/styles';
 
+import { borderRadius } from '../../designSystem';
+
+const ApartmentWrapper = styled.article({
+  '& img': {
+    width: '100%',
+
+    objectFit: 'cover',
+    borderRadius: borderRadius.box,
+  },
+});
+
 const List = styled.dl({
   display: 'flex',
   flexDirection: 'column',
@@ -38,6 +49,7 @@ const Item = styled.div({
 
 export default function ApartmentDetail({ apartment, isPyeong }) {
   const {
+    imgSrc,
     name,
     price,
     size,
@@ -49,7 +61,11 @@ export default function ApartmentDetail({ apartment, isPyeong }) {
   } = apartment;
 
   return (
-    <>
+    <ApartmentWrapper>
+      <img
+        src={imgSrc}
+        alt={name}
+      />
       <Header>
         {name}
       </Header>
@@ -122,6 +138,6 @@ export default function ApartmentDetail({ apartment, isPyeong }) {
           </dt>
         </Item>
       </List>
-    </>
+    </ApartmentWrapper>
   );
 }
