@@ -20,7 +20,16 @@ describe('NewProfile', () => {
     currentBalance: 10000,
   };
 
+  const newPorifle = {
+    isNew: true,
+    name: 'tak',
+    age: '29',
+    monthlySavings: 5000,
+    currentBalance: 10000,
+  };
+
   const renderNewProfile = ({
+    isNew,
     name,
     age,
     monthlySavings,
@@ -30,6 +39,7 @@ describe('NewProfile', () => {
       onChange={handleChange}
       onSubmit={handleClick}
       profile={{
+        isNew,
         name,
         age,
         monthlySavings,
@@ -62,5 +72,13 @@ describe('NewProfile', () => {
 
     expect(screen.getByText('5,000만 원')).toBeInTheDocument();
     expect(screen.getByText('1억 원')).toBeInTheDocument();
+  });
+
+  context('with new profile', () => {
+    it("renders message '이번 한번만 저장하시면 됩니다.'", () => {
+      renderNewProfile(newPorifle);
+
+      expect(screen.getByText(/한번만/)).toBeInTheDocument();
+    });
   });
 });
