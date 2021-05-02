@@ -94,7 +94,7 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
         ) : (
           <>
             <Label id="input-monthlySavings">
-              최소 1 이상 😘
+              최소 1만 원 이상 😘
             </Label>
           </>
         )}
@@ -113,7 +113,7 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
           </Label>
         ) : (
           <Label id="input-currentBlance">
-            최소 1 이상 😘
+            최소 1만 원 이상 😘
           </Label>
         )}
 
