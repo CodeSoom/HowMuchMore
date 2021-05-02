@@ -123,9 +123,11 @@ export default function NewProfile({ onChange, onSubmit, profile }) {
               <Button type="submit">
                 저장하기 👌
               </Button>
-              <GuideLines success>
-                ※ 이번 한번만 저장하시면 됩니다.
-              </GuideLines>
+              {profile.isNew && (
+                <GuideLines success>
+                  ※ 이번 한번만 저장하시면 됩니다.
+                </GuideLines>
+              )}
             </>
           ) : (
             <>
