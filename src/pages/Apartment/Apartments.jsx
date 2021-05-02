@@ -82,6 +82,20 @@ const ApartmentInfo = styled.div({
   },
 });
 
+const Footer = styled.footer({
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+
+  borderTop: `1px solid ${colors.themeBorder}`,
+
+  color: colors.themeColor,
+
+  '& p': {
+    padding: '2rem',
+  },
+});
+
 export default function Apartments({
   profile,
   apartments,
@@ -131,6 +145,9 @@ export default function Apartments({
           </ApartmentInfo>
         </Article>
       ))}
+      <Footer>
+        <p>보여드릴 아파트가 더 이상 없네요. 😭</p>
+      </Footer>
     </Section>
   );
 }
