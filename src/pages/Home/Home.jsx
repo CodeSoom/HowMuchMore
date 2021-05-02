@@ -28,9 +28,11 @@ const Heading = styled.h2({
 });
 
 const Article = styled.article({
-  maxWidth: '639px',
+  maxWidth: '400px',
+  minHeight: '60vh',
   display: 'flex',
   flexDirection: 'column',
+  justifyContent: 'center',
   alignItems: 'center',
   margin: '0 auto',
 
