@@ -20,6 +20,8 @@ const Layout = styled.div({
 });
 
 const Form = styled.form({
+  width: '400px',
+
   '& button': {
     width: '80%',
     display: 'block',
