@@ -51,6 +51,15 @@ const SwitchWrapper = styled.div({
 });
 
 const Article = styled.article({
+  '& img': {
+    width: '100%',
+
+    objectFit: 'cover',
+    borderRadius: borderRadius.box,
+  },
+});
+
+const ApartmentInfo = styled.div({
   position: 'relative',
   marginBottom: '1.5rem',
 
@@ -102,18 +111,24 @@ export default function Apartments({
 
       {apartments?.map((apartment) => (
         <Article key={apartment.name}>
-          <Apartment
-            apartment={apartment}
-            isPyeong={isPyeong}
+          <img
+            src={apartment.imgSrc}
+            alt={apartment.name}
           />
+          <ApartmentInfo>
+            <Apartment
+              apartment={apartment}
+              isPyeong={isPyeong}
+            />
 
-          <LinkField
-            url={profile?.isNew ? '/profile' : '/result'}
-            title="구매 해보기"
-            onClick={onClick}
-            apartment={apartment}
-            changeApartment={changeApartment}
-          />
+            <LinkField
+              url={profile?.isNew ? '/profile' : '/result'}
+              title="구매 해보기"
+              onClick={onClick}
+              apartment={apartment}
+              changeApartment={changeApartment}
+            />
+          </ApartmentInfo>
         </Article>
       ))}
     </Section>
