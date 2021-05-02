@@ -23,6 +23,7 @@ const Label = styled.label({
 });
 
 const Input = styled.input({
+  width: '100%',
   padding: '1rem',
 
   outline: 'none',
