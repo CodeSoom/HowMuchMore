@@ -48,6 +48,8 @@ describe('Apartments', () => {
       expect(screen.getByText('서울')).toBeInTheDocument();
 
       expect(screen.getAllByText(/보기/)).toHaveLength(2);
+
+      expect(screen.getByText(/더 이상/)).toBeInTheDocument();
     });
 
     it("calls handleClick upon clicking '보기' button", () => {
