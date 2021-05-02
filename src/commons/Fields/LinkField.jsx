@@ -8,6 +8,7 @@ export default function LinkField({
   const handleClick = useCallback((event) => {
     event.preventDefault();
     changeApartment?.(apartment);
+    window.scrollTo(0, 0);
     onClick({ url });
   }, [onClick]);
 
