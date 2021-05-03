@@ -12,6 +12,7 @@ import { LinkField } from '../../commons/Fields';
 import { Footer } from '../../commons/Footer';
 
 const HomeLayout = styled.section({
+  minHeight: '80vh',
   display: 'flex',
   flexDirection: 'column',
 });
