@@ -44,3 +44,7 @@ export function convertToKRW(price) {
 export function translateNumericToKor(price) {
   return numToKorean(parseInt(price, 10) * 10000, FormatOptions.MIXED);
 }
+
+export function getPricePerPyeong({ price, pyeong }) {
+  return translateNumericToKor(Math.floor(price / pyeong));
+}

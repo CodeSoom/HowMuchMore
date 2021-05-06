@@ -1,4 +1,5 @@
 export { default as Currency } from './Currency';
+export { default as Coin } from './Coin';
 export { default as District } from './District';
 export { default as BuiltYear } from './BuiltYear';
 export { default as Size } from './Size';

@@ -4,6 +4,7 @@ import {
   filterObject,
   convertToKRW,
   translateNumericToKor,
+  getPricePerPyeong,
 } from './utils';
 
 test('get', () => {
@@ -86,4 +87,11 @@ test('translateNumericToKor', () => {
 
   expect(translateNumericToKor(text)).not.toBe('오천만');
   expect(translateNumericToKor(text)).not.toBe('5000만');
+});
+
+test('getPricePerPyeong', () => {
+  const price = 470000;
+  const pyeong = 39;
+
+  expect(getPricePerPyeong({ price, pyeong })).toBe('1억 2,051만');
 });
