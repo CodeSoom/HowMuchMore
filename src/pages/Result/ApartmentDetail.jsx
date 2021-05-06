@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { translateNumericToKor } from '../../utils/utils';
+import { getPricePerPyeong, translateNumericToKor } from '../../utils/utils';
 
 import {
   Currency,
@@ -11,6 +11,7 @@ import {
   Calendar,
   BuiltYear,
   Location,
+  Coin,
 } from '../../commons/svg';
 
 import { Header } from '../../commons/styles';
@@ -77,6 +78,16 @@ export default function ApartmentDetail({ apartment, isPyeong }) {
           </dd>
           <dt>
             {`${translateNumericToKor(price)} 원`}
+          </dt>
+        </Item>
+
+        <Item>
+          <dd>
+            <Coin />
+            평당가격:
+          </dd>
+          <dt>
+            {`${getPricePerPyeong({ price, pyeong })} 원`}
           </dt>
         </Item>
 

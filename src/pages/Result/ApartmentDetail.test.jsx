@@ -42,4 +42,15 @@ describe('ApartmentDetail', () => {
       expect(screen.getByText(/39 평/)).toBeInTheDocument();
     });
   });
+
+  it('renders price of apartment per pyeong', () => {
+    render((
+      <ApartmentDetail
+        apartment={apartment}
+        isPyeong
+      />
+    ));
+
+    expect(screen.getByText(/1억 2,051만/));
+  });
 });
