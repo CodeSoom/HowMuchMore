@@ -8,8 +8,10 @@ describe('LinkField', () => {
   const handleClick = jest.fn();
   const changeApartment = jest.fn();
 
+  window.scrollTo = jest.fn();
+
   beforeEach(() => {
-    jest.clearAllMocks();
+    window.scrollTo.mockClear();
   });
 
   context("with '내 정보 입력하러가기' title", () => {
@@ -42,6 +44,7 @@ describe('LinkField', () => {
         name: '거주하고 싶은 아파트 둘러보기',
       }));
 
+      expect(window.scrollTo).toHaveBeenCalledWith(0, 0);
       expect(handleClick).toBeCalledWith({ url: '/apartments' });
     });
   });
@@ -67,6 +70,7 @@ describe('LinkField', () => {
       name: '보기',
     }));
 
+    expect(window.scrollTo).toHaveBeenCalledWith(0, 0);
     expect(handleClick).toBeCalled();
     expect(changeApartment).toBeCalled();
   });
