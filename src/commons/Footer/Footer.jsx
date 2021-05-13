@@ -5,8 +5,10 @@ import styled from '@emotion/styled';
 import { colors } from '../../designSystem';
 
 const FooterWrapper = styled.footer({
+  position: 'absolute',
   width: '100%',
-  margin: 'auto 0',
+  left: '0',
+  bottom: '0',
 
   borderTop: `1px solid ${colors.themeBorder}`,
 

@@ -17,11 +17,9 @@
 
 html {
     background-color: rgb(255, 255, 255, 0.3);
-    
     font-size: 16px;
 }
 
-html,
 body {
     word-break: keep-all;
     
@@ -32,7 +30,6 @@ body {
 }
 
 main{
-    position: relative;
     margin-top: 9vh;
     padding: 0 1.5rem 0;
 }
@@ -66,8 +63,11 @@ button{
 }
 
 #app{
+    position: relative;
     max-width: 767px;
+    min-height: 91vh;
     margin: 0 auto 0;
+    padding-bottom: 3rem;
 
     line-height: 1.33;     
 }
