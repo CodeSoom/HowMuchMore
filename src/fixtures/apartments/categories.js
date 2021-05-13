@@ -23,26 +23,6 @@ const CATEGORIES = [
     title: '#제일 비싼',
     url: 'rank',
   },
-  {
-    title: '#주변 상권 우수',
-    url: 'commercial',
-  },
-  {
-    title: '#조경 우수',
-    url: 'landscape',
-  },
-  {
-    title: '#강남 출퇴근 편리',
-    url: 'commute_gangnam',
-  },
-  {
-    title: '#광화문 출퇴근 편리',
-    url: 'commute_gwanghwamun',
-  },
-  {
-    title: '#여의도 출퇴근 편리',
-    url: 'commute_yeouido',
-  },
 ];
 
 export default CATEGORIES;
