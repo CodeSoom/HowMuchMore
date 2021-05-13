@@ -42,9 +42,6 @@ describe('ApartmentPage', () => {
     expect(screen.getByRole('link', {
       name: /한강 뷰/,
     })).toBeInTheDocument();
-    expect(screen.getByRole('link', {
-      name: /상권/,
-    })).toBeInTheDocument();
 
     expect(screen.getByText('아크로리버파크')).toBeInTheDocument();
   });

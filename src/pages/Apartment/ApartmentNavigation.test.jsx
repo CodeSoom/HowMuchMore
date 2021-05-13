@@ -23,9 +23,6 @@ describe('ApartmentNavigation', () => {
     expect(screen.getByRole('link', {
       name: /한강/,
     })).toBeInTheDocument();
-    expect(screen.getByRole('link', {
-      name: /상권/,
-    })).toBeInTheDocument();
   });
 
   it('calls handleClick upon clicking link', () => {
