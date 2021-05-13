@@ -13,7 +13,7 @@ describe('HomeContainer', () => {
     ));
 
     fireEvent.click(screen.getByRole('link', {
-      name: /알아/,
+      name: /한강 뷰/,
     }));
 
     expect(handleClick).toBeCalledWith({ url: '/apartments/riverside' });
