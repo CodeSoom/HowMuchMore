@@ -24,11 +24,14 @@ describe('Home', () => {
     jest.clearAllMocks();
   });
 
-  it('renders a link for user to check apartments', () => {
+  it('renders links of apartments', () => {
     renderHome();
 
     expect(screen.getByRole('link', {
-      name: /알아/,
+      name: /한강 뷰/,
+    })).toBeInTheDocument();
+    expect(screen.getByRole('link', {
+      name: /오션 뷰/,
     })).toBeInTheDocument();
   });
 
@@ -36,10 +39,10 @@ describe('Home', () => {
     renderHome();
 
     fireEvent.click(screen.getByRole('link', {
-      name: /알아/,
+      name: /한강 뷰/,
     }));
 
-    expect(handleClick).toBeCalledTimes(1);
+    expect(handleClick).toBeCalledWith({ url: '/apartments/riverside' });
   });
 
   it('renders footer', () => {
