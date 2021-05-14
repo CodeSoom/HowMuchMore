@@ -26,15 +26,17 @@ const LoadingWrapper = styled.div({
 });
 
 const Section = styled.section({
-  display: 'flex',
-  flexDirection: 'column',
-  marginTop: '1.5rem',
+  position: 'relative',
+  display: 'grid',
+  gap: '2.5rem 0',
+  gridAutoRows: 'min-content',
+  paddingTop: '3.5rem',
 });
 
 const SwitchWrapper = styled.div({
-  display: 'flex',
-  justifyContent: 'end',
-  marginBottom: '1.2rem',
+  position: 'absolute',
+  top: '0',
+  right: '0',
 
   '& button': {
     color: colors.themeColor,
@@ -53,6 +55,7 @@ const SwitchWrapper = styled.div({
 const Article = styled.article({
   '& img': {
     width: '100%',
+    height: '360px',
 
     objectFit: 'cover',
     borderRadius: borderRadius.box,
@@ -61,7 +64,6 @@ const Article = styled.article({
 
 const ApartmentInfo = styled.div({
   position: 'relative',
-  marginBottom: '1.5rem',
 
   borderRadius: borderRadius.box,
   boxShadow: shadows.article,
