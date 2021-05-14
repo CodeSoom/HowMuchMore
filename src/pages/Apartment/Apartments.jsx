@@ -125,9 +125,10 @@ export default function Apartments({
         </Button>
       </SwitchWrapper>
 
-      {apartments?.map((apartment) => (
+      {apartments?.map((apartment, index) => (
         <Article key={apartment.name}>
           <img
+            loading={index > 1 ? 'lazy' : 'eager'}
             src={apartment.imgSrc}
             alt={apartment.name}
           />
