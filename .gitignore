@@ -9,3 +9,6 @@ coverage
 
 ## SECRETS
 .env
+
+## CodeceptJS debug output
+output
